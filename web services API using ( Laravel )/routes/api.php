@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiresource('/admin','adminUsersController');
+Route::apiresource('/students','studentsController');

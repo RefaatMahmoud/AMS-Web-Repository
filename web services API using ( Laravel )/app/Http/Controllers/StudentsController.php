@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AdminRequest;
-use App\Http\Resources\Users\AdminResource;
-use App\User;
-use Illuminate\Auth\Access\Response;
+use App\students;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class adminUsersController extends Controller
+class StudentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +15,7 @@ class adminUsersController extends Controller
     public function index()
     {
         //
-        return AdminResource::collection(User::all());
+        return students::all();
     }
 
     /**
@@ -40,38 +36,42 @@ class adminUsersController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
         //Create
-        $adminObj  = new User();
+        $adminObj  = new students();
         $adminObj->name = $request->name;
         $adminObj->username = $request->username;
-        $adminObj->password  = Hash::make($request->password);
+        $adminObj->password  = $request->password;
         $adminObj->email = $request->email;
+        $adminObj->telephone = $request->telephone;
+        $adminObj->level = $request->level;
         //Save
         $adminObj->save();
         //Response
         return response([
-            'data' => new AdminResource($adminObj)
-        ],201);
+            'data' => new students($adminObj)
+        ],Response::HTTP_CREATED);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\students  $students
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(students $students)
     {
-        return new AdminResource(User::find($id));
+        //
+        //return students::find($students);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\students  $students
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(students $students)
     {
         //
     }
@@ -80,35 +80,22 @@ class adminUsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\students  $students
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, students $students)
     {
-        $adminObj = User::find($id);
-        $adminObj->username = $request->username;
-        $adminObj->email = $request->email;
-        $adminObj->name = $request->name;
-        $adminObj->password = Hash::make($request->password);
-        $adminObj->save(); //save username
-        return response([
-            'data' => new AdminResource($adminObj)
-        ],\Symfony\Component\HttpFoundation\Response::HTTP_CREATED);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\students  $students
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(students $students)
     {
         //
-        $adminObj = User::find($id);
-        $adminObj->delete();
-        return response([
-            "data" => "Deleted Successfully"
-        ],404);
     }
 }
