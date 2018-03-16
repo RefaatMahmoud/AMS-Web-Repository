@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2018 at 03:20 AM
+-- Generation Time: Mar 16, 2018 at 03:32 AM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gradtest`
+-- Database: `grad`
 --
 
 -- --------------------------------------------------------
@@ -39,9 +39,8 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(5, '2014_10_12_000000_create_users_table', 1),
-(6, '2014_10_12_100000_create_password_resets_table', 1),
-(7, '2018_03_02_222345_create_students_table', 2);
+(3, '2014_10_12_000000_create_users_table', 1),
+(4, '2014_10_12_100000_create_password_resets_table', 1);
 
 -- --------------------------------------------------------
 
@@ -54,32 +53,6 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `students`
---
-
-CREATE TABLE `students` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `level` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telephone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `students`
---
-
-INSERT INTO `students` (`id`, `name`, `username`, `email`, `password`, `level`, `telephone`, `created_at`, `updated_at`) VALUES
-(1, 'Refo', 'refo', 'refo@gmail.com', '123123123', 'first', '01003240234', '2018-03-30 07:00:00', '2018-03-29 07:00:00'),
-(2, 'sayed', 'asdfasdf', 'asdfa@afg.com', 'asdfasdfasdf1234', 'asdf', 'qewrrqwer', '2018-03-03 06:59:04', '2018-03-03 06:59:04');
 
 -- --------------------------------------------------------
 
@@ -103,11 +76,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Refaat Aish', 'Refo22', 'refo@gmail.com', '$2y$10$Sz5t2/ptsG20oa5Qp62RCeLv8kvSBBEprxDnYMOk2KZoV0whE3REC', 'Hw8BcikC6z', '2018-03-03 01:01:16', '2018-03-03 07:52:49'),
-(2, 'Riley Johnson', 'ducimus', 'malika19@example.org', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'F2LxnOWepJ', '2018-03-03 01:01:17', '2018-03-03 01:01:17'),
-(3, 'Belle Cruickshank', 'voluptatibus', 'wabbott@example.com', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'SBoTziJCsD', '2018-03-03 01:01:17', '2018-03-03 01:01:17'),
-(4, 'Nash Anderson', 'veniam', 'ryan55@example.org', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'zCGAj2RmSW', '2018-03-03 01:01:17', '2018-03-03 01:01:17'),
-(5, 'Bruce Block', 'est', 'ernie.kunde@example.net', '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', 'WPIBeFGbug', '2018-03-03 01:01:17', '2018-03-03 01:01:17');
+(1, 'Refaat Aish', 'Refo22', 'refo@gmail.com', '$2y$10$TELxOu2Ist07ULqJDpqDMOikVSzxae9y23Bckqd9WMkIHPN2ecIde', 'AAJWMydQSb', '2018-03-16 07:21:29', '2018-03-16 07:53:36'),
+(2, 'Carley Nicolas', 'yasmine57', 'orn.willard@example.net', '$2y$10$ybYqK8SjG7JCacaXIbgZZurzySYJ57GBOoTBPYFV4oHTYhDn6xN32', 'PaOA65rAwO', '2018-03-16 07:21:29', '2018-03-16 07:21:29'),
+(3, 'Alia Welch', 'mdicki', 'cayla.schuppe@example.net', '$2y$10$apK18Bh647PRQ.AIEbhunuG7/cOUmn3jiJlQlA5sG3.7eXeKwc5Yi', 'kPTyaoQ8Cq', '2018-03-16 07:21:29', '2018-03-16 07:21:29'),
+(4, 'Edyth Morar', 'sawayn.viviane', 'schaefer.rocio@example.com', '$2y$10$IsSoN/UqIYXyeFLqQTqmQugDNxsAD56S1GDkOdcRDEluxszkS8EgK', 'zPohfbPp2W', '2018-03-16 07:21:29', '2018-03-16 07:21:29'),
+(6, 'Hussien', 'Hussien99', 'Hussin_Asous@gmail.com', '$2y$10$BXDWNiCOBVji/OXTmUTRmO1/FEWLg/NzbbkgqxsxYD2ziAor2e.Va', NULL, '2018-03-16 07:46:45', '2018-03-16 07:46:45');
 
 --
 -- Indexes for dumped tables
@@ -126,13 +99,6 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `students_username_unique` (`username`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -147,17 +113,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `students`
---
-ALTER TABLE `students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;COMMIT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
