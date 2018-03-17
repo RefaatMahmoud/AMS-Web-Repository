@@ -55,7 +55,7 @@ class adminUsersController extends Controller
         $adminObj = User::find($id);
         $adminObj->delete();
         return response([
-            "data" => "Deleted Successfully"
+            "data" => "deleted successfully"
         ],404);
     }
 }

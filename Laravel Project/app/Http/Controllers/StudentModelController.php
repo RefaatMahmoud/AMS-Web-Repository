@@ -32,33 +32,35 @@ class StudentModelController extends Controller
         return response([
             'data' => new StudentsResource($studentObj)
         ],201);
-
-
     }
-    public function show(StudentModel $studentModel)
+    public function show($id)
     {
-        //return $studentModel;
-       //return new StudentsResource($studentModel);
-        //return new StudentsResource($studentModel);
-//        return response([
-//            'data' => new StudentsResource(StudentModel::find($studentModel->id))
-//        ],201);
+        return response([
+            'data' => new StudentsResource(StudentModel::find($id))
+        ],201);
     }
 
-    public function update(StudentRequest $request, StudentModel $studentModel)
+    public function update(StudentRequest $request, $id)
     {
-        //
-
+        //Get Student By id
+        $studentObj = StudentModel::find($id);
+        //update Student
+        $studentObj->update($request->all());
+        $studentObj->password = Hash::make($request->password);
+        $studentObj->save();
+        //response
+        return response([
+            'data' => new StudentsResource($studentObj)
+        ],201);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\StudentModel  $studentModel
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(StudentModel $studentModel)
+    public function destroy($id)
     {
-        //
+        //Get Student
+        $studentObj = StudentModel::find($id);
+        $studentObj->delete();
+        return response([
+            "data" => "deleted successfully"
+        ],404);
     }
 }

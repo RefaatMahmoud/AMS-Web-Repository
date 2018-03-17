@@ -8,5 +8,6 @@ class DatabaseSeeder extends Seeder
     {
         factory(\App\User::class,5)->create();
         factory(\App\StudentModel::class,5)->create();
+        factory(\App\Instructors::class,5)->create();
     }
 }
