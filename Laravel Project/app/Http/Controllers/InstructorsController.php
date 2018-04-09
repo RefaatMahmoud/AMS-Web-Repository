@@ -38,7 +38,7 @@ class InstructorsController extends Controller
     {
         return response([
             'data' => new InstructorsResource(Instructors::find($id))
-        ],201);
+        ],200);
     }
 
     public function update(InstructorsRequest $request, $id)
@@ -52,7 +52,7 @@ class InstructorsController extends Controller
         //response
         return response([
             'data' => new InstructorsResource($instructorObj)
-        ],201);
+        ],200);
     }
 
 
@@ -63,6 +63,6 @@ class InstructorsController extends Controller
         $instructorObj->delete();
         return response([
             "data" => "deleted successfully"
-        ],404);
+        ],200);
     }
 }

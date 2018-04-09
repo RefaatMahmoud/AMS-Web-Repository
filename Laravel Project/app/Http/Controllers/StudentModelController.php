@@ -38,7 +38,7 @@ class StudentModelController extends Controller
     {
         return response([
             'data' => new StudentsResource(StudentModel::find($id))
-        ],201);
+        ],200);
     }
 
     public function update(StudentRequest $request, $id)
@@ -52,7 +52,7 @@ class StudentModelController extends Controller
         //response
         return response([
             'data' => new StudentsResource($studentObj)
-        ],201);
+        ],200);
     }
 
     public function destroy($id)
@@ -62,6 +62,6 @@ class StudentModelController extends Controller
         $studentObj->delete();
         return response([
             "data" => "deleted successfully"
-        ],404);
+        ],200);
     }
 }

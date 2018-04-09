@@ -37,7 +37,7 @@ class Handler extends ExceptionHandler
             elseif ($exception instanceof NotFoundHttpException)
             {
                 return response([
-                    'data' => 'this invalid link in post'
+                    'data' => 'this invalid link'
                 ]);
             }
             elseif ($exception instanceof \ErrorException)

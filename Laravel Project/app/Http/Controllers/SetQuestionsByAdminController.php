@@ -2,84 +2,69 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Questions\setQuestionsByAdminRequest;
+use App\Http\Resources\Questions\setQuestionsByAdminResources;
 use App\setQuestionsByAdmin;
 use Illuminate\Http\Request;
 
 class SetQuestionsByAdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        return setQuestionsByAdminResources::collection(setQuestionsByAdmin::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(setQuestionsByAdminRequest $request)
     {
-        //
+        //create question object
+        $questionObj = new setQuestionsByAdmin();
+        //Get requests
+        $questionObj->question = $request->question;
+        $questionObj->option1 = $request->option1;
+        $questionObj->option2 = $request->option2;
+        $questionObj->option3 = $request->option3;
+        $questionObj->option4 = $request->option4;
+        $questionObj->option5 = $request->option5;
+        //save questionObj
+        $questionObj->save();
+        //response
+        return response([
+            'data' => new setQuestionsByAdminResources($questionObj)
+        ],201);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function show($id)
     {
-        //
+        $questionObj = setQuestionsByAdmin::find($id);
+        return response([
+            'data' => new setQuestionsByAdminResources($questionObj)
+        ],200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\setQuestionsByAdmin  $setQuestionsByAdmin
-     * @return \Illuminate\Http\Response
-     */
-    public function show(setQuestionsByAdmin $setQuestionsByAdmin)
+    public function update(setQuestionsByAdminRequest $request, $id)
     {
-        //
+        $questionObj = setQuestionsByAdmin::find($id);
+        //Get update request
+        $questionObj->question = $request->question;
+        $questionObj->option1 = $request->option1;
+        $questionObj->option2 = $request->option2;
+        $questionObj->option3 = $request->option3;
+        $questionObj->option4 = $request->option4;
+        $questionObj->option5 = $request->option5;
+        //save update request
+        $questionObj->save();
+        return response([
+            'data' => new setQuestionsByAdminResources($questionObj)
+        ],200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\setQuestionsByAdmin  $setQuestionsByAdmin
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(setQuestionsByAdmin $setQuestionsByAdmin)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\setQuestionsByAdmin  $setQuestionsByAdmin
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, setQuestionsByAdmin $setQuestionsByAdmin)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\setQuestionsByAdmin  $setQuestionsByAdmin
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(setQuestionsByAdmin $setQuestionsByAdmin)
-    {
-        //
+        $questionObj = setQuestionsByAdmin::find($id);
+        $questionObj->delete();
+        return response([
+            "data" => "deleted successfully"
+        ],200);
     }
 }

@@ -34,7 +34,7 @@ class adminUsersController extends Controller
     {
         return response([
             'data' => new AdminResource(User::find($id))
-        ],201);
+        ],200);
     }
 
     public function update(Request $request, $id)
@@ -47,7 +47,7 @@ class adminUsersController extends Controller
         $adminObj->save(); //save username
         return response([
             'data' => new AdminResource($adminObj)
-        ],404);
+        ],200);
     }
 
     public function destroy($id)
@@ -56,6 +56,6 @@ class adminUsersController extends Controller
         $adminObj->delete();
         return response([
             "data" => "deleted successfully"
-        ],404);
+        ],200);
     }
 }
