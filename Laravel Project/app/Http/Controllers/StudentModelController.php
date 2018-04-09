@@ -33,6 +33,7 @@ class StudentModelController extends Controller
             'data' => new StudentsResource($studentObj)
         ],201);
     }
+
     public function show($id)
     {
         return response([
