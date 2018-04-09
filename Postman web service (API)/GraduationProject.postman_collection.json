@@ -45,6 +45,18 @@
 			"folders_order": []
 		},
 		{
+			"name": "Questions",
+			"description": "",
+			"collectionId": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"order": [],
+			"owner": "3591694",
+			"folders_order": [
+				"a406aa61-0355-8d3e-3350-db454836cc0b"
+			],
+			"auth": null,
+			"id": "28111545-6381-3142-fc78-68637c2f8879"
+		},
+		{
 			"owner": "3591694",
 			"lastUpdatedBy": "3591694",
 			"lastRevision": 3572771370,
@@ -63,12 +75,30 @@
 				"9c84ccbb-22be-b855-42cd-2e8ca0c83323"
 			],
 			"folders_order": []
+		},
+		{
+			"name": "setQuestionsByAdmin",
+			"description": "",
+			"collectionId": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"order": [
+				"c3085297-13e8-dc83-477d-2746b8b6aeb2",
+				"835742cb-8a0a-4439-ae1a-00053fcfc1e1",
+				"c3cb12a6-e09b-381b-9e06-e8e652e88dd4",
+				"9a015c1d-f08a-fe5a-aa45-280fd7e2c509",
+				"9a76ca80-bf98-abf0-2531-3b25708843d9"
+			],
+			"owner": "3591694",
+			"folder": "28111545-6381-3142-fc78-68637c2f8879",
+			"folders_order": [],
+			"auth": null,
+			"id": "a406aa61-0355-8d3e-3350-db454836cc0b"
 		}
 	],
 	"folders_order": [
 		"ed0fd794-b002-888b-27ef-86cdf032a15b",
 		"acd333be-bca4-2f56-c600-35fa30a532dd",
-		"d3a828b0-724e-25a6-8fb6-b874dab38c34"
+		"d3a828b0-724e-25a6-8fb6-b874dab38c34",
+		"28111545-6381-3142-fc78-68637c2f8879"
 	],
 	"timestamp": 0,
 	"owner": "3591694",
@@ -293,6 +323,106 @@
 			"rawModeData": "{\n  \"name\":\"Refaat Aish2\",\n  \"username\":\"refoUpdate\",\n  \"password\":\"444442242\",\n  \"email\":\"refo@gmail.com2\",\n  \"subjectName\":\"Math2\",\n  \"telephone\":\"010036168442\"\n}"
 		},
 		{
+			"id": "835742cb-8a0a-4439-ae1a-00053fcfc1e1",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8000/api/setQuestionsByAdmin",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "POST",
+			"collectionId": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Set new Question By Admin",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523298470666,
+			"version": 2,
+			"responses": [],
+			"folder": "a406aa61-0355-8d3e-3350-db454836cc0b",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"question\" : \"Whats about this lect\",\n\t\"option1\" : \"good\",\n\t\"option2\" : \"good\",\n\t\"option3\" : \"good\",\n\t\"option4\" : \"good\",\n\t\"option5\" : \"good\"\n}"
+		},
+		{
+			"id": "9a015c1d-f08a-fe5a-aa45-280fd7e2c509",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8000/api/setQuestionsByAdmin/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "DELETE",
+			"collectionId": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"data": null,
+			"dataMode": "params",
+			"name": "Delete question By Admin",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523299583004,
+			"version": 2,
+			"responses": [],
+			"folder": "a406aa61-0355-8d3e-3350-db454836cc0b",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "9a76ca80-bf98-abf0-2531-3b25708843d9",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8000/api/setQuestionsByAdmin/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "PUT",
+			"collectionId": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Update question by Admin",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523299609237,
+			"version": 2,
+			"responses": [],
+			"folder": "a406aa61-0355-8d3e-3350-db454836cc0b",
+			"currentHelper": null,
+			"helperAttributes": null,
+			"rawModeData": "{\n\t\"question\" : \"Whats about this lect\",\n\t\"option1\" : \"good\",\n\t\"option2\" : \"bad\",\n\t\"option3\" : \"good\",\n\t\"option4\" : \"good\",\n\t\"option5\" : \"good\"\n}"
+		},
+		{
 			"id": "9c84ccbb-22be-b855-42cd-2e8ca0c83323",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
 			"headerData": [
@@ -375,6 +505,54 @@
 			"pathVariableData": [],
 			"responses": [],
 			"collectionId": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "c3085297-13e8-dc83-477d-2746b8b6aeb2",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8000/api/setQuestionsByAdmin",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"data": null,
+			"dataMode": "params",
+			"name": "Get All Questions by Admin",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523298330419,
+			"version": 2,
+			"responses": [],
+			"folder": "a406aa61-0355-8d3e-3350-db454836cc0b",
+			"currentHelper": null,
+			"helperAttributes": null
+		},
+		{
+			"id": "c3cb12a6-e09b-381b-9e06-e8e652e88dd4",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:8000/api/setQuestionsByAdmin/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"events": [],
+			"auth": null,
+			"method": "GET",
+			"collectionId": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"data": null,
+			"dataMode": "params",
+			"name": "Get specific question",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1523298725305,
+			"version": 2,
+			"responses": [],
+			"folder": "a406aa61-0355-8d3e-3350-db454836cc0b",
 			"currentHelper": null,
 			"helperAttributes": null
 		},
