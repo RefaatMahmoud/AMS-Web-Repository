@@ -10,5 +10,6 @@ class DatabaseSeeder extends Seeder
         factory(\App\StudentModel::class,5)->create();
         factory(\App\Instructors::class,5)->create();
         factory(\App\setQuestionsByAdmin::class,5)->create();
+        factory(\App\questionsByStudents::class,5)->create();
     }
 }
