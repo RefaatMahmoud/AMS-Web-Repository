@@ -6,14 +6,15 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class questionsByStudentsResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
     public function toArray($request)
     {
-        return parent::toArray($request);
+       return[
+           'student_id' => $this->student_id,
+           'student_info_link' => route('students.show',$this->student_id),
+           'answer1' => $this->answer1,
+           'answer2' => $this->answer2,
+           'answer3' => $this->answer3,
+           'answer4' => $this->answer4,
+       ];
     }
 }

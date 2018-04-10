@@ -18,8 +18,7 @@ class setQuestionsByAdminRequest extends FormRequest
             "option1" => "required",
             "option2" => "required",
             "option3" => "required",
-            "option4" => "required",
-            "option5" => "required",
+            "option4" => "required"
         ];
     }
 }

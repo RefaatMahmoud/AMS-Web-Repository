@@ -15,7 +15,6 @@ class setQuestionsByAdminResources extends JsonResource
            'option2' => $this->option2,
            'option3' => $this->option3,
            'option4' => $this->option4,
-           'option5' => $this->option5
        ];
     }
 }

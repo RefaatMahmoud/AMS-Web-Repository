@@ -20,9 +20,6 @@ $factory->define(App\setQuestionsByAdmin::class, function (Faker $faker) {
         ]),
         'option4' => $faker->randomElement([
             'bad','good','very good' ,'Excellent'
-        ]),
-        'option5' => $faker->randomElement([
-            'bad','good','very good' ,'Excellent'
-        ]),
+        ])
     ];
 });

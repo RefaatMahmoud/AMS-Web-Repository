@@ -2,84 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Questions\questionsByStudentsRequest;
+use App\Http\Resources\Questions\questionsByStudentsResource;
 use App\questionsByStudents;
-use Illuminate\Http\Request;
-
 class QuestionsByStudentsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return questionsByStudentsResource::collection(questionsByStudents::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(questionsByStudentsRequest $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\questionsByStudents  $questionsByStudents
-     * @return \Illuminate\Http\Response
-     */
-    public function show(questionsByStudents $questionsByStudents)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\questionsByStudents  $questionsByStudents
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(questionsByStudents $questionsByStudents)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\questionsByStudents  $questionsByStudents
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, questionsByStudents $questionsByStudents)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\questionsByStudents  $questionsByStudents
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(questionsByStudents $questionsByStudents)
-    {
-        //
+        //create obj
+        $studentQuestionObj = new questionsByStudents();
+        //get requests
+        $studentQuestionObj->student_id = $request->student_id;
+        $studentQuestionObj->answer1 = $request->answer1;
+        $studentQuestionObj->answer2 = $request->answer2;
+        $studentQuestionObj->answer3 = $request->answer3;
+        $studentQuestionObj->answer4 = $request->answer4;
+        //save request
+        $studentQuestionObj->save();
+        //response
+        return response([
+            'data' => new questionsByStudentsResource($studentQuestionObj)
+        ],201);
     }
 }

@@ -14,4 +14,8 @@ class StudentModel extends Model
     protected $hidden =[
         'password',
     ];
+
+    public function questions(){
+        return $this->belongsTo(questionsByStudents::class);
+    }
 }

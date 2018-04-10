@@ -25,7 +25,6 @@ class SetQuestionsByAdminController extends Controller
         $questionObj->option2 = $request->option2;
         $questionObj->option3 = $request->option3;
         $questionObj->option4 = $request->option4;
-        $questionObj->option5 = $request->option5;
         //save questionObj
         $questionObj->save();
         //response
@@ -51,7 +50,6 @@ class SetQuestionsByAdminController extends Controller
         $questionObj->option2 = $request->option2;
         $questionObj->option3 = $request->option3;
         $questionObj->option4 = $request->option4;
-        $questionObj->option5 = $request->option5;
         //save update request
         $questionObj->save();
         return response([
