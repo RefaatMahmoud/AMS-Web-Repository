@@ -1,0 +1,61 @@
+body{
+    background-color: #282b30
+}
+
+#content{
+    margin-top: 100px
+}
+
+.card {
+    max-height: 100px; 
+    width: 220px 
+}
+
+.card-body{
+    margin-top: -15px;
+}
+
+
+.number-center{
+    padding-left: 35px;
+    font-size: 22px
+}
+
+.fa-arrow-down{
+    color : red;
+}
+
+.fa-arrow-up{
+    color:green;
+}
+
+.big-card{
+    margin-top: 20px;
+    height: 310px !important;
+    width: 300px
+}
+
+#second-row{
+    margin-top: 10px
+}
+
+.white-text{
+    color: white;
+    margin-left: -10px;
+    margin-top: -10px;
+    font-weight: bold
+}
+
+.card-color{
+    background-color:#31363d;
+    color:#b9bfc9;
+}
+
+.number-padding{
+    padding-left: 10px
+}
+
+.text-padding{
+    margin-top: -15px;
+}
+
