@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css"  href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css"  href="css/appiza.css" />
+    <link rel="stylesheet" type="text/css"  href="fontawesome/fontawesome-all.min.css" />
+</head>
+<body>
+
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+        <div class="col-md-2">
+                
+        </div>
+        <div class="col-md-10">
+            <!-- <h4>Dashboard</h4> -->
+            <div class="row">
+                <div class="col-md-3">
+                        <div class="card card-color">
+                                <div class="card-body">
+                                  <h5 class="card-title">Total Subsription</h5>
+                                  <p class="card-text number-center" ><i class="fas fa-arrow-down"></i>&nbsp;&nbsp;<span class="badge badge-secondary " >203</span></p>
+                                  <p class="text-padding">48% from last 24 Hours</p>
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-3">
+                        <div class="card card-color">
+                                <div class="card-body">
+                                  <h5 class="card-title">Order Status</h5>
+                                  <p class="card-text number-center" ><i class="fas fa-arrow-up"></i>&nbsp;&nbsp;<span class="badge badge-secondary " >203</span></p>
+                                  <p class="text-padding">48% from last 24 Hours</p>
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-3">
+                        <div class="card card-color">
+                                <div class="card-body">
+                                  <h5 class="card-title">Unique Visitors</h5>
+                                  <p class="card-text number-center" ><i class="fas fa-arrow-up"></i>&nbsp;&nbsp;<span class="badge badge-secondary " >203</span></p>
+                                  <p class="text-padding">48% from last 24 Hours</p>
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-3">
+                        <div class="card card-color">
+                                <div class="card-body">
+                                  <h5 class="card-title">Monthly Earning</h5>
+                                  <p class="card-text number-center" ><i class="fas fa-arrow-down"></i>&nbsp;&nbsp;<span class="badge badge-secondary " >203</span></p>
+                                  <p class="text-padding">48% from last 24 Hours</p>
+                                </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class="row" id="second-row">
+                <div class="col-md-4">
+                        <div class=" big-card card-color">
+                                <div class="card-body">
+                                  <p class="card-text white-text">Total Subcriptions</p>
+                                    <div class="row">
+                                            <div class="col-md-4">
+                                                    <p class="number-padding"><span class="badge badge-secondary " >203</span></p>
+                                                    <p class="text-padding"><small>MarketPlace</small></p>
+                                                </div>
+                                        <div class="col-md-4">
+                                                <p class="number-padding"><span class="badge badge-secondary " >203</span></p>
+                                                <p class="text-padding"><small>Last year</small></p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                    <p class=" number-padding"><span class="badge badge-secondary" >203</span></p>
+                                                    <p class="text-padding"><small>Last Hour</small></p>
+                                                </div>
+                                    </div>
+
+                                    <!-- Line chart here -->
+                                    <canvas id="myChart" height="300" width="400"></canvas>
+
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                        <div class=" big-card card-color">
+                                <div class="card-body">
+                                  <p class="card-text white-text">Revenue</p>
+                                    <div class="row">
+                                            <div class="col-md-4">
+                                                    <p class="number-padding"><span class="badge badge-secondary " >203</span></p>
+                                                    <p class="text-padding"><small>MarketPlace</small></p>
+                                                </div>
+                                        <div class="col-md-4">
+                                                <p class="number-padding"><span class="badge badge-secondary " >203</span></p>
+                                                <p class="text-padding"><small>Last year</small></p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                    <p class=" number-padding"><span class="badge badge-secondary" >203</span></p>
+                                                    <p class="text-padding"><small>Last Hour</small></p>
+                                                </div>
+                                    </div>
+
+                                    <!-- Bar chart here  -->
+                                    <canvas id="myBarChart" height="300" width="400"></canvas>
+
+
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                        <div class=" big-card card-color">
+                                <div class="card-body">
+                                  <p class="card-text white-text">Email sent</p>
+                                    <div class="row">
+                                            <div class="col-md-4">
+                                                    <p class="number-padding"><span class="badge badge-secondary " >203</span></p>
+                                                    <p class="text-padding"><small>MarketPlace</small></p>
+                                                </div>
+                                        <div class="col-md-4">
+                                                <p class="number-padding"><span class="badge badge-secondary " >203</span></p>
+                                                <p class="text-padding"><small>Last year</small></p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                    <p class=" number-padding"><span class="badge badge-secondary" >203</span></p>
+                                                    <p class="text-padding"><small>Last Hour</small></p>
+                                                </div>
+                                    </div>
+
+                                    <!-- Doughnut and Pie chart here  -->
+                                    <canvas id="myPieChart" height="300" width="400"></canvas>
+                                </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+
+
+
+
+
+
+
+    <script src="js/Chart.js"></script>
+    <script src="js/Chart.min.js"></script>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
