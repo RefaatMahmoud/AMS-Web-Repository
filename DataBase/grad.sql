@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2018 at 12:59 AM
+-- Generation Time: Apr 19, 2018 at 06:01 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -45,11 +45,11 @@ CREATE TABLE `instructors` (
 --
 
 INSERT INTO `instructors` (`id`, `name`, `username`, `password`, `email`, `telephone`, `subjectName`, `created_at`, `updated_at`) VALUES
-(1, 'Blair Ullrich', 'zelma.waters', '$2y$10$d7NEeUE90sVUwYYYtGjOAur2Qzp4.nE1VOa1YczJNFbOkT1xFVb0i', 'amalia.shanahan@example.net', '1-987-612-1517 x9544', 'Math', '2018-04-11 05:55:46', '2018-04-11 05:55:46'),
-(2, 'Mrs. Cassandra Dibbert I', 'oleuschke', '$2y$10$1a8wYGv9C19FFXkBc7WV4OHLjL142Q8BPVt3KOpjddIiy8kcvi4Dm', 'wilfred.rosenbaum@example.org', '1-235-546-5076', 'physics', '2018-04-11 05:55:46', '2018-04-11 05:55:46'),
-(3, 'Sydni Gutkowski', 'donnie.langworth', '$2y$10$QvylVIFyoTwtACbq.6Pl.u/amqDi960KrKqOysPpjx4aDkLBJuSbS', 'kunze.trenton@example.net', '357.710.5883', 'Math', '2018-04-11 05:55:46', '2018-04-11 05:55:46'),
-(4, 'Arturo Schmidt', 'oma.shanahan', '$2y$10$WeyJEM755jHnB/wp0sbpsutBzhf4pr671tR8C0UtBYCmfZXsFyFD.', 'donny53@example.org', '+1.981.315.5976', 'Medical tools', '2018-04-11 05:55:46', '2018-04-11 05:55:46'),
-(5, 'Ottilie Deckow', 'claudie.strosin', '$2y$10$eqc9x33wMHwdZQix/AlDO.AY2hdaxqUvip80dRiUCLJL46YBu1czK', 'emely08@example.com', '250-844-9154 x536', 'Math', '2018-04-11 05:55:46', '2018-04-11 05:55:46');
+(1, 'Prof. Tanner Torphy PhD', 'bulah15', '$2y$10$LaQYzcacaTvg4zNCSzPKuuOUOnYCJXbPbiC2sEfxligU0eVkflbEW', 'jacobi.declan@example.org', '274-581-6410 x86304', 'Math', '2018-04-19 22:35:41', '2018-04-19 22:35:41'),
+(2, 'Ms. Jaclyn Gerhold', 'carol73', '$2y$10$Ck8KOrB2kHn9C1TO1z7WFun28QT0aqS2zfedPbCDoEW4PYFkvyOTq', 'veum.bella@example.org', '(593) 458-4927 x9214', 'physics', '2018-04-19 22:35:41', '2018-04-19 22:35:41'),
+(3, 'Duane Kutch', 'moses.weimann', '$2y$10$SRvEhhjy7tw1sadvkj19VeOQ0jsL7C2ZHCYHdgvYUIWHA/vD/VDnW', 'maudie85@example.org', '+1 (389) 633-3743', 'Medical tools', '2018-04-19 22:35:41', '2018-04-19 22:35:41'),
+(4, 'Emmitt Lesch III', 'ostamm', '$2y$10$vhOuJxMsr2/FSSY/5On67ei8H7//RT80//DuTyRBtak2fkcvwIf1q', 'hodkiewicz.delia@example.com', '(972) 482-2670', 'Math', '2018-04-19 22:35:42', '2018-04-19 22:35:42'),
+(5, 'Prof. Leatha Langosh II', 'kuhlman.cory', '$2y$10$hCYHOV5.XyfiTweHM6WGUeE69lhj2LXqjsDFqlYlWG85AHieeFZ/2', 'raoul55@example.org', '674-500-1627 x75382', 'Medical tools', '2018-04-19 22:35:42', '2018-04-19 22:35:42');
 
 -- --------------------------------------------------------
 
@@ -68,12 +68,13 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(60, '2014_10_12_000000_create_users_table', 1),
-(61, '2014_10_12_100000_create_password_resets_table', 1),
-(62, '2018_03_16_223157_create_student_models_table', 1),
-(63, '2018_03_16_234828_create_instructors_table', 1),
-(64, '2018_04_09_214403_create_set_questions_by_admins_table', 1),
-(65, '2018_04_10_195920_create_questions_by_students_table', 1);
+(73, '2014_10_12_000000_create_users_table', 1),
+(74, '2014_10_12_100000_create_password_resets_table', 1),
+(75, '2018_03_16_223157_create_student_models_table', 1),
+(76, '2018_03_16_234828_create_instructors_table', 1),
+(77, '2018_04_09_214403_create_set_questions_by_admins_table', 1),
+(78, '2018_04_10_195920_create_questions_by_students_table', 1),
+(79, '2018_04_19_152854_add_role_users_table', 1);
 
 -- --------------------------------------------------------
 
@@ -109,11 +110,11 @@ CREATE TABLE `questions_by_students` (
 --
 
 INSERT INTO `questions_by_students` (`id`, `student_id`, `answer1`, `answer2`, `answer3`, `answer4`, `created_at`, `updated_at`) VALUES
-(1, 2, 'very good', 'excellent', 'excellent', 'very good', '2018-04-11 05:55:47', '2018-04-11 05:55:47'),
-(2, 3, 'excellent', 'very good', 'bad', 'bad', '2018-04-11 05:55:47', '2018-04-11 05:55:47'),
-(3, 5, 'excellent', 'excellent', 'excellent', 'very good', '2018-04-11 05:55:48', '2018-04-11 05:55:48'),
-(4, 5, 'bad', 'very good', 'bad', 'excellent', '2018-04-11 05:55:48', '2018-04-11 05:55:48'),
-(5, 4, 'very good', 'good', 'very good', 'bad', '2018-04-11 05:55:48', '2018-04-11 05:55:48');
+(1, 4, 'very good', 'bad', 'good', 'good', '2018-04-19 22:35:42', '2018-04-19 22:35:42'),
+(2, 5, 'excellent', 'good', 'excellent', 'bad', '2018-04-19 22:35:42', '2018-04-19 22:35:42'),
+(3, 1, 'very good', 'good', 'good', 'excellent', '2018-04-19 22:35:42', '2018-04-19 22:35:42'),
+(4, 3, 'excellent', 'good', 'excellent', 'good', '2018-04-19 22:35:42', '2018-04-19 22:35:42'),
+(5, 4, 'very good', 'bad', 'very good', 'very good', '2018-04-19 22:35:42', '2018-04-19 22:35:42');
 
 -- --------------------------------------------------------
 
@@ -137,11 +138,11 @@ CREATE TABLE `set_questions_by_admins` (
 --
 
 INSERT INTO `set_questions_by_admins` (`id`, `question`, `option1`, `option2`, `option3`, `option4`, `created_at`, `updated_at`) VALUES
-(1, 'Give your feedback about lecture ? ', 'bad', 'Excellent', 'bad', 'Excellent', '2018-04-11 05:55:46', '2018-04-11 05:55:46'),
-(2, 'Give your feedback about instructor ?', 'Excellent', 'bad', 'good', 'bad', '2018-04-11 05:55:47', '2018-04-11 05:55:47'),
-(3, 'Give your feedback about content ?', 'good', 'Excellent', 'very good', 'very good', '2018-04-11 05:55:47', '2018-04-11 05:55:47'),
-(4, 'Give your feedback about lecture ? ', 'bad', 'bad', 'Excellent', 'bad', '2018-04-11 05:55:47', '2018-04-11 05:55:47'),
-(5, 'Give your feedback about lecture ? ', 'Excellent', 'good', 'very good', 'bad', '2018-04-11 05:55:47', '2018-04-11 05:55:47');
+(1, 'Give your feedback about lecture ? ', 'bad', 'very good', 'very good', 'very good', '2018-04-19 22:35:42', '2018-04-19 22:35:42'),
+(2, 'Give your feedback about instructor ?', 'good', 'good', 'Excellent', 'very good', '2018-04-19 22:35:42', '2018-04-19 22:35:42'),
+(3, 'Give your feedback about lecture ? ', 'bad', 'good', 'very good', 'Excellent', '2018-04-19 22:35:42', '2018-04-19 22:35:42'),
+(4, 'Give your feedback about content ?', 'good', 'good', 'good', 'very good', '2018-04-19 22:35:42', '2018-04-19 22:35:42'),
+(5, 'Give your feedback about content ?', 'bad', 'Excellent', 'Excellent', 'bad', '2018-04-19 22:35:42', '2018-04-19 22:35:42');
 
 -- --------------------------------------------------------
 
@@ -166,11 +167,13 @@ CREATE TABLE `student_models` (
 --
 
 INSERT INTO `student_models` (`id`, `name`, `username`, `password`, `email`, `telephone`, `level`, `created_at`, `updated_at`) VALUES
-(1, 'Dianna Jaskolski MD', 'anderson.blick', '$2y$10$5FhowT2zrYefvnINAn3NZOhZzyJzeko4Y7ZSHOLJrU2PqDbS5hZqa', 'koepp.afton@example.com', '760-460-2988', 'second', '2018-04-11 05:55:45', '2018-04-11 05:55:45'),
-(2, 'Claudie Glover', 'devan.hoppe', '$2y$10$PWMPbFQe2crC7hPTL3/Ahe1cY3taWzo/xWJwQktTgD7YeX8qDlGQW', 'meagan.carter@example.com', '+1-571-951-0945', 'second', '2018-04-11 05:55:45', '2018-04-11 05:55:45'),
-(3, 'Dayna Veum', 'kassandra.walsh', '$2y$10$x9Dh/DUfoXnwCYQ3hvM8peedmQ63kx0KzTdjdDv8koDx.r/tbX6fW', 'fcrooks@example.com', '240-985-9628', 'first', '2018-04-11 05:55:45', '2018-04-11 05:55:45'),
-(4, 'Emelie Shanahan I', 'funk.isaiah', '$2y$10$ammp5MwbJUDV8BRlctda3uY7iDsLizWp7kU0WciFPYUG/xaeKD2Am', 'aniyah.dach@example.net', '281-721-8490 x7141', 'first', '2018-04-11 05:55:45', '2018-04-11 05:55:45'),
-(5, 'Clark Dicki', 'clark.luettgen', '$2y$10$zjesMFwrI/AKar5cRQAyZOS7mAEbEQwS0JwVQHSPsg/tUbhnSH2eS', 'gail.herman@example.org', '(618) 308-1058 x030', 'third', '2018-04-11 05:55:45', '2018-04-11 05:55:45');
+(1, 'Helene Koch', 'ronaldo42', '$2y$10$CWiXxs1cntTH/SamoD.7vOcQM7xganp93Snet2uIHhxuQNOUmiKqi', 'iherzog@example.com', '+1.326.313.2872', 'first', '2018-04-19 22:35:41', '2018-04-19 22:35:41'),
+(2, 'Fred Kub', 'ihessel', '$2y$10$sB2k2Q9jollcUT2.mO1rBeudx/j/VFW4ZZFgRydlxGdEbK/5U2S8y', 'mlarson@example.net', '+19155349611', 'third', '2018-04-19 22:35:41', '2018-04-19 22:35:41'),
+(3, 'Gloria Runolfsson', 'ohara.myriam', '$2y$10$MADhKy60HJzBQDoatRUUaOpMr40mcTvjBB6kdeJiRD3ZINuXQmxFC', 'jasmin.schmidt@example.net', '1-978-205-4095', 'second', '2018-04-19 22:35:41', '2018-04-19 22:35:41'),
+(4, 'Lillie Ebert Jr.', 'walsh.alejandra', '$2y$10$KRvRuqpdpIGH4q/nNZH13e0/CBdiTcXkUOv0YkBZFPYivHn122jOu', 'wehner.eugenia@example.net', '(957) 856-0403 x9971', 'second', '2018-04-19 22:35:41', '2018-04-19 22:35:41'),
+(5, 'Dean Wehner Sr.', 'fbeier', '$2y$10$st4ArmCqjYU19I8HyeRGCOhK7v8egKSpCejd6dPAxPx7KGHsLI5Mi', 'monique.lesch@example.net', '+13797176294', 'first', '2018-04-19 22:35:41', '2018-04-19 22:35:41'),
+(6, 'Refaat Aish', 'refaat101', '$2y$10$WAZXUAHpkThvcvteqG9EB.IMKFrDWTsZF5thCvyDtDM5WpltlF3oK', 'refo@gmail.com', '01003616844', 'First', '2018-04-19 22:47:17', '2018-04-19 22:47:17'),
+(10, 'Refaat Aish', 'refaat10112', '$2y$10$Ksz0BLWIx8z93PeFHT4MJe1a3I6DaI6y7S.GlfAmd6ypmiHwjop9.', 'refo@gmail.com', '01003616844', 'First', '2018-04-19 22:52:05', '2018-04-19 22:52:05');
 
 -- --------------------------------------------------------
 
@@ -180,25 +183,27 @@ INSERT INTO `student_models` (`id`, `name`, `username`, `password`, `email`, `te
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Beaulah Wehner', 'patrick.bradtke', 'sandy.kuhlman@example.net', '$2y$10$WLctcSu0iiS4Ix00RR1oNO6mR8/abCV/9UyvQD90nUfrFqsPtQRM2', 'X3K2A5YO1i', '2018-04-11 05:55:43', '2018-04-11 05:55:43'),
-(2, 'Dr. Briana Weber', 'wgoyette', 'gleichner.kieran@example.net', '$2y$10$wFAG7r34htav1FHQByYRMuwVOa9XL7MFdCCsc1C6f6chMmH8yJuxq', 'ySjMJELJhO', '2018-04-11 05:55:44', '2018-04-11 05:55:44'),
-(3, 'Dr. Sonya Rice', 'cierra.legros', 'jerde.claudia@example.org', '$2y$10$3CaDdVhhZ20tc.1OnFT1UuciViqNWrL/7wJ0c4k6EPDqlL385FGcK', 'neanMpdUE9', '2018-04-11 05:55:44', '2018-04-11 05:55:44'),
-(4, 'Oral Schamberger', 'fabiola.gutmann', 'bailee18@example.net', '$2y$10$yxce/ueSYBrYMxJ79MB.tetLtk7bjFqiNOtkbrhJasVc.5l3SYPf2', 'YhByz8hRea', '2018-04-11 05:55:44', '2018-04-11 05:55:44'),
-(5, 'Arlie Wyman', 'gpollich', 'rfisher@example.org', '$2y$10$WrmSQIujW5caq5HqgowVtOgypHRKDi7C/z5ppNIpeWqDg2ggwQ.ai', 'wFBLwi9mQc', '2018-04-11 05:55:44', '2018-04-11 05:55:44');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `role`) VALUES
+(1, 'Refo22', 'refo@gmail.com', '$2y$10$sBgi1uHCorFIxHbeQpiVweqK0fopd3cM4V8wu7Gql/78V30e3Hpyi', 'zRVdVvkvl8', '2018-04-19 22:35:40', '2018-04-19 22:55:09', 0),
+(2, 'ortiz.liliane', 'schmidt.anabelle@example.net', '$2y$10$iAFqmF..9QnxOdIT6BT/luiyr1vX4ELG2oZkFj2i6gJD/o4x17jV.', 'wuTTViGJIm', '2018-04-19 22:35:40', '2018-04-19 22:35:40', 0),
+(3, 'rice.courtney', 'teresa.tromp@example.net', '$2y$10$eEeSVbW8ZJDp8WrRKgN3LuuSB7LjO9C2DsRCUlerdsxTcrcwD8bJ6', 'BMSgLPNayt', '2018-04-19 22:35:40', '2018-04-19 22:35:40', 4),
+(4, 'fschmidt', 'demetrius.hauck@example.net', '$2y$10$2lRo1ctR1bsiQK9YmKiLruxJm7/b1B/EcF9CaO7Sz/prF43yOanYq', 'mjTK76KdyB', '2018-04-19 22:35:40', '2018-04-19 22:35:40', 3),
+(6, 'ads', 'AbdoAllah99@gmail.com', '$2y$10$lVYVWCCRvb3LeVUo7qgzAuzTWGwrGpqf8XYTEL64pXzn4YalL4ka6', NULL, '2018-04-19 22:38:47', '2018-04-19 22:38:47', 1),
+(7, 'adsaaqqa', 'AbdoAllah99@gmail.com', '$2y$10$5msJ3mShmdRXjgHdTeCI8uh78LjVJiul4b8HIsDav0d3hRSoN8NiS', NULL, '2018-04-19 22:50:10', '2018-04-19 22:50:10', 6),
+(11, 'asd', 'AbdoAllah99@gmail.com', '$2y$10$ehwab.wc/ph7Qs0Iz6UIOOFEDGufa/F1DWeIMKeMB2jX2Dt4Y4Vmi', NULL, '2018-04-19 22:54:59', '2018-04-19 22:54:59', 6);
 
 --
 -- Indexes for dumped tables
@@ -263,7 +268,7 @@ ALTER TABLE `instructors`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 --
 -- AUTO_INCREMENT for table `questions_by_students`
 --
@@ -278,12 +283,12 @@ ALTER TABLE `set_questions_by_admins`
 -- AUTO_INCREMENT for table `student_models`
 --
 ALTER TABLE `student_models`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- Constraints for dumped tables
 --
