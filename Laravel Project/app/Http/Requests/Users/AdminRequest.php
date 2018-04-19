@@ -16,7 +16,8 @@ class AdminRequest extends FormRequest
         return [
             'email' => 'required' ,
             'password' => 'required',
-            'username' => 'required|unique:User'
+            'username' => 'required|unique:User',
+            'role' => 'required'
         ];
     }
 }

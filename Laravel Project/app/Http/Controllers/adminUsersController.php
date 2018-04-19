@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Users\AdminRequest;
 use App\Http\Resources\Users\AdminResource;
 use Illuminate\Http\Request;
 use App\User;
@@ -21,6 +22,7 @@ class adminUsersController extends Controller
         $adminObj->username = $request->username;
         $adminObj->password  = Hash::make($request->password);
         $adminObj->email = $request->email;
+        $adminObj->role = $request->role;
         //Save
         $adminObj->save();
         //Response
@@ -41,8 +43,8 @@ class adminUsersController extends Controller
         $adminObj = User::find($id);
         $adminObj->username = $request->username;
         $adminObj->email = $request->email;
-        $adminObj->name = $request->name;
         $adminObj->password = Hash::make($request->password);
+        $adminObj->role = $request->role;
         $adminObj->save(); //save username
         return response([
             'data' => new AdminResource($adminObj)
