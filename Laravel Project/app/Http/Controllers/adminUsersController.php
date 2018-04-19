@@ -18,7 +18,6 @@ class adminUsersController extends Controller
     {
         //Create
         $adminObj  = new User();
-        $adminObj->name = $request->name;
         $adminObj->username = $request->username;
         $adminObj->password  = Hash::make($request->password);
         $adminObj->email = $request->email;
