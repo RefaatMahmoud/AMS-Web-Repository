@@ -35,7 +35,9 @@
 .list-group .list-group-item .badge {
     background: #00b7cb;
 }
-
+.nav-item.active i { 
+    color : #00b7cb !important ;
+}
 .list-group .list-group-item .fa {
     font-size: 1.25rem;
     position : relative ;
