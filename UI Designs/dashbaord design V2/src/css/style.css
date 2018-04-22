@@ -175,3 +175,34 @@
 .btn-green:hover {
     transition: all ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
+
+
+
+
+/* New Member form section  */
+
+#member-form {
+    background: black;
+    padding: 20px;
+    border-radius: 5px
+}
+#member-form select {
+    background: black;
+    color: white;
+    border: 1px solid silver
+}
+
+#member-form button {
+    background-color: black;
+    border:  2px solid teal;
+    color: teal;
+    font-weight: bold;
+    width: 100%
+}
+
+#member-form button:hover {
+    background: #00b7cb;
+    border-color: #00b7cb;
+    color: white !important;
+}
+
