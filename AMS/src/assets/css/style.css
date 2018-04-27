@@ -1,0 +1,208 @@
+/* dashboard item */
+
+.slide-in{
+   
+    transform  : translateX(0px) ; 
+    transition : all ease-in-out 0.3s ; 
+}
+.slide-out { 
+  transform : translateX(-400px) ; 
+  transition : all ease-in-out 0.3s ; 
+}
+
+#side-bar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 30;
+  width : 300px ; 
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color: #00b7cb;
+}
+
+.list-group .list-group-item {
+    border-radius: 0 !important;
+}
+
+.list-group .list-group-item.active {
+    background: #04a2b3 !important;
+    border: solid 1px #04a2b3;
+}
+
+.list-group .list-group-item .badge {
+    background: #00b7cb;
+}
+.nav-item.active i { 
+    color : #00b7cb !important ;
+}
+.list-group .list-group-item .fa {
+    font-size: 1.25rem;
+    position : relative ;
+    padding-right: 5px;
+}
+
+.list-group .list-group-item-action:hover {
+    background: rgba(4, 162, 179, 0.7);
+    color: white;
+}
+
+.alert-ball {
+    position: static;
+    top: 7px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    z-index : 0 ;
+    background-color: crimson;
+    border-radius: 100%;
+}
+
+/* .navbar-nav .nav-item {
+    border-radius: 100%;
+    border: solid 2px white;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+} */
+
+.navbar-nav .nav-link {
+    position: relative;
+}
+
+.navbar-nav .nav-link .fa {
+    font-size: 1.2em;
+    color: white;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 4px;
+}
+
+.table-hover tbody tr:hover {
+    background: rgba(4, 162, 179, 0.7) !important;
+    color: white;
+}
+
+/* ================================================================ */
+
+/* login frame */
+
+.fade-out {
+    background-color: rgba(0, 0, 0, 0.80);
+    color: white;
+}
+
+
+
+#login {
+    min-height: 637px;
+    position: relative;
+    background: url("../images/1.jpg") no-repeat;
+    background-size: cover;
+}
+
+.show-case {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.input-group-addon {
+    border-color: rgba(255, 255, 255, 0.8);
+    border-left: none;
+    background: rgba(0, 0, 0, 0.5);
+    padding: inherit 15px;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    color: white;
+}
+
+.form-group label {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    opacity: 0.8;
+}
+
+.input-group .form-control {
+    border-color: rgba(255, 255, 255, 0.8);
+    border-right: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.form-control:focus {
+    border-color: #00b7cb;
+    color: #00b7cb;
+}
+
+.form-control:focus+.input-group-addon {
+    border-color: #00b7cb;
+    color: #00b7cb;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.btn-green {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: #00b7cb;
+    color: #00b7cb !important;
+}
+
+.btn-green:hover {
+    background: #00b7cb;
+    border-color: #00b7cb;
+    color: white !important;
+}
+
+.link-green {
+    color: #00b7cb;
+}
+
+.link-green:hover {
+    color: #04a2b3;
+    text-decoration: none;
+}
+
+.link-green,
+.btn-green,
+.link-green:hover,
+.btn-green:hover {
+    transition: all ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+
+
+
+/* New Member form section  */
+
+#member-form {
+    background: black;
+    padding: 20px;
+    border-radius: 5px
+}
+#member-form select {
+    background: black;
+    color: white;
+    border: 1px solid silver
+}
+
+#member-form button {
+    background-color: black;
+    border:  2px solid teal;
+    color: teal;
+    font-weight: bold;
+    width: 100%
+}
+
+#member-form button:hover {
+    background: #00b7cb;
+    border-color: #00b7cb;
+    color: white !important;
+}
+
