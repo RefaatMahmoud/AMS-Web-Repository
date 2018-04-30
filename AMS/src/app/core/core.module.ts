@@ -4,6 +4,10 @@ import { LoginComponent } from "./login/login.component";
 import { AppRoutingModule } from "./appRouting.module";
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderComponent } from './header/header.component';
+import { UIService } from "./services/ui.service";
+import {SharedModule} from "../shared/shared.module"
+
 
 
 
@@ -12,13 +16,19 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     declarations: [
         LoginComponent,
         HomeComponent,
-        SidebarComponent
+        SidebarComponent,
+        HeaderComponent
     ],
     imports: [
-        AppRoutingModule
+        AppRoutingModule , 
+        CommonModule , 
+        SharedModule , 
     ] ,
     exports:[
         AppRoutingModule
+    ] , 
+    providers : [
+        UIService
     ]
 
 })

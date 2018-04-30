@@ -4,8 +4,9 @@ import { LoginComponent } from "./login/login.component";
 import { HomeComponent } from "./home/home.component";
 
 const ROUTES : Routes =[
-    { path : "" , component : LoginComponent} , 
-    { path : "home" , component : HomeComponent} ,
+    { path : "home" , component : LoginComponent} , 
+    // {path : "new-admin" , component: AddNewAdminComponent},
+    { path : "" , component : HomeComponent} ,
 ]
 
 
