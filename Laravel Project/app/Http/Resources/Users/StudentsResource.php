@@ -12,9 +12,10 @@ class StudentsResource extends JsonResource
            "id" => $this->id ,
            "name" => $this->name ,
            "username" => $this->username,
+           "password" => $this->password,
            "email" => $this->email,
            "level" => $this->level,
-           "telepnone" => $this->telephone
+           "telephone" => $this->telephone
        ];
     }
 }

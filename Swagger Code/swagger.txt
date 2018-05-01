@@ -1,0 +1,579 @@
+swagger: '2.0'
+info:
+  description: This is Medical Faculty API 
+  version: 1.0.0
+  title: Simple Graduatopn Project API
+  # put the contact info for your development or API team
+  contact:
+    email: refaat.aish.fciscu1@gmail.com
+
+# tags are used for organizing operations
+tags:
+- name: admin
+- name: student
+- name: instructor
+- name: questions_By_Admin
+- name: questions_By_Students
+# - name: students
+
+paths:
+#################################
+######### start Admin ###########
+#################################
+  /api/admin:
+    get:
+      tags:
+      - admin
+      summary: get all admins 
+      description: |
+        this link will return json data for all admins in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/all_Admins'
+              
+    post:
+      tags:
+      - admin
+      summary: adds an new admin into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: admin
+        description: admin to add
+        schema:
+          $ref: '#/definitions/add_Admin'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+          
+  /api/admin/{id}:
+    delete:
+      tags:
+      - admin
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: delete admin
+      description: |
+        delete admin by his id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is deleted successfully
+          
+    put:
+      tags:
+      - admin
+      summary: Update an existing admin
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path 
+        type: number
+        required: true 
+      - in: body
+        name: admin
+        description: admin to update
+        schema:
+          $ref: '#/definitions/update_Admin'
+      responses:
+        200:
+          description: item updated successfully
+
+#################################
+######### start students ########
+#################################  
+  /api/students:
+    get:
+      tags:
+      - student
+      summary: get all students 
+      description: |
+        this link will return json data for all students in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/all_Students'
+    post:
+      tags:
+      - student
+      summary: adds an new students into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: students
+        description: admin to add
+        schema:
+          $ref: '#/definitions/add_Student'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+#################################
+######## start instructors ######
+#################################
+  /api/instructors:
+    get:
+      tags:
+      - instructor
+      summary: get all instructors 
+      description: |
+        this link will return json data for all instructors in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/all_Instructors'
+              
+    post:
+      tags:
+      - instructor
+      summary: adds an new instructors into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: instructors
+        description: instructors to add
+        schema:
+          $ref: '#/definitions/add_Instructor'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+            
+#################################
+##### start Question Admin ######
+#################################              
+  /api/questionsByAdmin:
+    get:
+      tags:
+      - questions_By_Admin
+      summary: get all questions By Admin 
+      description: |
+        this link will return json data for all questions By Admin in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/all_Admin_Questions'
+      
+    post:
+      tags:
+      - questions_By_Admin
+      summary: adds an new question By Admin into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: questions_By_Admin
+        description: add Question By Andmin to add
+        schema:
+          $ref: '#/definitions/add_Question_By_Admin'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+              
+#################################
+### start Question students #####
+#################################               
+  /api/questionsByStudtents:
+    get:
+      tags:
+      - questions_By_Students
+      summary: get all questions By Studtents
+      description: |
+        this link will return json data for all questions By Studtents in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/all_Students_Questions'
+              
+    post:
+      tags:
+      - questions_By_Students
+      summary: adds an new questions By_Students into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: questions_By_Students
+        description: add Question By Andmin to add
+        schema:
+          $ref: '#/definitions/add_Question_By_Students'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+     
+  
+
+
+#########################################################
+#-------------------- Start definitions ----------------#
+#########################################################          
+definitions:
+  all_Admins:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      username:
+        type: string
+        example: Refaat Aish
+      email:
+        type: string
+        example: refaat.aish.fciscu1@gmail.com
+      role:
+        type: integer
+        example: 1
+          
+  all_Students:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Refaat Aish
+        username:
+          type: string
+          example: refo99
+        email:
+          type: string
+          example: refaat.aish.fciscu1@gmail.com
+        level:
+          type: string
+          example: first
+        telephone:
+          type: string
+          example: 01003616844
+    
+  all_Instructors:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Refaat Aish
+        username:
+          type: string
+          example: refo99
+        email:
+          type: string
+          example: refaat.aish.fciscu1@gmail.com
+        subjectName:
+          type: string
+          example: medicalTools
+        telephone:
+          type: string
+          example: 01003616844
+   
+  all_Admin_Questions:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        question:
+          type: string
+          example: Whats about this lect today? 
+        option1:
+          type: string
+          example: bad
+        option2:
+          type: string
+          example: good
+        option3:
+          type: string
+          example: very good
+        option4:
+          type: string
+          example: excellent
+          
+  all_Students_Questions:
+      type: object
+      properties:
+        student_id:
+          type: integer
+          example: 1
+        student_info_link:
+          type: string
+          example: http://syntax-eg.esy.es/api/students/4
+        answer1:
+          type: string
+          example: bad
+        answer2:
+          type: string
+          example: good
+        answer3:
+          type: string
+          example: very good
+        answer4:
+          type: string
+          example: excellent
+          
+  add_Admin:
+    type: object
+    required:
+    - username 
+    - email
+    - role
+    - password
+    properties:
+      username:
+        type: string
+        example: Refaat Aish
+      email:
+        type: string
+        example: refaat.aish.fciscu1@gmail.com
+      password:
+        type: string
+        example: 01012341234
+      role:
+        type: integer
+        example: 1
+  
+  add_Student:
+    type: object
+    required:
+    - name
+    - username 
+    - password
+    - email
+    - level
+    - telephone
+    properties:
+        name:
+          type: string
+          example: Refaat Aish
+        username:
+          type: string
+          example: refo99
+        email:
+          type: string
+          example: refaat.aish.fciscu1@gmail.com
+        level:
+          type: string
+          example: first
+        telephone:
+          type: string
+          example: 01003616844
+        
+  add_Instructor:
+    type: object
+    required:
+    - name
+    - username 
+    - password
+    - email
+    - subjectName
+    properties:
+      name:
+        type: string
+        example: Refaat Aish
+      username:
+        type: string
+        example: refo99
+      email:
+        type: string
+        example: refaat.aish.fciscu1@gmail.com
+      subjectName:
+        type: string
+        example: medicalTools
+      telephone:
+        type: string
+        example: 01003616844
+        
+        
+  add_Question_By_Admin:
+    type: object
+    required:
+    - question
+    - option1 
+    - option2
+    - option3
+    - option4
+    properties:
+      id:
+        type: integer
+        example: 1
+      question:
+        type: string
+        example: Whats about this lect today? 
+      option1:
+        type: string
+        example: bad
+      option2:
+        type: string
+        example: good
+      option3:
+        type: string
+        example: very good
+      option4:
+        type: string
+        example: excellent
+        
+  add_Question_By_Students:
+    type: object
+    required:
+    - student_id
+    - answer1 
+    - answer2
+    - answer3
+    - answer4
+    properties:
+        student_id:
+          type: integer
+          example: 1
+        answer1:
+          type: string
+          example: bad
+        answer2:
+          type: string
+          example: good
+        answer3:
+          type: string
+          example: very good
+        answer4:
+          type: string
+          example: excellent
+          
+  update_Admin:
+    type: object
+    properties:
+      username:
+        type: string
+        example: Refaat Aish
+      email:
+        type: string
+        example: refaat.aish.fciscu1@gmail.com
+      password:
+        type: string
+        example: 01012341234
+      role:
+        type: integer
+        example: 1
+        
+  update_Student:
+    type: object
+    properties:
+      id: 
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Refaat Aish
+      username:
+        type: string
+        example: refo99
+      email:
+        type: string
+        example: refaat.aish.fciscu1@gmail.com
+      level:
+        type: string
+        example: first
+      telephone:
+        type: string
+        example: 01003616844
+  
+  update_Instructor:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Refaat Aish
+      username:
+        type: string
+        example: refo99
+      email:
+        type: string
+        example: refaat.aish.fciscu1@gmail.com
+      subjectName:
+        type: string
+        example: medicalTools
+      telephone:
+        type: string
+        example: 01003616844
+        
+  
+        
+# Added by API Auto Mocking Plugin
+# host: http://www.syntax-eg.esy.es/
+schemes:
+ - https
+# Added by API Auto Mocking Plugin
+# host: syntax-eg.esy.es
+# Added by API Auto Mocking Plugin
+# host: syntax-eg.esy.es
+# basePath: /api
+# Added by API Auto Mocking Plugin
+host: syntax-eg.esy.es
+#asePath: /DreamTeam33/GraduationProject_MSA/1.0.0

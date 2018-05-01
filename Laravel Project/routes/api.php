@@ -21,3 +21,4 @@ Route::apiresource('/students','StudentModelController');
 Route::apiresource('/instructors','InstructorsController');
 Route::apiresource('/questionsByAdmin','SetQuestionsByAdminController');
 Route::apiresource('/questionsByStudtents','QuestionsByStudentsController');
+Route::apiresource('/studentLogin','StudentLoginController');
