@@ -206,3 +206,7 @@
     color: white !important;
 }
 
+.ng-invalid
+{
+    color: red;
+}

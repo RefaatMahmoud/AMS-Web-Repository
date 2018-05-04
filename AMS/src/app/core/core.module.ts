@@ -4,6 +4,8 @@ import { LoginComponent } from "./login/login.component";
 import { AppRoutingModule } from "./appRouting.module";
 import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AddNewMemberComponent } from './add-new-member/add-new-member.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,10 +14,13 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     declarations: [
         LoginComponent,
         HomeComponent,
-        SidebarComponent
+        SidebarComponent,
+        AddNewMemberComponent
     ],
     imports: [
-        AppRoutingModule
+        AppRoutingModule,
+        ReactiveFormsModule,
+        CommonModule
     ] ,
     exports:[
         AppRoutingModule
