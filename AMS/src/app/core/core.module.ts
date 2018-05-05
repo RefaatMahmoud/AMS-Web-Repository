@@ -6,6 +6,10 @@ import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AddNewMemberComponent } from './add-new-member/add-new-member.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { UIService } from "./services/ui.service";
+import {SharedModule} from "../shared/shared.module"
+
 
 
 
@@ -15,15 +19,25 @@ import { ReactiveFormsModule } from '@angular/forms';
         LoginComponent,
         HomeComponent,
         SidebarComponent,
-        AddNewMemberComponent
+        AddNewMemberComponent,
+        HeaderComponent
     ],
     imports: [
         AppRoutingModule,
         ReactiveFormsModule,
-        CommonModule
-    ] ,
+        CommonModule , 
+       
+    ],
+    // imports: [
+    //     AppRoutingModule , 
+    //     CommonModule , 
+    //     SharedModule , 
+    // ] ,
     exports:[
         AppRoutingModule
+    ] , 
+    providers : [
+        UIService
     ]
 
 })

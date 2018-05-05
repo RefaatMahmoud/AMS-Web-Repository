@@ -17,29 +17,47 @@
                         AMS
                     </h2>
                     <h4 class="card-subtitle text-secondary pb-5">Login</h4> -->
-                      <!-- <form>
+                      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
                           <div class="form-group">
-                              <label for="email" class="">Username</label>
+                              <label for="email"  class="">Username</label>
                               <div class="input-group">
-                                  <input type="email" id="email" placeholder="test@test.com" class="form-control py-3">
+                                  <input formControlName="email" type="email" id="email" placeholder="test@test.com" class="form-control py-3">
                                   <span class="input-group-addon">
                                       <i class="fa fa-user"></i>
                                   </span>
                               </div>
+                              <p 
+                              *ngIf="loginForm.get('email').touched && !loginForm.get('email').value "
+                              class="form-text text-danger">
+                             This field is required !
+                            </p>
+                            <p 
+                            *ngIf="loginForm.get('email').value && !loginForm.get('email').valid"
+                            class="form-text text-danger">
+                           Please set a valid email !
+                          </p>
                           </div>
                           <div class="form-group">
                               <label for="email" class="">Password</label>
                               <div class="input-group">
-                                  <input type="password" placeholder="Enter your Password" class="form-control  py-3">
+                                  <input type="password" formControlName="password" placeholder="Enter your Password" class="form-control  py-3">
                                   <span class="input-group-addon">
                                       <i class="fa fa-eye"></i>
                                   </span>
                               </div>
+                              <p 
+                              *ngIf="loginForm.get('password').touched && !loginForm.get('password').value "
+                              class="form-text text-danger">
+                             This field is required !
+                            </p>
                           </div>
                           <div class="form-group">
-                              <input type="submit" class="btn btn-block btn-green py-3 mt-4" value="Login">
+                              <!-- <input  value="Login"> -->
+                              <button 
+                              [disabled]="!loginForm.get('email').valid  ||!loginForm.get('password').valid"
+                              class="btn btn-block btn-green py-3 mt-4">Login</button>
                           </div>
-                      </form> -->
+                      </form> 
                       <div class="row text-center">
                           <a routerLink="home" class="link-green btn-block"> Forgot your password ?
                           </a>

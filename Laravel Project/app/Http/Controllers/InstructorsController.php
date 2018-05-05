@@ -12,7 +12,9 @@ class InstructorsController extends Controller
 {
     public function index()
     {
-        return InstructorsResource::collection(Instructors::all());
+        return response([
+            "all_Instructors"=>InstructorsResource::collection(Instructors::all())
+        ],200);
     }
     
     public function store(InstructorsRequest $request)
@@ -29,7 +31,7 @@ class InstructorsController extends Controller
         $instructorObj->save();
         //response
         return response([
-            'data' => new InstructorsResource($instructorObj)
+            'add_Instructor' => new InstructorsResource($instructorObj)
         ],201);
     }
 
@@ -51,7 +53,7 @@ class InstructorsController extends Controller
         $instructorObj->save();
         //response
         return response([
-            'data' => new InstructorsResource($instructorObj)
+            'update_Instructor' => new InstructorsResource($instructorObj)
         ],200);
     }
 
@@ -62,7 +64,7 @@ class InstructorsController extends Controller
         $instructorObj = Instructors::find($id);
         $instructorObj->delete();
         return response([
-            "data" => "deleted successfully"
+            "delete_Instructor" => "deleted successfully"
         ],200);
     }
 }

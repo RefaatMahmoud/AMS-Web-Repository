@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UIService } from '../services/ui.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public uiService : UIService) { }
 
   ngOnInit() {
   }
 
+  toggleSidebar(){
+    console.log("toggle")
+    if(this.uiService.getSidebarStatus()){
+      console.log(true);
+      this.uiService.sidebarStatus = false ; 
+    }
+  }
 }
