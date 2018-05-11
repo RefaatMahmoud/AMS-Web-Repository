@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Users\InstructorsRequest;
 use App\Http\Resources\Users\InstructorsResource;
 use App\Instructors;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class InstructorsController extends Controller
@@ -13,7 +12,7 @@ class InstructorsController extends Controller
     public function index()
     {
         return response([
-            "all_Instructors"=>InstructorsResource::collection(Instructors::all())
+            "instructors"=>InstructorsResource::collection(Instructors::all())
         ],200);
     }
     
@@ -31,7 +30,7 @@ class InstructorsController extends Controller
         $instructorObj->save();
         //response
         return response([
-            'add_Instructor' => new InstructorsResource($instructorObj)
+            'instructors' => new InstructorsResource($instructorObj)
         ],201);
     }
 
@@ -39,7 +38,7 @@ class InstructorsController extends Controller
     public function show($id)
     {
         return response([
-            'data' => new InstructorsResource(Instructors::find($id))
+            'instructors' => new InstructorsResource(Instructors::find($id))
         ],200);
     }
 
@@ -53,7 +52,7 @@ class InstructorsController extends Controller
         $instructorObj->save();
         //response
         return response([
-            'update_Instructor' => new InstructorsResource($instructorObj)
+            'instructors' => new InstructorsResource($instructorObj)
         ],200);
     }
 
@@ -64,7 +63,7 @@ class InstructorsController extends Controller
         $instructorObj = Instructors::find($id);
         $instructorObj->delete();
         return response([
-            "delete_Instructor" => "deleted successfully"
+            "instructors" => "deleted successfully"
         ],200);
     }
 }

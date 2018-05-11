@@ -10,7 +10,7 @@ class QuestionsByStudentsController extends Controller
     public function index()
     {
         return response([
-            "all_Students_Questions"=>questionsByStudentsResource::collection(questionsByStudents::all())
+            "students_Questions"=>questionsByStudentsResource::collection(questionsByStudents::all())
         ],200);
     }
 
@@ -28,7 +28,7 @@ class QuestionsByStudentsController extends Controller
         $studentQuestionObj->save();
         //response
         return response([
-            'add_Students_Questions' => new questionsByStudentsResource($studentQuestionObj)
+            'students_Questions' => new questionsByStudentsResource($studentQuestionObj)
         ],201);
     }
 }

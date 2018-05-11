@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Questions\setQuestionsByAdminRequest;
 use App\Http\Resources\Questions\setQuestionsByAdminResources;
 use App\setQuestionsByAdmin;
-use Illuminate\Http\Request;
 
 class SetQuestionsByAdminController extends Controller
 {
@@ -13,7 +12,7 @@ class SetQuestionsByAdminController extends Controller
     public function index()
     {
         return response([
-            "all_Admin_Questions"=>setQuestionsByAdminResources::collection(setQuestionsByAdmin::all())
+            "admin_Questions"=>setQuestionsByAdminResources::collection(setQuestionsByAdmin::all())
         ],200);
     }
 
@@ -31,7 +30,7 @@ class SetQuestionsByAdminController extends Controller
         $questionObj->save();
         //response
         return response([
-            'add_Admin_Questions' => new setQuestionsByAdminResources($questionObj)
+            'admin_Questions' => new setQuestionsByAdminResources($questionObj)
         ],201);
     }
 
@@ -39,7 +38,7 @@ class SetQuestionsByAdminController extends Controller
     {
         $questionObj = setQuestionsByAdmin::find($id);
         return response([
-            'data' => new setQuestionsByAdminResources($questionObj)
+            'admin_Questions' => new setQuestionsByAdminResources($questionObj)
         ],200);
     }
 
@@ -55,7 +54,7 @@ class SetQuestionsByAdminController extends Controller
         //save update request
         $questionObj->save();
         return response([
-            'update_Admin_Questions' => new setQuestionsByAdminResources($questionObj)
+            'admin_Questions' => new setQuestionsByAdminResources($questionObj)
         ],200);
     }
 
@@ -64,7 +63,7 @@ class SetQuestionsByAdminController extends Controller
         $questionObj = setQuestionsByAdmin::find($id);
         $questionObj->delete();
         return response([
-            "delete_Admin_Questions" => "deleted successfully"
+            "admin_Questions" => "deleted successfully"
         ],200);
     }
 }
