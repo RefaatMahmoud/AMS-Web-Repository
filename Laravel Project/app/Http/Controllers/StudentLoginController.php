@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Hash;
 
 class StudentLoginController extends Controller
 {
+    public function index(){
+
+    }
     public function store(Request $request)
     {
         //create object

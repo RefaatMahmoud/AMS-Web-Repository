@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Hash;
 
 class adminLogin extends Controller
 {
+    public function index(){
+
+    }
     public function store(Request $request)
     {
         //create instructor object
