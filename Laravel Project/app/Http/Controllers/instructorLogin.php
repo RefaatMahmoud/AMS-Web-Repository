@@ -1,28 +1,29 @@
 <?php
+
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\StudentModel;
+use App\Instructors;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class StudentLoginController extends Controller
+class instructorLogin extends Controller
 {
     public function store(Request $request)
     {
-        //create object
-        $studenLoginObj = new StudentModel();
+        //create instructor object
+        $instructorLoginObj = new Instructors();
         //set requests
-        $studenLoginObj->username = $request->username;
-        $studenLoginObj->password = Hash::make($request->password);
+        $instructorLoginObj->username = $request->username;
+        $instructorLoginObj->password = Hash::make($request->password);
         ///get password in DB by username request
-        $passwordInDB = DB::table("student_models")
-                        ->where('username','=',$studenLoginObj->username)
-                        ->value('password');
+        $passwordInDB = DB::table("instructors")
+            ->where('username','=',$instructorLoginObj->username)
+            ->value('password');
         //check password request with password in DataBase
         $passwordCheck = Hash::check($request->password,$passwordInDB);
         //Check if username && password is already exits
-        $CheckData = DB::table('student_models')
-            ->where('username','=',$studenLoginObj->username)
+        $CheckData = DB::table('instructors')
+            ->where('username','=',$instructorLoginObj->username)
             ->get();
         $count = count($CheckData);
         if($count > 0 && $passwordCheck== true)

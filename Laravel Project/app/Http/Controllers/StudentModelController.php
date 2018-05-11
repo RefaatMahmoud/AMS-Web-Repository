@@ -13,7 +13,7 @@ class StudentModelController extends Controller
     public function index()
     {
         return response([
-            "students" => StudentsResource::collection(StudentModel::all())
+            "student" => StudentsResource::collection(StudentModel::all())
         ],200);
     }
 
@@ -31,14 +31,14 @@ class StudentModelController extends Controller
         $studentObj->save();
         //response
         return response([
-            'students' => new StudentsResource($studentObj)
+            'student' => new StudentsResource($studentObj)
         ],201);
     }
 
     public function show($id)
     {
         return response([
-            'students' => new StudentsResource(StudentModel::find($id))
+            'student' => new StudentsResource(StudentModel::find($id))
         ],200);
     }
 
@@ -52,7 +52,7 @@ class StudentModelController extends Controller
         $studentObj->save();
         //response
         return response([
-            'students' => new StudentsResource($studentObj)
+            'student' => new StudentsResource($studentObj)
         ],200);
     }
 
@@ -62,7 +62,7 @@ class StudentModelController extends Controller
         $studentObj = StudentModel::find($id);
         $studentObj->delete();
         return response([
-            "students" => "deleted successfully"
+            "student" => "deleted successfully"
         ],200);
     }
 }
