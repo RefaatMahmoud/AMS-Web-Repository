@@ -9,6 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { UIService } from "./services/ui.service";
 import {SharedModule} from "../shared/shared.module"
+import {HttpModule} from "@angular/http" ; 
+import { AuthService } from "./services/auth.service";
+// import { HttpModule } from "@angular/common/http";
 
 
 
@@ -26,6 +29,7 @@ import {SharedModule} from "../shared/shared.module"
         AppRoutingModule,
         ReactiveFormsModule,
         CommonModule , 
+        HttpModule 
        
     ],
     // imports: [
@@ -37,7 +41,8 @@ import {SharedModule} from "../shared/shared.module"
         AppRoutingModule
     ] , 
     providers : [
-        UIService
+        UIService , 
+        AuthService
     ]
 
 })

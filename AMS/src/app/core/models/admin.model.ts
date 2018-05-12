@@ -1,7 +1,8 @@
 export class AdminModel{
     id  : number ;
-    name : string; 
+    username : string; 
     role : number ; 
     email : string ;  
+    password :string ; 
 
 }

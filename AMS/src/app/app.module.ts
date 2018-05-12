@@ -5,6 +5,7 @@ import {CoreModule} from "./core/core.module"
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './core/appRouting.module';
+import { AuthService } from './core/services/auth.service';
 // import { LoginComponent } from './core/login/login.component';
 
 

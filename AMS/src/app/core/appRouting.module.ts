@@ -5,9 +5,9 @@ import { HomeComponent } from "./home/home.component";
 import { AddNewMemberComponent } from "./add-new-member/add-new-member.component";
 
 const ROUTES : Routes =[
-    { path : "home" , component : LoginComponent} , 
+    { path : "" , component : LoginComponent} , 
     
-    { path : "" , component : HomeComponent , children :[
+    { path : "home" , component : HomeComponent , children :[
         {path : "new-admin" , component: AddNewMemberComponent}
     ] } ,
 ]

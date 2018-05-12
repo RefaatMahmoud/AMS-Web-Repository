@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiOrigin : "https://app.swaggerhub.com/apis/DreamTeam33/",
-  apiPath : "https://app.swaggerhub.com/apis/DreamTeam33/GraduationProject_MSA/1.0.0"  
+  apiOrigin : "http://syntax-eg.esy.es/",
+  apiPath : "http://syntax-eg.esy.es/api/"  
 };
