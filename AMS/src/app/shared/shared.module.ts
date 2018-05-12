@@ -13,7 +13,7 @@ import {FormsModule , ReactiveFormsModule} from "@angular/forms"
         ReactiveFormsModule
     ] , 
     exports : [
-        CommonModule , ReactiveFormsModule
+        CommonModule , ReactiveFormsModule , FormsModule
     ]  
 }) 
 export class SharedModule { 
