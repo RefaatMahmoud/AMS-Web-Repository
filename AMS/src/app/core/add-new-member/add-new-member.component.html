@@ -1,0 +1,78 @@
+<div class="col-4 mx-auto">
+
+        <form id="member-form"
+        [formGroup]="addMemberForm"
+        (ngSubmit)="onSubmit()">
+      <div class="form-group ">
+              <label for="username">Username</label>
+              <div class="input-group">
+                      <input type="text" 
+                             class="form-control"
+                              id="username"  
+                              formControlName="username"
+                              placeholder="Enter Username">
+                              <span class="input-group-addon">
+                                  <i class="fa fa-user"></i>
+                              </span>
+              </div>
+              <span 
+              *ngIf="!addMemberForm.get('username').valid && addMemberForm.get('username').touched"
+              class="help-block" >Username Requird!</span>
+      </div>
+
+      <div class="form-group ">
+              <label for="email">Email</label>
+              <div class="input-group">
+                      <input type="email" 
+                             class="form-control"
+                             id="email" 
+                             formControlName="email"
+                             placeholder="Enter email">
+                              <span class="input-group-addon">
+                                  <i class="fa fa-envelope"></i>
+                              </span>
+              </div>
+        <!-- <i class="fas fa-envelope"></i> -->
+        <span 
+              *ngIf="!addMemberForm.get('email').valid && addMemberForm.get('email').touched; else correctEmail"
+              class="help-block" >Enter a valid Email!</span>
+              <ng-template #correctEmail>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </ng-template>
+        
+      </div>
+      
+      <div class="form-group ">
+              <label for="password">Password</label>
+              <div class="input-group">
+                      <input type="password"
+                             class="form-control"
+                              id="password"
+                              formControlName="password"
+                              placeholder="Enter Password">
+                              <span class="input-group-addon">
+                                  <i class="fa fa-lock"></i>
+                              </span>
+              </div>
+              <span 
+              *ngIf="!addMemberForm.get('password').valid && addMemberForm.get('password').touched"
+              class="help-block" >Password Requird!</span>
+      </div>
+
+
+      <select class="form-control"
+              formControlName="role">
+              <option>ROLE</option>
+              <option>ADMIN</option>
+              <option>USER</option>
+      </select>
+     <br>
+      <button type="submit" class="btn btn-success " >Add Member</button>
+      <span 
+              *ngIf="!addMemberForm.valid && addMemberForm.touched"
+              class="help-block" >Fill out all the form correctly!</span>
+    </form>
+
+
+
+</div>

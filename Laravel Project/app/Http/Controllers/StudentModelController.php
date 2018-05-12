@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Users\StudentRequest;
 use App\Http\Resources\Users\StudentsResource;
 use App\StudentModel;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class StudentModelController extends Controller
@@ -13,7 +12,9 @@ class StudentModelController extends Controller
 
     public function index()
     {
-        return StudentsResource::collection(StudentModel::all());
+        return response([
+            "student" => StudentsResource::collection(StudentModel::all())
+        ],200);
     }
 
     public function store(StudentRequest $request)
@@ -30,14 +31,14 @@ class StudentModelController extends Controller
         $studentObj->save();
         //response
         return response([
-            'data' => new StudentsResource($studentObj)
+            'student' => new StudentsResource($studentObj)
         ],201);
     }
 
     public function show($id)
     {
         return response([
-            'data' => new StudentsResource(StudentModel::find($id))
+            'student' => new StudentsResource(StudentModel::find($id))
         ],200);
     }
 
@@ -51,7 +52,7 @@ class StudentModelController extends Controller
         $studentObj->save();
         //response
         return response([
-            'data' => new StudentsResource($studentObj)
+            'student' => new StudentsResource($studentObj)
         ],200);
     }
 
@@ -61,7 +62,7 @@ class StudentModelController extends Controller
         $studentObj = StudentModel::find($id);
         $studentObj->delete();
         return response([
-            "data" => "deleted successfully"
+            "student" => "deleted successfully"
         ],200);
     }
 }

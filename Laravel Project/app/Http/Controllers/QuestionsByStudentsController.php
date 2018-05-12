@@ -9,7 +9,9 @@ class QuestionsByStudentsController extends Controller
 {
     public function index()
     {
-        return questionsByStudentsResource::collection(questionsByStudents::all());
+        return response([
+            "student_Questions"=>questionsByStudentsResource::collection(questionsByStudents::all())
+        ],200);
     }
 
     public function store(questionsByStudentsRequest $request)
@@ -26,7 +28,7 @@ class QuestionsByStudentsController extends Controller
         $studentQuestionObj->save();
         //response
         return response([
-            'data' => new questionsByStudentsResource($studentQuestionObj)
+            'student_Questions' => new questionsByStudentsResource($studentQuestionObj)
         ],201);
     }
 }
