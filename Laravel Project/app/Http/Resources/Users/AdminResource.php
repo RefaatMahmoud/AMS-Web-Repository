@@ -13,7 +13,8 @@ class AdminResource extends JsonResource
             "username" => $this->username,
             "password" => $this->password,
             "email" => $this->email,
-            "role" => $this->role
+            "role" => $this->role,
+            "remember_token" => $this->remember_token
         ];
     }
 }
