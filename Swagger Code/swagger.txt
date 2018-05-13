@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  description: This is Medical Faculty API 
+  description: This is Medical Faculty API and Base  URL / http://syntax-eg.esy.es
   version: 1.0.0
   title: Simple Graduatopn Project API
   # put the contact info for your development or API team
@@ -12,8 +12,13 @@ tags:
 - name: admin
 - name: student
 - name: instructor
-- name: questions_By_Admin
-- name: questions_By_Students
+- name: adminLogin
+- name: studentLogin
+- name: instructorLogin
+- name: admin_Questions
+- name: student_Questions
+- name: students_in_Location
+
 # - name: students
 
 paths:
@@ -24,7 +29,7 @@ paths:
     get:
       tags:
       - admin
-      summary: get all admins 
+      summary: Get all admins 
       description: |
         this link will return json data for all admins in system
       produces:
@@ -35,12 +40,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/all_Admins'
+              $ref: '#/definitions/admin'
               
     post:
       tags:
       - admin
-      summary: adds an new admin into system
+      summary: Create a new admin into system
       consumes:
       - application/json
       produces:
@@ -50,7 +55,7 @@ paths:
         name: admin
         description: admin to add
         schema:
-          $ref: '#/definitions/add_Admin'
+          $ref: '#/definitions/admin'
       responses:
         201:
           description: item created
@@ -58,8 +63,7 @@ paths:
           description: invalid input, object invalid
         409:
           description: an existing item already exists
-          
-          
+        
   /api/admin/{id}:
     delete:
       tags:
@@ -95,10 +99,34 @@ paths:
         name: admin
         description: admin to update
         schema:
-          $ref: '#/definitions/update_Admin'
+          $ref: '#/definitions/admin'
       responses:
         200:
           description: item updated successfully
+          
+          
+  /api/adminLogin:      
+    post:
+      tags:
+      - adminLogin
+      summary: Admin Login into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: adminLogin
+        description: admin to login
+        schema:
+          $ref: '#/definitions/adminLogin'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
 
 #################################
 ######### start students ########
@@ -118,7 +146,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/all_Students'
+              $ref: '#/definitions/student'
     post:
       tags:
       - student
@@ -132,7 +160,7 @@ paths:
         name: students
         description: admin to add
         schema:
-          $ref: '#/definitions/add_Student'
+          $ref: '#/definitions/student'
       responses:
         201:
           description: item created
@@ -140,6 +168,92 @@ paths:
           description: invalid input, object invalid
         409:
           description: an existing item already exists
+          
+  /api/studentLogin:      
+    post:
+      tags:
+      - studentLogin
+      summary: Admin Login into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: studentLogin
+        description: admin to login
+        schema:
+          $ref: '#/definitions/studentLogin'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+  /api/students_in_Location:
+    get:
+      tags:
+      - students_in_Location
+      summary: Get All Students in Current Location
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: students_in_Location
+        description: Get All Students in Current Location in same Lecture and connected to same Router
+        schema:
+          $ref: '#/definitions/students_in_Location'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+    post:
+      tags:
+      - students_in_Location
+      summary: Create Student in Current Location
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: students_in_Location
+        description: add new student when he attend the lecture and connect to router in this lecture
+        schema:
+          $ref: '#/definitions/students_in_Location'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+  /api/students_in_Location/{id}:
+    delete:
+      tags:
+      - students_in_Location
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: delete student if he disconnect from router
+      description: |
+        Delete student by his id if he outside the lecture or disconnected from router
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is deleted successfully
 #################################
 ######## start instructors ######
 #################################
@@ -158,7 +272,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/all_Instructors'
+              $ref: '#/definitions/instructor'
               
     post:
       tags:
@@ -173,7 +287,7 @@ paths:
         name: instructors
         description: instructors to add
         schema:
-          $ref: '#/definitions/add_Instructor'
+          $ref: '#/definitions/instructor'
       responses:
         201:
           description: item created
@@ -181,6 +295,29 @@ paths:
           description: invalid input, object invalid
         409:
           description: an existing item already exists
+          
+  /api/instructorLogin:      
+    post:
+      tags:
+      - instructorLogin
+      summary: Admin Login into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: instructorLogin
+        description: admin to login
+        schema:
+          $ref: '#/definitions/instructorLogin'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists        
             
 #################################
 ##### start Question Admin ######
@@ -188,7 +325,7 @@ paths:
   /api/questionsByAdmin:
     get:
       tags:
-      - questions_By_Admin
+      - admin_Questions
       summary: get all questions By Admin 
       description: |
         this link will return json data for all questions By Admin in system
@@ -200,11 +337,11 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/all_Admin_Questions'
+              $ref: '#/definitions/admin_Questions'
       
     post:
       tags:
-      - questions_By_Admin
+      - admin_Questions
       summary: adds an new question By Admin into system
       consumes:
       - application/json
@@ -215,7 +352,7 @@ paths:
         name: questions_By_Admin
         description: add Question By Andmin to add
         schema:
-          $ref: '#/definitions/add_Question_By_Admin'
+          $ref: '#/definitions/admin_Questions'
       responses:
         201:
           description: item created
@@ -230,7 +367,7 @@ paths:
   /api/questionsByStudtents:
     get:
       tags:
-      - questions_By_Students
+      - student_Questions
       summary: get all questions By Studtents
       description: |
         this link will return json data for all questions By Studtents in system
@@ -242,11 +379,11 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/all_Students_Questions'
+              $ref: '#/definitions/student_Questions'
               
     post:
       tags:
-      - questions_By_Students
+      - student_Questions
       summary: adds an new questions By_Students into system
       consumes:
       - application/json
@@ -257,7 +394,7 @@ paths:
         name: questions_By_Students
         description: add Question By Andmin to add
         schema:
-          $ref: '#/definitions/add_Question_By_Students'
+          $ref: '#/definitions/student_Questions'
       responses:
         201:
           description: item created
@@ -273,8 +410,13 @@ paths:
 #-------------------- Start definitions ----------------#
 #########################################################          
 definitions:
-  all_Admins:
+  admin:
     type: object
+    required:
+    - username 
+    - email
+    - role
+    - password
     properties:
       id:
         type: integer
@@ -282,6 +424,9 @@ definitions:
       username:
         type: string
         example: Refaat Aish
+      password:
+        type: string
+        example: 01012341234
       email:
         type: string
         example: refaat.aish.fciscu1@gmail.com
@@ -289,8 +434,15 @@ definitions:
         type: integer
         example: 1
           
-  all_Students:
+  student:
       type: object
+      required:
+      - name
+      - username 
+      - password
+      - email
+      - level
+      - telephone
       properties:
         id:
           type: integer
@@ -311,8 +463,14 @@ definitions:
           type: string
           example: 01003616844
     
-  all_Instructors:
+  instructor:
       type: object
+      required:
+      - name
+      - username 
+      - password
+      - email
+      - subjectName
       properties:
         id:
           type: integer
@@ -332,9 +490,54 @@ definitions:
         telephone:
           type: string
           example: 01003616844
+          
+  adminLogin:
+    type: object
+    required:
+    - username 
+    - password
+    properties:
+      username:
+        type: string
+        example: zead
+      password:
+        type: string
+        example: 1111
+        
+  studentLogin:
+    type: object
+    required:
+    - username 
+    - password
+    properties:
+      username:
+        type: string
+        example: zead
+      password:
+        type: string
+        example: 1111 
+  
+  instructorLogin:
+    type: object
+    required:
+    - username 
+    - password
+    properties:
+      username:
+        type: string
+        example: zead
+      password:
+        type: string
+        example: 1111
    
-  all_Admin_Questions:
+  admin_Questions:
       type: object
+      required:
+      - question
+      - option1 
+      - option2
+      - option3
+      - option4
       properties:
         id:
           type: integer
@@ -355,8 +558,14 @@ definitions:
           type: string
           example: excellent
           
-  all_Students_Questions:
+  student_Questions:
       type: object
+      required:
+      - student_id
+      - answer1 
+      - answer2
+      - answer3
+      - answer4
       properties:
         student_id:
           type: integer
@@ -376,173 +585,11 @@ definitions:
         answer4:
           type: string
           example: excellent
-          
-  add_Admin:
-    type: object
-    required:
-    - username 
-    - email
-    - role
-    - password
-    properties:
-      username:
-        type: string
-        example: Refaat Aish
-      email:
-        type: string
-        example: refaat.aish.fciscu1@gmail.com
-      password:
-        type: string
-        example: 01012341234
-      role:
-        type: integer
-        example: 1
-  
-  add_Student:
+    
+  students_in_Location:
     type: object
     required:
     - name
-    - username 
-    - password
-    - email
-    - level
-    - telephone
-    properties:
-        name:
-          type: string
-          example: Refaat Aish
-        username:
-          type: string
-          example: refo99
-        email:
-          type: string
-          example: refaat.aish.fciscu1@gmail.com
-        level:
-          type: string
-          example: first
-        telephone:
-          type: string
-          example: 01003616844
-        
-  add_Instructor:
-    type: object
-    required:
-    - name
-    - username 
-    - password
-    - email
-    - subjectName
-    properties:
-      name:
-        type: string
-        example: Refaat Aish
-      username:
-        type: string
-        example: refo99
-      email:
-        type: string
-        example: refaat.aish.fciscu1@gmail.com
-      subjectName:
-        type: string
-        example: medicalTools
-      telephone:
-        type: string
-        example: 01003616844
-        
-        
-  add_Question_By_Admin:
-    type: object
-    required:
-    - question
-    - option1 
-    - option2
-    - option3
-    - option4
-    properties:
-      id:
-        type: integer
-        example: 1
-      question:
-        type: string
-        example: Whats about this lect today? 
-      option1:
-        type: string
-        example: bad
-      option2:
-        type: string
-        example: good
-      option3:
-        type: string
-        example: very good
-      option4:
-        type: string
-        example: excellent
-        
-  add_Question_By_Students:
-    type: object
-    required:
-    - student_id
-    - answer1 
-    - answer2
-    - answer3
-    - answer4
-    properties:
-        student_id:
-          type: integer
-          example: 1
-        answer1:
-          type: string
-          example: bad
-        answer2:
-          type: string
-          example: good
-        answer3:
-          type: string
-          example: very good
-        answer4:
-          type: string
-          example: excellent
-          
-  update_Admin:
-    type: object
-    properties:
-      username:
-        type: string
-        example: Refaat Aish
-      email:
-        type: string
-        example: refaat.aish.fciscu1@gmail.com
-      password:
-        type: string
-        example: 01012341234
-      role:
-        type: integer
-        example: 1
-        
-  update_Student:
-    type: object
-    properties:
-      id: 
-        type: integer
-        example: 1
-      name:
-        type: string
-        example: Refaat Aish
-      username:
-        type: string
-        example: refo99
-      email:
-        type: string
-        example: refaat.aish.fciscu1@gmail.com
-      level:
-        type: string
-        example: first
-      telephone:
-        type: string
-        example: 01003616844
-  
-  update_Instructor:
-    type: object
     properties:
       id:
         type: integer
@@ -550,30 +597,17 @@ definitions:
       name:
         type: string
         example: Refaat Aish
-      username:
-        type: string
-        example: refo99
-      email:
-        type: string
-        example: refaat.aish.fciscu1@gmail.com
-      subjectName:
-        type: string
-        example: medicalTools
-      telephone:
-        type: string
-        example: 01003616844
-        
-  
-        
+    
+ 
+ 
 # Added by API Auto Mocking Plugin
 # host: http://www.syntax-eg.esy.es/
 schemes:
  - https
+# host: x
 # Added by API Auto Mocking Plugin
-# host: syntax-eg.esy.es
 # Added by API Auto Mocking Plugin
-# host: syntax-eg.esy.es
-# basePath: /api
+# host: virtserver.swaggerhub.coms
+basePath: /DreamTeam33/GraduationProject_MSA/1.0.0
 # Added by API Auto Mocking Plugin
-host: syntax-eg.esy.es
-#asePath: /DreamTeam33/GraduationProject_MSA/1.0.0
+host: virtserver.swaggerhub.com

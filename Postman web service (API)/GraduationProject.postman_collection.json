@@ -26,7 +26,8 @@
 				"fb698bd4-5e06-3c15-7614-136a61dccb8b",
 				"fb5e1ed8-5016-7c11-1091-ecb1377aa786",
 				"01e7c822-dc45-8e58-8726-f279174e8220",
-				"44e59f7e-6a4c-b47e-c451-97ad4be3a505"
+				"44e59f7e-6a4c-b47e-c451-97ad4be3a505",
+				"0aa4b951-399f-4ffa-b590-9bd5a711be88"
 			],
 			"folders_order": []
 		},
@@ -43,7 +44,8 @@
 				"7a516e63-313f-1c74-f97e-850d14a1a312",
 				"b376c029-d420-cb92-5491-c7fcb4d9a4d3",
 				"ebcd4093-7e17-65e8-831d-e7e183939153",
-				"7aa441c9-69d6-5593-7bfd-f015afa422d0"
+				"7aa441c9-69d6-5593-7bfd-f015afa422d0",
+				"ba907caa-7b93-46e9-b920-266efe7f19b1"
 			],
 			"folders_order": []
 		},
@@ -74,7 +76,10 @@
 				"224b49a1-1d05-d49f-ecf4-a474776d1e12",
 				"d8269991-adb9-af64-21bd-3918cba284ab",
 				"4b5cc1be-c89c-402c-ee50-dbe450a85637",
-				"9c84ccbb-22be-b855-42cd-2e8ca0c83323"
+				"9c84ccbb-22be-b855-42cd-2e8ca0c83323",
+				"709955aa-a760-4e56-aa10-d7dcd3c35846",
+				"c8338666-7777-4dd8-8450-e7688eb071c6",
+				"73d24f7d-47f5-4a07-9cfc-c3b73eca1715"
 			],
 			"folders_order": []
 		},
@@ -167,8 +172,37 @@
 			"auth": null,
 			"events": null,
 			"folder": "ed0fd794-b002-888b-27ef-86cdf032a15b",
-			"rawModeData": "{\r\n  \"name\":\"Refaat Aish\",\r\n  \"username\":\"Refo22\",\r\n  \"email\":\"refo@gmail.com\",\r\n  \"password\":\"01001230\"\r\n}",
+			"rawModeData": "{\r\n  \"username\":\"Refo22\",\r\n  \"email\":\"refo@gmail.com\",\r\n  \"password\":\"22222\",\r\n  \"role\":1\r\n}",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "0aa4b951-399f-4ffa-b590-9bd5a711be88",
+			"name": "Admin Login",
+			"url": "http://localhost:8000/api/adminLogin",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "ed0fd794-b002-888b-27ef-86cdf032a15b",
+			"rawModeData": "{\n  \"username\":\"zead\",\n  \"password\":\"1111\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
 		{
@@ -196,14 +230,14 @@
 			"auth": null,
 			"events": null,
 			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
-			"rawModeData": "{\n  \"name\":\"Refaat Aish\",\n  \"username\":\"refaat101\",\n  \"password\":\"112312\",\n  \"email\":\"refo@gmail.com\",\n  \"level\":\"First\",\n  \"telephone\":\"01003616844\"\n}",
+			"rawModeData": "{\n  \"name\":\"Refaat Aish\",\n  \"username\":\"refaat1201\",\n  \"password\":\"112312\",\n  \"email\":\"refo@gmail.com\",\n  \"level\":\"First\",\n  \"telephone\":\"01003616844\"\n}",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
 			"pathVariables": {}
 		},
 		{
 			"id": "44e59f7e-6a4c-b47e-c451-97ad4be3a505",
 			"name": "DELETE admin",
-			"url": "http://localhost:8000/api/admin/5",
+			"url": "http://localhost:8000/api/admin/3",
 			"description": "Delete",
 			"data": [],
 			"dataMode": "params",
@@ -264,9 +298,69 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "709955aa-a760-4e56-aa10-d7dcd3c35846",
+			"name": "Student Login",
+			"url": "http://localhost:8000/api/studentLogin",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
+			"rawModeData": "{\n  \"username\":\"refo\",\n  \"password\":\"1111\"\n}",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "73d24f7d-47f5-4a07-9cfc-c3b73eca1715",
+			"name": "students_in_Location",
+			"url": "http://localhost:8000/api/students_in_Location",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
+			"rawModeData": "{\n\t\"name\":\"zead\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
 			"id": "7a516e63-313f-1c74-f97e-850d14a1a312",
 			"name": "GET specific instructors",
-			"url": "http://localhost:8000/api/instructors/6",
+			"url": "http://localhost:8000/api/instructors/5",
 			"description": null,
 			"data": [],
 			"dataMode": "params",
@@ -434,7 +528,7 @@
 			"auth": null,
 			"events": [],
 			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
-			"rawModeData": "{\n  \"name\":\"Refaat Aish\",\n  \"username\":\"refaat101\",\n  \"password\":\"112312\",\n  \"email\":\"refo@gmail.com\",\n  \"level\":\"First\",\n  \"telephone\":\"01003616844\"\n}",
+			"rawModeData": "{\n  \"name\":\"Refaat Aish\",\n  \"username\":\"refo\",\n  \"password\":\"1111\",\n  \"email\":\"refo@gmail.com\",\n  \"level\":\"First\",\n  \"telephone\":\"01003616844\"\n}",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
 			"pathVariables": {}
 		},
@@ -458,7 +552,7 @@
 		{
 			"id": "b376c029-d420-cb92-5491-c7fcb4d9a4d3",
 			"name": "http://localhost:8000/api/instructors/6",
-			"url": "http://localhost:8000/api/instructors/6",
+			"url": "http://localhost:8000/api/instructors/",
 			"description": null,
 			"data": [],
 			"dataMode": "raw",
@@ -471,6 +565,35 @@
 			"folder": "d3a828b0-724e-25a6-8fb6-b874dab38c34",
 			"rawModeData": "{\n  \"name\":\"Refaat Aish\",\n  \"username\":\"zead2\",\n  \"email\":\"refo@gmail.com\",\n  \"password\":\"412423\",\n  \"telephone\" : \"11112321311\",\n  \"subjectName\":\"math\"\n}",
 			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "ba907caa-7b93-46e9-b920-266efe7f19b1",
+			"name": "instructor Login",
+			"url": "http://localhost:8000/api/instructorLogin",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "d3a828b0-724e-25a6-8fb6-b874dab38c34",
+			"rawModeData": "{\n  \"username\":\"zead\",\n  \"password\":\"1111\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
 		{
@@ -504,6 +627,23 @@
 			"auth": null,
 			"events": [],
 			"folder": "a406aa61-0355-8d3e-3350-db454836cc0b",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "c8338666-7777-4dd8-8450-e7688eb071c6",
+			"name": "students_in_Location",
+			"url": "http://localhost:8000/api/students_in_Location",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
 			"headers": "",
 			"pathVariables": {}
 		},
@@ -585,7 +725,7 @@
 			"auth": null,
 			"events": null,
 			"folder": "ed0fd794-b002-888b-27ef-86cdf032a15b",
-			"rawModeData": "{\n  \"name\":\"AbdoAllah\",\n  \"username\":\"AbdoAllah99\",\n  \"email\":\"AbdoAllah99@gmail.com\",\n  \"password\":\"asdfasdfasdf1234\"\n}",
+			"rawModeData": "{\n  \"username\":\"ss\",\n  \"email\":\"AbdoAllah99@gmail.com\",\n  \"password\":\"123123\",\n  \"role\":6\n}",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
 			"pathVariables": {}
 		},
