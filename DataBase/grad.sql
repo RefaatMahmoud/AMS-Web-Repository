@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2018 at 05:00 PM
+-- Generation Time: May 13, 2018 at 02:41 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -76,7 +76,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (84, '2018_04_09_214403_create_set_questions_by_admins_table', 1),
 (85, '2018_04_10_195920_create_questions_by_students_table', 1),
 (86, '2018_04_19_152854_add_role_users_table', 1),
-(87, '2018_04_24_224128_create_student_logins_table', 1);
+(87, '2018_04_24_224128_create_student_logins_table', 1),
+(88, '2018_05_13_120523_create_students_in__locations_table', 2);
 
 -- --------------------------------------------------------
 
@@ -149,14 +150,27 @@ INSERT INTO `set_questions_by_admins` (`id`, `question`, `option1`, `option2`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student_logins`
+-- Table structure for table `students_in__locations`
 --
 
-CREATE TABLE `student_logins` (
+CREATE TABLE `students_in__locations` (
   `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `students_in__locations`
+--
+
+INSERT INTO `students_in__locations` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Ulises Fadel PhD', '2018-05-13 19:41:10', '2018-05-13 19:41:10'),
+(2, 'Bridget Gerlach', '2018-05-13 19:41:10', '2018-05-13 19:41:10'),
+(3, 'Ursula Krajcik', '2018-05-13 19:41:10', '2018-05-13 19:41:10'),
+(4, 'Elenor Collins', '2018-05-13 19:41:11', '2018-05-13 19:41:11'),
+(5, 'Elouise Collier', '2018-05-13 19:41:11', '2018-05-13 19:41:11'),
+(6, 'zead', '2018-05-13 19:41:30', '2018-05-13 19:41:30');
 
 -- --------------------------------------------------------
 
@@ -259,9 +273,9 @@ ALTER TABLE `set_questions_by_admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `student_logins`
+-- Indexes for table `students_in__locations`
 --
-ALTER TABLE `student_logins`
+ALTER TABLE `students_in__locations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -291,7 +305,7 @@ ALTER TABLE `instructors`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 --
 -- AUTO_INCREMENT for table `questions_by_students`
 --
@@ -303,10 +317,10 @@ ALTER TABLE `questions_by_students`
 ALTER TABLE `set_questions_by_admins`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT for table `student_logins`
+-- AUTO_INCREMENT for table `students_in__locations`
 --
-ALTER TABLE `student_logins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `students_in__locations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `student_models`
 --
