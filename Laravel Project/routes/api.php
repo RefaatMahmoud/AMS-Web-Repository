@@ -25,3 +25,4 @@ Route::apiresource('/studentLogin','StudentLoginController');
 Route::apiresource('/instructorLogin','instructorLogin');
 Route::apiresource('/adminLogin','adminLogin');
 Route::apiresource('/students_in_Location','StudentsInLocationController');
+Route::apiresource('/schedule','ScheduleController');

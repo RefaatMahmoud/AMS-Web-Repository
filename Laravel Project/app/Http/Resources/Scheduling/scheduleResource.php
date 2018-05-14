@@ -11,12 +11,13 @@ class scheduleResource extends JsonResource
         return [
             "id" => $this->id,
             "day" => $this->day,
-            "Location" => $this->location,
+            "Location" => $this->Location,
             "instructorName" => $this->instructorName,
             "subjectName" => $this->subjectName,
+            "type" => $this->type,
+            "groupNumber" => $this->groupNumber,
             "startTime" => $this->startTime,
-            "endTime" => $this->endTime,
-            "type" => $this->type
+            "endTime" => $this->endTime
         ];
     }
 }

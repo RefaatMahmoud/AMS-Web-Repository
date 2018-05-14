@@ -2,84 +2,59 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Scheduling\scheduleRequest;
+use App\Http\Resources\Scheduling\scheduleResource;
 use App\schedule;
 use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return response([
+            "schedule" => scheduleResource::collection(schedule::all())
+        ],200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(scheduleRequest $request)
     {
-        //
+        //create object
+        $scheduleObj = new schedule();
+        //set requests
+        $scheduleObj->day = $request->day;
+        $scheduleObj->Location = $request->Location;
+        $scheduleObj->instructorName = $request->instructorName;
+        $scheduleObj->subjectName = $request->subjectName;
+        $scheduleObj->startTime = $request->startTime;
+        $scheduleObj->endTime = $request->endTime;
+        $scheduleObj->groupNumber = $request->groupNumber;
+        $scheduleObj->type = $request->type;
+        //save
+        $scheduleObj->save();
+        //response
+        return response([
+            "schedule" => new scheduleResource($scheduleObj)
+        ],201);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function update(scheduleRequest $request, $id)
     {
-        //
+        $scheduleObj = schedule::find($id);
+        $scheduleObj->update($request->all());
+        //save
+        $scheduleObj->save();
+        //response
+        return response([
+            "schedule" => new scheduleResource($scheduleObj)
+        ],200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\schedule  $schedule
-     * @return \Illuminate\Http\Response
-     */
-    public function show(schedule $schedule)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\schedule  $schedule
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(schedule $schedule)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\schedule  $schedule
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, schedule $schedule)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\schedule  $schedule
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(schedule $schedule)
-    {
-        //
+        $scheduleObj = schedule::find($id);
+        $scheduleObj->delete();
+        return response([
+            "schedule" => "deleted successfully"
+        ],200);
     }
 }

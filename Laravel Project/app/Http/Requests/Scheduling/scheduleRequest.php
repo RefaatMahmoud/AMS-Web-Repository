@@ -20,7 +20,8 @@ class scheduleRequest extends FormRequest
             "subjectName" => "required",
             "startTime" => "required",
             "endTime" => "required",
-            "type" => "required"
+            "type" => "required",
+            "groupNumber" => 'required'
         ];
     }
 }
