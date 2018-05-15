@@ -11,7 +11,8 @@ import { UIService } from "./services/ui.service";
 import {SharedModule} from "../shared/shared.module"
 import {HttpModule} from "@angular/http" ; 
 import { AuthService } from "./services/auth.service";
-// import { HttpModule } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
+import { AuthGuard } from "./services/auth-gaurd.service";
 
 
 
@@ -29,20 +30,16 @@ import { AuthService } from "./services/auth.service";
         AppRoutingModule,
         ReactiveFormsModule,
         CommonModule , 
-        HttpModule 
+        HttpClientModule 
        
     ],
-    // imports: [
-    //     AppRoutingModule , 
-    //     CommonModule , 
-    //     SharedModule , 
-    // ] ,
     exports:[
         AppRoutingModule
     ] , 
     providers : [
         UIService , 
-        AuthService
+        AuthService ,
+        AuthGuard
     ]
 
 })
