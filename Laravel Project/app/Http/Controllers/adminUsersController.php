@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Requests\Users\AdminRequest;
 use App\Http\Resources\Users\AdminResource;
 use Illuminate\Http\Request;
 use App\User;
@@ -19,18 +17,36 @@ class adminUsersController extends Controller
 
     public function store(Request $request)
     {
-        //Create
-        $adminObj  = new User();
-        $adminObj->username = $request->username;
-        $adminObj->password  = Hash::make($request->password);
-        $adminObj->email = $request->email;
-        $adminObj->role = $request->role;
-        //Save
-        $adminObj->save();
-        //Response
-        return response([
-            'admin' => new AdminResource($adminObj)
-        ],201);
+        $rules = [
+            'username' => 'required',
+            'password' => 'required',
+            'email' => 'required' ,
+            'role' => 'required'
+        ];
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all() , $rules);
+        if($validator->fails())
+        {
+            return response([
+                "status" => false ,
+                "message" => $validator->messages()
+            ]);
+        }
+        else
+        {
+            //Create
+            $adminObj  = new User();
+            $adminObj->username = $request->username;
+            $adminObj->password  = Hash::make($request->password);
+            $adminObj->email = $request->email;
+            $adminObj->role = $request->role;
+            $adminObj->remember_token = str_random(60);
+            //Save
+            $adminObj->save();
+            //Response
+            return response([
+                'admin' => new AdminResource($adminObj)
+            ],201);
+        }
     }
 
     public function show($id)

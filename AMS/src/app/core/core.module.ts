@@ -11,8 +11,13 @@ import { UIService } from "./services/ui.service";
 import {SharedModule} from "../shared/shared.module"
 import {HttpModule} from "@angular/http" ; 
 import { AuthService } from "./services/auth.service";
+<<<<<<< HEAD
 import { HttpClientModule } from "@angular/common/http";
 import { AuthGuard } from "./services/auth-gaurd.service";
+=======
+import { NewAdmin } from "./services/newAdmin.service";
+// import { HttpModule } from "@angular/common/http";
+>>>>>>> d9bdb10d42832c16eab33089778935c2632d5600
 
 
 
@@ -38,8 +43,14 @@ import { AuthGuard } from "./services/auth-gaurd.service";
     ] , 
     providers : [
         UIService , 
+<<<<<<< HEAD
         AuthService ,
         AuthGuard
+=======
+        AuthService,
+        NewAdmin
+        
+>>>>>>> d9bdb10d42832c16eab33089778935c2632d5600
     ]
 
 })

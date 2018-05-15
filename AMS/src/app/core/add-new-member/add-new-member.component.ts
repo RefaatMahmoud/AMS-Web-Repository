@@ -1,5 +1,6 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { NewAdmin } from '../services/newAdmin.service';
 
 @Component({
   selector: 'app-add-new-member',
@@ -10,7 +11,7 @@ export class AddNewMemberComponent implements OnInit {
 
   addMemberForm: FormGroup ;
 
-  constructor() { }
+  constructor(private newAdmin: NewAdmin) { }
 
   ngOnInit() {
     this.addMemberForm = new FormGroup({
@@ -23,7 +24,18 @@ export class AddNewMemberComponent implements OnInit {
 
 
   onSubmit(){
-    console.log(this.addMemberForm)
+    let data  = {
+      username : this.addMemberForm.get('username').value,
+      password : this.addMemberForm.get('password').value,
+      email : this.addMemberForm.get('email').value,
+      role : this.addMemberForm.get('role').value
+    };
+
+    this.newAdmin.newMember(data).subscribe(
+      data => {
+        console.log(data);
+      }
+    )
   }
 
 }
