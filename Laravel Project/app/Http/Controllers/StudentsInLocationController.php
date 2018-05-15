@@ -30,16 +30,6 @@ class StudentsInLocationController extends Controller
         ],201);
     }
 
-    public function show(students_in_Location $students_in_Location)
-    {
-
-    }
-
-    public function update(Request $request, students_in_Location $students_in_Location)
-    {
-
-    }
-
     public function destroy($id)
     {
         $studentLocationObj = students_in_Location::find($id);

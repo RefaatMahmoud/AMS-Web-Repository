@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2018 at 02:41 PM
+-- Generation Time: May 14, 2018 at 08:09 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -77,7 +77,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (85, '2018_04_10_195920_create_questions_by_students_table', 1),
 (86, '2018_04_19_152854_add_role_users_table', 1),
 (87, '2018_04_24_224128_create_student_logins_table', 1),
-(88, '2018_05_13_120523_create_students_in__locations_table', 2);
+(88, '2018_05_13_120523_create_students_in__locations_table', 2),
+(92, '2018_05_14_144017_create_schedules_table', 3),
+(94, '2018_05_14_172009_create_subjects_table', 4);
 
 -- --------------------------------------------------------
 
@@ -118,6 +120,38 @@ INSERT INTO `questions_by_students` (`id`, `student_id`, `answer1`, `answer2`, `
 (3, 5, 'very good', 'excellent', 'very good', 'very good', '2018-04-30 00:44:49', '2018-04-30 00:44:49'),
 (4, 3, 'excellent', 'good', 'bad', 'good', '2018-04-30 00:44:49', '2018-04-30 00:44:49'),
 (5, 8, 'very good', 'excellent', 'good', 'excellent', '2018-04-30 00:44:49', '2018-04-30 00:44:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schedules`
+--
+
+CREATE TABLE `schedules` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `day` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subjectName` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `instructorName` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Location` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `startTime` int(11) NOT NULL,
+  `endTime` int(11) NOT NULL,
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `groupNumber` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `schedules`
+--
+
+INSERT INTO `schedules` (`id`, `day`, `subjectName`, `instructorName`, `Location`, `startTime`, `endTime`, `type`, `groupNumber`, `created_at`, `updated_at`) VALUES
+(6, 'Wednesday', 'pharmacy', 'Hulda Hahn', 'Hall 1', 3, 11, 'lecture', 1, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
+(7, 'Tuesday', 'medical tools', 'Annalise Kautzer', 'Hall 1', 7, 9, 'lecture', 3, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
+(8, 'Wednesday', 'dentist', 'Alexander McGlynn', 'Hall 5', 6, 12, 'lecture', 2, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
+(9, 'Thursday', 'Surgery', 'Dina Walker', 'Hall 2', 6, 2, 'lecture', 2, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
+(10, 'Thursday', 'dentist', 'William McDermott', 'Hall 4', 3, 11, 'section', 4, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
+(11, 'Monday', 'Medical', 'Refaat Aish', 'Hall 3', 2, 5, 'lecture', 2, '2018-05-14 23:53:17', '2018-05-14 23:53:17');
 
 -- --------------------------------------------------------
 
@@ -210,6 +244,33 @@ INSERT INTO `student_models` (`id`, `name`, `username`, `password`, `email`, `te
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subjects`
+--
+
+CREATE TABLE `subjects` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `subjectName` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `duration` double(8,2) NOT NULL,
+  `totalMark` int(11) NOT NULL,
+  `groupNumber` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `subjectName`, `duration`, `totalMark`, `groupNumber`, `created_at`, `updated_at`) VALUES
+(1, 'dentist', 4.00, 80, 2, '2018-05-15 00:33:02', '2018-05-15 00:33:02'),
+(2, 'dentist', 2.00, 100, 1, '2018-05-15 00:33:02', '2018-05-15 00:33:02'),
+(3, 'pharmacy', 2.00, 200, 5, '2018-05-15 00:33:02', '2018-05-15 00:33:02'),
+(4, 'medical tools', 1.00, 80, 5, '2018-05-15 00:33:02', '2018-05-15 00:33:02'),
+(5, 'Surgery', 3.00, 120, 4, '2018-05-15 00:33:02', '2018-05-15 00:33:02');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -229,12 +290,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `role`) VALUES
-(1, 'janie09', 'thelma98@example.net', '$2y$10$LOFg/XhEA8I8w2dEDWRdquS1qx4XsfislPNXAri0/INig5AzEhQMK', 'ZqWdTPYJln', '2018-04-30 00:44:45', '2018-04-30 00:44:45', 5),
-(2, 'kuvalis.amelia', 'zstroman@example.com', '$2y$10$rWAssmgXKfF0HMhojOpD0u8a74EfV/jlyQM3.0NC3NxMmZ2h189wm', 'GaRrCpvJa1', '2018-04-30 00:44:45', '2018-04-30 00:44:45', 0),
-(3, 'koch.fabiola', 'kaya.quigley@example.com', '$2y$10$JQUmEDipzPOkaZ84mOC7CuNjVow3EIHwtYOoYjtpIHXXFkbuPLKoe', 'qweXMUOGO9', '2018-04-30 00:44:45', '2018-04-30 00:44:45', 4),
-(4, 'lukas.vandervort', 'max85@example.org', '$2y$10$1n16zmB7uw2fM7vyatM5jeVcgmyH..YY1p3gTpRSt.ylKX8zTFyXW', 'NVKrMHWaSx', '2018-04-30 00:44:46', '2018-04-30 00:44:46', 1),
-(5, 'eblick', 'stark.vivienne@example.net', '$2y$10$n5kLtP7S7hJjHr2uk15kte8NKlSPIzZvcXHWrB0HZrXkGZGH1pLVm', '4IX6CNJQol', '2018-04-30 00:44:46', '2018-04-30 00:44:46', 0),
-(6, 'zead', 'ZeadSalah99@gmail.com', '$2y$10$PIrYKckNLUjDTfZBG6HGhOn4qhLz6r0gXZWj.tDzbH/04dkN3z0em', NULL, '2018-05-11 21:48:35', '2018-05-11 21:48:35', 2);
+(7, 'nienow.esther', 'palma.mckenzie@example.net', '$2y$10$hnJ/NX5uv/E.2oTmt5WVS.Q915OTjJX/oCe./D/m6yWWx7EP41FJy', '7vzCRgTiUkxOIMgf60rYU5EMH1fwh3lzpC2xFIavpx6o1GXFlcGdnHQbjyTQ', '2018-05-14 02:10:01', '2018-05-14 02:10:01', 5),
+(9, 'frankie.upton', 'smith.calista@example.org', '$2y$10$zWjtt7v2bC3J6hnUfOaijuEPhtPNaAn29QaML8.joPDd0IQayv7qy', '8I4UIDXnzHr7ivLnbsQheN2KUQ8C6aYX9Hccs5P4W0wPyACqWpDJFQB6p3YZ', '2018-05-14 02:10:01', '2018-05-14 02:10:01', 5),
+(10, 'lurline.reichel', 'rkeebler@example.com', '$2y$10$8.jnVqSdXLxeM2vtAFVLjOlGTp4cJ7534Su9G6hZG/JdlPXQwtwIi', 'KlI7hvDdG7bmFH084Z2BaytBi8jieglZC2qUMiEGTliTOdUwvUujGFofIwRP', '2018-05-14 02:10:01', '2018-05-14 02:10:01', 0),
+(11, 'johan80', 'rico.gorczany@example.net', '$2y$10$5/oZHcV.J.g3mVlfyOKaV.0j6.9xIKv.wMnAhnGhl72.7.go08cTi', 'iwvzQV6djmBvk1Bo4UN0m5d3rt6LXDTPFJQRWP8DYb9YL1w5pdLaye4ZFT8Q', '2018-05-14 02:10:01', '2018-05-14 02:10:01', 1),
+(13, 'zead', 'zead99@gmail.com', '$2y$10$/SHxyxdT8qBA0MFhiArhHe4V67EZW.raZGY4z17QHWMQOHTI76ASq', 'JXKS4svMTKdlbl55PtXgSH4uucnK9lRZcSiiaiWwlp8DgDMe6Ikz3pWemlU5', '2018-05-14 02:16:35', '2018-05-14 02:16:35', 6);
 
 --
 -- Indexes for dumped tables
@@ -267,6 +327,12 @@ ALTER TABLE `questions_by_students`
   ADD KEY `questions_by_students_student_id_foreign` (`student_id`);
 
 --
+-- Indexes for table `schedules`
+--
+ALTER TABLE `schedules`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `set_questions_by_admins`
 --
 ALTER TABLE `set_questions_by_admins`
@@ -284,6 +350,12 @@ ALTER TABLE `students_in__locations`
 ALTER TABLE `student_models`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `student_models_username_unique` (`username`);
+
+--
+-- Indexes for table `subjects`
+--
+ALTER TABLE `subjects`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -305,12 +377,17 @@ ALTER TABLE `instructors`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT for table `questions_by_students`
 --
 ALTER TABLE `questions_by_students`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `schedules`
+--
+ALTER TABLE `schedules`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `set_questions_by_admins`
 --
@@ -327,10 +404,15 @@ ALTER TABLE `students_in__locations`
 ALTER TABLE `student_models`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
+-- AUTO_INCREMENT for table `subjects`
+--
+ALTER TABLE `subjects`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Constraints for dumped tables
 --

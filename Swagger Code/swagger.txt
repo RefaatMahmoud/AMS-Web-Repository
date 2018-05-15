@@ -18,7 +18,8 @@ tags:
 - name: admin_Questions
 - name: student_Questions
 - name: students_in_Location
-
+- name: schedule
+- name: subjects
 # - name: students
 
 paths:
@@ -403,8 +404,170 @@ paths:
         409:
           description: an existing item already exists
      
-  
+####################################
+######### start schedule ###########
+#################################### 
+  /api/schedule:
+    get:
+      tags:
+      - schedule
+      summary: Get all schedule information  
+      description: |
+        GET data for all schedule information For (First-Second-Thrid-Fourth-Fifth) groups
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schedule'
+              
+    post:
+      tags:
+      - schedule
+      summary: Create a new schedule into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: admin
+        description: schedule to add
+        schema:
+          $ref: '#/definitions/schedule'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+        
+  /api/schedule/{id}:
+    delete:
+      tags:
+      - schedule
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: delete schedule
+      description: |
+        delete schedule by his id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is deleted successfully
+          
+    put:
+      tags:
+      - schedule
+      summary: Update an existing schedule
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path 
+        type: number
+        required: true 
+      - in: body
+        name: schedule
+        description: schedule to update
+        schema:
+          $ref: '#/definitions/schedule'
+      responses:
+        200:
+          description: item updated successfully
+          
+####################################
+######### start subjects ###########
+#################################### 
 
+  /api/subjects:
+    get:
+      tags:
+      - subjects
+      summary: Get all subjects information  
+      description: |
+        GET data for all subjects information For (First-Second-Thrid-Fourth-Fifth) groups
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/subjects'
+              
+    post:
+      tags:
+      - subjects
+      summary: Create a new subject into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: subjects
+        description: subjects to add
+        schema:
+          $ref: '#/definitions/subjects'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+        
+  /api/subjects/{id}:
+    delete:
+      tags:
+      - subjects
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: delete subject
+      description: |
+        delete subject by his id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is deleted successfully
+          
+    put:
+      tags:
+      - subjects
+      summary: Update an existing subject
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path 
+        type: number
+        required: true 
+      - in: body
+        name: subjects
+        description: subject to update
+        schema:
+          $ref: '#/definitions/subjects'
+      responses:
+        200:
+          description: item updated successfully
 
 #########################################################
 #-------------------- Start definitions ----------------#
@@ -598,8 +761,70 @@ definitions:
         type: string
         example: Refaat Aish
     
- 
- 
+  schedule:
+    type: object
+    required:
+    - day
+    - instructorName
+    - subjectName
+    - startTime
+    - endTime
+    - type
+    - Location
+    - groupNumber
+    properties:
+      id:
+        type: integer
+        example: 1
+      day:
+        type: string
+        example: Monday
+      instructorName:
+        type: string
+        example: Dr/Hazem Tarek
+      subjectName:
+        type: string
+        example: Medical tools
+      startTime:
+        type: integer
+        example: 2
+      endTime:
+        type: integer
+        example: 5
+      type:
+        type: string
+        example: lecture 
+      Location:
+        type: string
+        example: Hall 2
+      groupNumber:
+        type: number
+        example: 2
+
+  subjects:
+    type: object
+    required:
+    - subjectName
+    - duration
+    - totalMark
+    - groupNumber
+    properties:
+      id:
+        type: integer
+        example: 1
+      subjectName:
+        type: string
+        example: Medical tools
+      duration:
+        type: integer
+        example: 3
+      totalMark:
+        type: integer
+        example: 100 
+      groupNumber:
+        type: integer
+        example: 2 
+        
 # Added by API Auto Mocking Plugin
 # host: http://www.syntax-eg.esy.es/
 schemes:

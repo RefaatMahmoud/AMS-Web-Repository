@@ -10,7 +10,9 @@
 		"ed0fd794-b002-888b-27ef-86cdf032a15b",
 		"acd333be-bca4-2f56-c600-35fa30a532dd",
 		"d3a828b0-724e-25a6-8fb6-b874dab38c34",
-		"28111545-6381-3142-fc78-68637c2f8879"
+		"28111545-6381-3142-fc78-68637c2f8879",
+		"06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
+		"140f0155-ba17-4348-8258-bfe12df7273b"
 	],
 	"folders": [
 		{
@@ -64,6 +66,22 @@
 			]
 		},
 		{
+			"id": "06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
+			"name": "Schedule",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"folder": null,
+			"order": [
+				"d101f8fd-0f9d-4144-a2b0-1cf76f736ec0",
+				"5822096c-4951-4bed-a679-7f2daf9b9084",
+				"b45f0b28-46ce-4b69-8d1f-5baa49a2e03c",
+				"542d1d51-611f-49f0-967d-aa3ab22bc809"
+			],
+			"folders_order": []
+		},
+		{
 			"id": "acd333be-bca4-2f56-c600-35fa30a532dd",
 			"name": "Students",
 			"description": "",
@@ -80,6 +98,22 @@
 				"709955aa-a760-4e56-aa10-d7dcd3c35846",
 				"c8338666-7777-4dd8-8450-e7688eb071c6",
 				"73d24f7d-47f5-4a07-9cfc-c3b73eca1715"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "140f0155-ba17-4348-8258-bfe12df7273b",
+			"name": "Subjects",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"folder": null,
+			"order": [
+				"bd041cc7-54db-4e80-8e27-cc1650e06901",
+				"8d722bb5-e174-4a72-b26f-6de66c4b0c99",
+				"20d54667-623b-444b-839e-199689553632",
+				"0d0af5a8-6043-485e-8b67-dce9e791ebb2"
 			],
 			"folders_order": []
 		},
@@ -206,6 +240,53 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "0d0af5a8-6043-485e-8b67-dce9e791ebb2",
+			"name": "DELETE subjects",
+			"url": "http://localhost:8000/api/subjects/6",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "140f0155-ba17-4348-8258-bfe12df7273b",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "20d54667-623b-444b-839e-199689553632",
+			"name": "PUT subjects",
+			"url": "http://localhost:8000/api/subjects/6",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "140f0155-ba17-4348-8258-bfe12df7273b",
+			"rawModeData": "{\n\t\"subjectName\":\"Medical Tools222\",\n\t\"duration\":12,\n\t\"totalMark\":20022,\n\t\"groupNumber\":5221\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
 			"id": "224b49a1-1d05-d49f-ecf4-a474776d1e12",
 			"name": "Post Student Data",
 			"url": "http://localhost:8000/api/students",
@@ -294,6 +375,40 @@
 			"auth": null,
 			"events": null,
 			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "542d1d51-611f-49f0-967d-aa3ab22bc809",
+			"name": "DELETE schedule",
+			"url": "http://localhost:8000/api/schedule/12",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "5822096c-4951-4bed-a679-7f2daf9b9084",
+			"name": "GET schedule",
+			"url": "http://localhost:8000/api/schedule",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
 			"headers": "",
 			"pathVariables": {}
 		},
@@ -437,6 +552,37 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "8d722bb5-e174-4a72-b26f-6de66c4b0c99",
+			"name": "POST subjects",
+			"url": "http://localhost:8000/api/subjects",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "140f0155-ba17-4348-8258-bfe12df7273b",
+			"rawModeData": "{\n\t\"subjectName\":\"Medical Tools\",\n\t\"duration\":1,\n\t\"totalMark\":200,\n\t\"groupNumber\":5\n}",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
 			"id": "97be55f1-a857-d288-dc52-af0f7bd035df",
 			"name": "Get All Questions By Students",
 			"url": "http://localhost:8000/api/questionsByStudtents",
@@ -568,6 +714,37 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "b45f0b28-46ce-4b69-8d1f-5baa49a2e03c",
+			"name": "PUT schedule",
+			"url": "http://localhost:8000/api/schedule/12",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
+			"rawModeData": "{\n\t\"day\":\"Thur11\",\n\t\"instructorName\":\"Refaat Aish11\",\n\t\"subjectName\":\"Medical11\",\n\t\"startTime\":211,\n\t\"endTime\":511,\n\t\"type\":\"lecture11\",\n\t\"Location\":\"Hall 311\",\n\t\"groupNumber\":211\n}",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
 			"id": "ba907caa-7b93-46e9-b920-266efe7f19b1",
 			"name": "instructor Login",
 			"url": "http://localhost:8000/api/instructorLogin",
@@ -594,6 +771,23 @@
 			"folder": "d3a828b0-724e-25a6-8fb6-b874dab38c34",
 			"rawModeData": "{\n  \"username\":\"zead\",\n  \"password\":\"1111\"\n}",
 			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "bd041cc7-54db-4e80-8e27-cc1650e06901",
+			"name": "GET subjects",
+			"url": "http://localhost:8000/api/subjects",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "140f0155-ba17-4348-8258-bfe12df7273b",
+			"headers": "",
 			"pathVariables": {}
 		},
 		{
@@ -645,6 +839,36 @@
 			"events": [],
 			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
 			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "d101f8fd-0f9d-4144-a2b0-1cf76f736ec0",
+			"name": "POST schedule",
+			"url": "http://localhost:8000/api/schedule",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
+			"rawModeData": "{\n\t\"day\":\"Monday\",\n\t\"instructorName\":\"Refaat Aish\",\n\t\"subjectName\":\"Medical\",\n\t\"startTime\":2,\n\t\"endTime\":5,\n\t\"type\":\"lecture\",\n\t\"Location\":\"Hall 3\",\n\t\"groupNumber\":2\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
 		{
