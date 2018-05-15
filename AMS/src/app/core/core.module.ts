@@ -11,6 +11,7 @@ import { UIService } from "./services/ui.service";
 import {SharedModule} from "../shared/shared.module"
 import {HttpModule} from "@angular/http" ; 
 import { AuthService } from "./services/auth.service";
+import { NewAdmin } from "./services/newAdmin.service";
 // import { HttpModule } from "@angular/common/http";
 
 
@@ -42,7 +43,9 @@ import { AuthService } from "./services/auth.service";
     ] , 
     providers : [
         UIService , 
-        AuthService
+        AuthService,
+        NewAdmin
+        
     ]
 
 })
