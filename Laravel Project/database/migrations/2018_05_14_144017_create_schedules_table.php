@@ -17,7 +17,7 @@ class CreateSchedulesTable extends Migration
             $table->integer('startTime');
             $table->integer('endTime');
             $table->string('type');
-            $table->integer('groupNumber');
+            $table->string('groupNumber');
             $table->timestamps();
         });
     }

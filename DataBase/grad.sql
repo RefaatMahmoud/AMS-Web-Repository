@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2018 at 08:09 PM
+-- Generation Time: May 16, 2018 at 12:07 AM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -79,7 +79,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (87, '2018_04_24_224128_create_student_logins_table', 1),
 (88, '2018_05_13_120523_create_students_in__locations_table', 2),
 (92, '2018_05_14_144017_create_schedules_table', 3),
-(94, '2018_05_14_172009_create_subjects_table', 4);
+(101, '2018_05_14_172009_create_subjects_table', 4),
+(102, '2018_05_15_214431_add_groub_number_studentsmodel', 5);
 
 -- --------------------------------------------------------
 
@@ -109,17 +110,6 @@ CREATE TABLE `questions_by_students` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `questions_by_students`
---
-
-INSERT INTO `questions_by_students` (`id`, `student_id`, `answer1`, `answer2`, `answer3`, `answer4`, `created_at`, `updated_at`) VALUES
-(1, 6, 'very good', 'bad', 'bad', 'very good', '2018-04-30 00:44:49', '2018-04-30 00:44:49'),
-(2, 1, 'good', 'excellent', 'good', 'good', '2018-04-30 00:44:49', '2018-04-30 00:44:49'),
-(3, 5, 'very good', 'excellent', 'very good', 'very good', '2018-04-30 00:44:49', '2018-04-30 00:44:49'),
-(4, 3, 'excellent', 'good', 'bad', 'good', '2018-04-30 00:44:49', '2018-04-30 00:44:49'),
-(5, 8, 'very good', 'excellent', 'good', 'excellent', '2018-04-30 00:44:49', '2018-04-30 00:44:49');
 
 -- --------------------------------------------------------
 
@@ -229,17 +219,17 @@ CREATE TABLE `student_models` (
 --
 
 INSERT INTO `student_models` (`id`, `name`, `username`, `password`, `email`, `telephone`, `level`, `created_at`, `updated_at`) VALUES
-(1, 'Neha Yost DVM', 'rutherford.yessenia', '$2y$10$cuKnAmRMjqk.NvjCbkHEu.ejcmR8MY5EERQT2l.nrqwgqPHt/qwWa', 'drake.cartwright@example.com', '1-494-768-7003 x06796', 'second', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(2, 'Mrs. Hortense Monahan V', 'ymacejkovic', '$2y$10$i46QWGfAJy4xkNHX9JWkGOvdd5czSHqc8U2oecWKuSScAWCHWppNm', 'cmccullough@example.net', '+1-827-221-4250', 'third', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(3, 'Oral Walker', 'glover.sylvia', '$2y$10$87gCdunstKqB.ZhA.HA0jOUtlADt5dmbMdUx3pBKBMv8yUUYZ2wbe', 'denesik.oliver@example.com', '(765) 520-9662 x75980', 'third', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(4, 'Janie Satterfield', 'bartholome.swift', '$2y$10$8wtZImuzFMDAyGLqKVRxfOQ4GxOwiJ0MYE9ZewmNhWskLAfBfVmL6', 'forest.schoen@example.com', '859-225-9430 x64892', 'second', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(5, 'Frederique Roob', 'ibartell', '$2y$10$otUDQxDPJs1aOZX70PCHDu/JHjbmAL.dfAwjMduE/8I61YuFNECrq', 'fjacobs@example.net', '637.435.9007', 'first', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(6, 'Keshawn Bartoletti', 'randy.mosciski', '$2y$10$a4RJVXPnXItUoKHwtfRQCexUVVKbeMPW9C0jhnz.GHebV24cpgNc6', 'chloe35@example.com', '1-792-615-6844 x7101', 'second', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(7, 'Kattie Orn', 'noemie.emmerich', '$2y$10$DYjbjNa2CrGNpvGlw2biEeL.2KWl/qL8Lln1pyMJOM3zisw8qOF2i', 'stanton95@example.org', '730-960-4342', 'third', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(8, 'Ryann McDermott', 'darien.mante', '$2y$10$H3/mMiHGJnz623nKFgEcueo8Al2JEW6VFpz1t485cnDlROvyR5oNy', 'stuart08@example.org', '1-884-228-2261', 'second', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(9, 'Mrs. Ardella Medhurst IV', 'marjorie.runolfsdottir', '$2y$10$dyHmzZmMS1KNNZA1MLLAj.CrHexcPL5V1ss8XKUymCRBD4CvtVPQ.', 'ytillman@example.org', '570.382.9998', 'second', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(10, 'Mr. Jordy Larkin', 'cleora67', '$2y$10$C34tqiG5QDGgcvHRPFZdyenNO48qVy9oLHxIrBkzMyDHd1.tL4BDG', 'chelsea.gulgowski@example.org', '1-292-513-5833 x131', 'third', '2018-04-30 00:44:47', '2018-04-30 00:44:47'),
-(11, 'Mohamed Zead', 'zead', '$2y$10$9lN4fX2KOUrnJtphbXn7Pe4bXW0ilnMtkzVBp6GmTTR7MthN2b2Yq', 'refo@gmail.com', '01003616844', 'First', '2018-05-11 21:18:36', '2018-05-11 21:18:36');
+(22, 'Miss Hannah Douglas', 'vesta.turcotte', '$2y$10$40ZV2T.vfeyoKUIY0Qz46e28Igp/V44kv7EQGGXUUdwjKyjrI4f6W', 'astracke@example.net', '+14275556150', '1', '2018-05-16 05:04:05', '2018-05-16 05:04:05'),
+(23, 'Stephan Jacobs', 'tkessler', '$2y$10$oFrzCD6fiC5CSZk6ybKnUutfMjLx1Rq89POGHApOLv2yZQ1dYGHVy', 'mariah.thiel@example.org', '1-479-449-6156', '3', '2018-05-16 05:04:05', '2018-05-16 05:04:05'),
+(24, 'Connor Klocko V', 'gibson.breana', '$2y$10$PX7SGrfhSL2gxpQ5p5N9p..0j8YTB.7yCY/eu0skOL0SEO5Z7k.8q', 'balistreri.morris@example.com', '+1-414-409-2860', '2', '2018-05-16 05:04:05', '2018-05-16 05:04:05'),
+(25, 'Axel Hilpert IV', 'enrico72', '$2y$10$GQdRAsuBFUCH1Gv9W1XjDOG3Qbpe1Vxqbg73H4V8g7x5QLvRztXjS', 'alia.lakin@example.org', '+1 (975) 271-4443', '2', '2018-05-16 05:04:05', '2018-05-16 05:04:05'),
+(26, 'Lloyd Wilderman', 'murazik.bennie', '$2y$10$0KYvITlOu5iomM5b/2TKAuDBS6fUPiSFf3cBh1aGDHn4A6k/xFD5a', 'patricia.hintz@example.com', '1-923-690-4725 x162', '3', '2018-05-16 05:04:06', '2018-05-16 05:04:06'),
+(27, 'Dr. Sigrid Hammes', 'ullrich.alva', '$2y$10$HWK6SQ8VSPGLRPqhgWg5S.gUW7tzsdDiKQvvNdm2/oPk2/6oEOR.y', 'vzulauf@example.com', '457-476-6254', '1', '2018-05-16 05:04:06', '2018-05-16 05:04:06'),
+(28, 'Dr. Vergie Larson PhD', 'xchamplin', '$2y$10$l8zxzdshxTm5R4SV4X3Kz.F2jJ0d.xQUPAdSj2lFk/fieHE31ep8W', 'iabernathy@example.org', '(961) 636-2158 x464', '4', '2018-05-16 05:04:06', '2018-05-16 05:04:06'),
+(29, 'Shawna Koepp', 'matteo90', '$2y$10$zjmOpJSrtRuJtxbwoINVze.0eRIQWh57swzc9SIOcYL0akaNFMGpW', 'rowe.conner@example.org', '397.985.3018', '4', '2018-05-16 05:04:06', '2018-05-16 05:04:06'),
+(30, 'Jillian Nikolaus', 'leannon.kenneth', '$2y$10$d3dM9WB2..2PFIa88x6fOeInWZfRJBHrKsv6Ry1eUtNnghICh16ni', 'vladimir.vonrueden@example.com', '(378) 679-3076 x34423', '2', '2018-05-16 05:04:06', '2018-05-16 05:04:06'),
+(31, 'Ms. Maegan Buckridge III', 'reinger.ken', '$2y$10$U3BzdUgG3ROyVDh8hajWTeUYcTSbVhE3YibEAlVcpLDhxo.yeguZm', 'ruben12@example.net', '(619) 948-0124 x32461', '2', '2018-05-16 05:04:06', '2018-05-16 05:04:06'),
+(32, 'Mohamed Zead', 'zead', '$2y$10$PO8E2KbnhIb3HFlM4dKtVe4ooHAAF98JZBMiHKiB3R2BuK1nHr1qy', 'zead99@gmail.com', '01003616844', '4', '2018-05-16 05:07:11', '2018-05-16 05:07:11');
 
 -- --------------------------------------------------------
 
@@ -262,11 +252,11 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`id`, `subjectName`, `duration`, `totalMark`, `groupNumber`, `created_at`, `updated_at`) VALUES
-(1, 'dentist', 4.00, 80, 2, '2018-05-15 00:33:02', '2018-05-15 00:33:02'),
-(2, 'dentist', 2.00, 100, 1, '2018-05-15 00:33:02', '2018-05-15 00:33:02'),
-(3, 'pharmacy', 2.00, 200, 5, '2018-05-15 00:33:02', '2018-05-15 00:33:02'),
-(4, 'medical tools', 1.00, 80, 5, '2018-05-15 00:33:02', '2018-05-15 00:33:02'),
-(5, 'Surgery', 3.00, 120, 4, '2018-05-15 00:33:02', '2018-05-15 00:33:02');
+(1, 'Surgery', 2.00, 120, 4, '2018-05-15 17:04:49', '2018-05-15 17:04:49'),
+(2, 'Surgery', 3.00, 80, 2, '2018-05-15 17:04:49', '2018-05-15 17:04:49'),
+(3, 'dentist', 4.00, 120, 3, '2018-05-15 17:04:49', '2018-05-15 17:04:49'),
+(4, 'medical tools', 3.00, 200, 5, '2018-05-15 17:04:49', '2018-05-15 17:04:49'),
+(5, 'Surgery', 1.00, 120, 4, '2018-05-15 17:04:49', '2018-05-15 17:04:49');
 
 -- --------------------------------------------------------
 
@@ -279,22 +269,24 @@ CREATE TABLE `users` (
   `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `role` int(11) NOT NULL
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `role`) VALUES
-(7, 'nienow.esther', 'palma.mckenzie@example.net', '$2y$10$hnJ/NX5uv/E.2oTmt5WVS.Q915OTjJX/oCe./D/m6yWWx7EP41FJy', '7vzCRgTiUkxOIMgf60rYU5EMH1fwh3lzpC2xFIavpx6o1GXFlcGdnHQbjyTQ', '2018-05-14 02:10:01', '2018-05-14 02:10:01', 5),
-(9, 'frankie.upton', 'smith.calista@example.org', '$2y$10$zWjtt7v2bC3J6hnUfOaijuEPhtPNaAn29QaML8.joPDd0IQayv7qy', '8I4UIDXnzHr7ivLnbsQheN2KUQ8C6aYX9Hccs5P4W0wPyACqWpDJFQB6p3YZ', '2018-05-14 02:10:01', '2018-05-14 02:10:01', 5),
-(10, 'lurline.reichel', 'rkeebler@example.com', '$2y$10$8.jnVqSdXLxeM2vtAFVLjOlGTp4cJ7534Su9G6hZG/JdlPXQwtwIi', 'KlI7hvDdG7bmFH084Z2BaytBi8jieglZC2qUMiEGTliTOdUwvUujGFofIwRP', '2018-05-14 02:10:01', '2018-05-14 02:10:01', 0),
-(11, 'johan80', 'rico.gorczany@example.net', '$2y$10$5/oZHcV.J.g3mVlfyOKaV.0j6.9xIKv.wMnAhnGhl72.7.go08cTi', 'iwvzQV6djmBvk1Bo4UN0m5d3rt6LXDTPFJQRWP8DYb9YL1w5pdLaye4ZFT8Q', '2018-05-14 02:10:01', '2018-05-14 02:10:01', 1),
-(13, 'zead', 'zead99@gmail.com', '$2y$10$/SHxyxdT8qBA0MFhiArhHe4V67EZW.raZGY4z17QHWMQOHTI76ASq', 'JXKS4svMTKdlbl55PtXgSH4uucnK9lRZcSiiaiWwlp8DgDMe6Ikz3pWemlU5', '2018-05-14 02:16:35', '2018-05-14 02:16:35', 6);
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'delia61', 'charles.murazik@example.com', '$2y$10$aI26SZBsYLowLXfKxOETFOOZWXl78iH.LG.YtM2hhjEecDY4Qg.tC', '1', 'ze0GWJQtNSdRCRCUcDpalV3PRaMklQwVOLMnKCGUTpMeduTc0jSsseeoGy5e', '2018-05-15 17:04:48', '2018-05-15 17:04:48'),
+(2, 'kamren.braun', 'savanna90@example.org', '$2y$10$GOQkar4dHoi44jr/8spIDuCgSez8JJjZSiTywIPWDXnAbenBJh5B.', '2', 'cjWvX9NPDQtnoXHsuCLx9sf55wVe7CKwod81vfgJ9Hgp438UHg8oREZ2yu0p', '2018-05-15 17:06:30', '2018-05-15 17:06:30'),
+(3, 'robel.gerardo', 'mfisher@example.net', '$2y$10$1v1wDSE.PVSlShwqn94X1euwc.5EobkKbn3exCz2Wy55wdVoXLV5e', '5', 'h1qSMzKqwhZea6AfriYSdO4vtceBWSecOlpxwmA9rh7KtzNVjazFJJsUiZ5v', '2018-05-15 17:06:30', '2018-05-15 17:06:30'),
+(4, 'ucummings', 'ruthe.cummerata@example.org', '$2y$10$QrOT4QgQ0k77l8kKpKwfD.ZGkh/CSa7EnaS.7USCofIcJLjvUhnHG', '4', 'RsqTq3hNuXJtCA9gLvV9DptWkJWrKeEghAs64J5MceGPdOyRmvS42SkqbElv', '2018-05-15 17:06:30', '2018-05-15 17:06:30'),
+(5, 'daisy.quitzon', 'wade.legros@example.com', '$2y$10$1zPy37meuN0zOOIt1qzHZu3uY5WxSf1TdmhwPtV45.dVDl5e1F7Oq', '1', 'prP3HPixCm5d8EGcYQfcL3N21T9lN3tKOCTHMqnTiVHGDLhaGqobxPdxQ2Hs', '2018-05-15 17:06:30', '2018-05-15 17:06:30'),
+(6, 'zead', 'zead99@gmail.com', '$2y$10$YsqzokHbIPu1n2.jwpwuT.jYjlA0oJL0YTNQisFgc7G1w.7K5Ad5q', '4', '7Ww1PwiXCTl99Gx3yZDQP4XZnsBRzDHA36pddzQobQWr3PQgrr3yUVyThNWH', '2018-05-15 17:06:57', '2018-05-15 17:06:57'),
+(7, 'refo', 'refo101@gmail.com', '$2y$10$mniHaVjq1UUHBdM/pA17GufmG31zyZdtC18Eo.0xAHAgw5qn573Rm', '4', 'twHVjnxVesI8z1TzcVkf6ryYyZRF4m7sEeg5KWCrgxBEGVkbkv48Z7gt9bgZ', '2018-05-15 17:07:20', '2018-05-15 17:07:20');
 
 --
 -- Indexes for dumped tables
@@ -377,7 +369,7 @@ ALTER TABLE `instructors`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 --
 -- AUTO_INCREMENT for table `questions_by_students`
 --
@@ -387,7 +379,7 @@ ALTER TABLE `questions_by_students`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `set_questions_by_admins`
 --
@@ -402,17 +394,17 @@ ALTER TABLE `students_in__locations`
 -- AUTO_INCREMENT for table `student_models`
 --
 ALTER TABLE `student_models`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --
