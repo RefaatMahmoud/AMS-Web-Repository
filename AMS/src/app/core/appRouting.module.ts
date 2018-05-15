@@ -6,8 +6,8 @@ import { AddNewMemberComponent } from "./add-new-member/add-new-member.component
 import { AuthGuard } from "./services/auth-gaurd.service";
 
 const ROUTES : Routes =[
-    { path : "" , component : LoginComponent} , 
-    { path : "home" , component : HomeComponent,canActivate:[AuthGuard],canActivateChild :[AuthGuard] ,children :[
+    { path : "login" , component : LoginComponent} , 
+    { path : "" , component : HomeComponent,canActivateChild:[AuthGuard],children :[
         {path : "new-admin" , component: AddNewMemberComponent}
     ] } ,
 ]

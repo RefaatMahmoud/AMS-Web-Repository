@@ -18,16 +18,20 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     let data = { 
-      username: this.loginForm.get("email").value, 
+    username: this.loginForm.get("email").value, 
     password: this.loginForm.get("password").value }
     console.log(data);
     // this.router.navigate(['home']) ; 
     this.auth.login(data).subscribe(
-      (res : UserModel) =>{
-        if(res instanceof UserModel)
-        this.router.navigate(['home']) ; 
-        console.log(res) ;
-      } , 
+      (res:UserModel) =>{
+        // this.auth.logout();
+        // console.log(this.auth.authenticated);
+        console.log(res);
+        this.auth.setUser(res) ;
+        this.router.navigate([""]); 
+        // console.log(res) ;
+      // }
+     }, 
       err=>{
         // this.router.navigate(['home']) ; 
         console.log(err) ;

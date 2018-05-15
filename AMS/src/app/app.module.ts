@@ -23,7 +23,6 @@ import { NewAdmin } from './core/services/newAdmin.service';
   exports:[
     AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
