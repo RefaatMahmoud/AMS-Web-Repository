@@ -26,6 +26,7 @@ class ScheduleController extends Controller
         $scheduleObj->startTime = $request->startTime;
         $scheduleObj->endTime = $request->endTime;
         $scheduleObj->groupNumber = $request->groupNumber;
+        $scheduleObj->totalMark = $request->totalMark;
         $scheduleObj->type = $request->type;
         //save
         $scheduleObj->save();
