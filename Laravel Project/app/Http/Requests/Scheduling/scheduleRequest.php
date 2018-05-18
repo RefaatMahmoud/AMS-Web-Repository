@@ -18,6 +18,7 @@ class scheduleRequest extends FormRequest
             "Location" => "required",
             "instructorName" => "required",
             "subjectName" => "required",
+            "totalMark" => "required",
             "startTime" => "required",
             "endTime" => "required",
             "type" => "required",

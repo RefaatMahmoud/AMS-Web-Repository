@@ -14,6 +14,7 @@ class scheduleResource extends JsonResource
             "Location" => $this->Location,
             "instructorName" => $this->instructorName,
             "subjectName" => $this->subjectName,
+            "totalMark" => $this->totalMark,
             "type" => $this->type,
             "groupNumber" => $this->groupNumber,
             "startTime" => $this->startTime,

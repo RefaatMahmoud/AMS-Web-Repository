@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2018 at 12:07 AM
+-- Generation Time: May 17, 2018 at 05:16 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -80,7 +80,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (88, '2018_05_13_120523_create_students_in__locations_table', 2),
 (92, '2018_05_14_144017_create_schedules_table', 3),
 (101, '2018_05_14_172009_create_subjects_table', 4),
-(102, '2018_05_15_214431_add_groub_number_studentsmodel', 5);
+(102, '2018_05_15_214431_add_groub_number_studentsmodel', 5),
+(103, '2018_05_17_150846_add_total_mark_to_schedules', 6);
 
 -- --------------------------------------------------------
 
@@ -128,20 +129,21 @@ CREATE TABLE `schedules` (
   `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `groupNumber` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `totalMark` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `schedules`
 --
 
-INSERT INTO `schedules` (`id`, `day`, `subjectName`, `instructorName`, `Location`, `startTime`, `endTime`, `type`, `groupNumber`, `created_at`, `updated_at`) VALUES
-(6, 'Wednesday', 'pharmacy', 'Hulda Hahn', 'Hall 1', 3, 11, 'lecture', 1, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
-(7, 'Tuesday', 'medical tools', 'Annalise Kautzer', 'Hall 1', 7, 9, 'lecture', 3, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
-(8, 'Wednesday', 'dentist', 'Alexander McGlynn', 'Hall 5', 6, 12, 'lecture', 2, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
-(9, 'Thursday', 'Surgery', 'Dina Walker', 'Hall 2', 6, 2, 'lecture', 2, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
-(10, 'Thursday', 'dentist', 'William McDermott', 'Hall 4', 3, 11, 'section', 4, '2018-05-14 23:36:07', '2018-05-14 23:36:07'),
-(11, 'Monday', 'Medical', 'Refaat Aish', 'Hall 3', 2, 5, 'lecture', 2, '2018-05-14 23:53:17', '2018-05-14 23:53:17');
+INSERT INTO `schedules` (`id`, `day`, `subjectName`, `instructorName`, `Location`, `startTime`, `endTime`, `type`, `groupNumber`, `created_at`, `updated_at`, `totalMark`) VALUES
+(12, 'Tuesday', 'pharmacy', 'Carlie Boyer', 'Hall 5', 1, 12, 'section', 5, '2018-05-17 22:12:43', '2018-05-17 22:12:43', 200),
+(13, 'Wednesday', 'pharmacy', 'Mr. Bernie Hudson', 'Hall 1', 5, 4, 'section', 1, '2018-05-17 22:12:43', '2018-05-17 22:12:43', 200),
+(14, 'Tuesday', 'dentist', 'Felicia Kessler', 'Hall 5', 3, 6, 'section', 1, '2018-05-17 22:12:43', '2018-05-17 22:12:43', 80),
+(15, 'Thursday', 'dentist', 'Yadira Bailey', 'Hall 1', 2, 7, 'section', 2, '2018-05-17 22:12:43', '2018-05-17 22:12:43', 120),
+(16, 'Monday', 'Surgery', 'Eleanora Hayes', 'Hall 3', 2, 2, 'lecture', 5, '2018-05-17 22:12:43', '2018-05-17 22:12:43', 100),
+(17, 'Wednesday', 'Medical', 'Refaat Aish', 'Hall 3', 2, 5, 'lecture', 2, '2018-05-17 22:16:17', '2018-05-17 22:16:17', 100);
 
 -- --------------------------------------------------------
 
@@ -369,7 +371,7 @@ ALTER TABLE `instructors`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 --
 -- AUTO_INCREMENT for table `questions_by_students`
 --
@@ -379,7 +381,7 @@ ALTER TABLE `questions_by_students`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `set_questions_by_admins`
 --
