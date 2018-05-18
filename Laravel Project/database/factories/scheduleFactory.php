@@ -10,6 +10,9 @@ $factory->define(App\schedule::class, function (Faker $faker) {
         "subjectName" => $faker->randomElement([
             "Surgery" , 'pharmacy' , 'dentist' , 'medical tools'
         ]),
+        "totalMark" => $faker->randomElement([
+            100 , 80 , 120 , 200
+        ]),
         "instructorName" => $faker->name,
         "location" => $faker->randomElement([
             "Hall 1" , "Hall 2" , "Hall 3" , "Hall 4" , "Hall 5"

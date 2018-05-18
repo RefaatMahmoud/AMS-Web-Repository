@@ -14,6 +14,9 @@ import { NewAdmin } from "./services/newAdmin.service";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthGuard } from "./services/auth-gaurd.service";
 import { HttpModule } from "@angular/http";
+import { NewSubjectComponent } from "../new-subject/new-subject.component";
+import { NewSubject } from "./services/newSubject.service";
+
 
 
 
@@ -25,7 +28,8 @@ import { HttpModule } from "@angular/http";
         HomeComponent,
         SidebarComponent,
         AddNewMemberComponent,
-        HeaderComponent
+        HeaderComponent,
+        NewSubjectComponent
     ],
     imports: [
         AppRoutingModule,
@@ -42,7 +46,8 @@ import { HttpModule } from "@angular/http";
         UIService , 
         AuthGuard,
         AuthService,
-        NewAdmin
+        NewAdmin,
+        NewSubject
         
     ]
 
