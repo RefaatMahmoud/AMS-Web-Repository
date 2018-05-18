@@ -1,5 +1,7 @@
 /* dashboard item */
-
+ nav.navbar {
+     border-bottom : solid 2px  #00b7cb ;
+ }
 .slide-in{
    
     transform  : translateX(0px) ; 
@@ -16,8 +18,30 @@
   bottom: 0;
   z-index: 30;
   width : 300px ; 
+  overflow-y: auto ;
 }
 
+#side-bar::-webkit-scrollbar{
+    width : 10px ;
+    background :none; 
+}
+#side-bar::-webkit-scrollbar-track{
+    border-radius: 5px;
+}
+#side-bar::-webkit-scrollbar-track-piece{
+    background : transparent ;
+   }
+#side-bar::-webkit-scrollbar-thumb{
+    width : 5px ;
+
+    border-radius : 5px; 
+    background: rgba(4, 162, 179, 0.6);
+    transition : all 0.3s ease-in-out ;
+   }
+   #side-bar::-webkit-scrollbar-thumb:hover{
+    background: rgba(4, 162, 179, 1);
+    transition : all 0.3s ease-in-out  ;
+   }
 .breadcrumb-item a {
     text-decoration: none;
     color: #00b7cb;
@@ -49,6 +73,22 @@
     color: white;
 }
 
+#schedule .list-group-item:hover {
+    background: rgba(4, 162, 179, 1);
+    color: white; 
+    border-bottom: solid 1.3px black ;
+    transition : all 0.1s ease-in ;
+}
+#schedule .list-group-item {
+    background: rgba(4, 162, 179, 0.7);
+    color: white;
+    padding-left : 40px !important;
+    font-weight : 500 ;
+    transition : all 0.1s ease-in ;
+    
+   
+
+}
 .alert-ball {
     position: static;
     top: 7px;
@@ -126,19 +166,20 @@
 .form-group label {
     font-size: 18px;
     font-weight: 400;
-    color: white;
+    color: #00b7cb;
     opacity: 0.8;
 }
 
 .input-group .form-control {
     border-color: rgba(255, 255, 255, 0.8);
     border-right: none;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0);
     color: white;
 }
 
+
 .form-control:focus {
-    border-color: #00b7cb;
+    border-color: #00b7cb !important;
     color: #00b7cb;
 }
 
@@ -206,3 +247,18 @@
     color: white !important;
 }
 
+/* add new activity form  */
+#new-activity-form .form-control{
+   
+        border-color: rgba(255, 255, 255, 0.8);
+        background: rgba(0, 0, 0);
+        color:#00b7cb;
+        height : 45px ;
+}
+#new-activity-form label {
+    padding-top : 10px ;
+}
+
+.control {
+    text-align : center ;
+}

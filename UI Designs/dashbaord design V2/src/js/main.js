@@ -1,14 +1,14 @@
-// slideInOut();
-// var data = {
-//     labels: ["January", "February", "March", "April", "May", "June", "July"],
-//     datasets: [{
-//         label: "My First dataset",
-//         fill: false,
-//         backgroundColor: 'rgb(255, 99, 132)',
-//         borderColor: 'rgb(255, 99, 132)',
-//         data: [0, 10, 5, 2, 20, 30, 45],
-//     }]
-// };
+slideInOut();
+var data = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [{
+        label: "My First dataset",
+        fill: false,
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+};
 // const lineChart = document.getElementById("line-chart");
 // var CHART1 = new Chart(lineChart, {
 //     type: 'line',
@@ -40,18 +40,18 @@
 //     options: {}
 // });
 
-// function slideInOut() {
-//     console.log("hi there")
-//     let sideMenu = document.querySelector("#side-bar");
-//     let slideout = document.querySelector("#out");
-//     let slidein = document.querySelector("#in");
-//     slidein.addEventListener("click", function (e) {
-//         e.preventDefault();
-//         sideMenu.classList.remove("slide-out");
-//         sideMenu.classList.add("slide-in");
-//     });
-//     slideout.addEventListener("click", function (e) {
-//         sideMenu.classList.remove("slide-in");
-//         sideMenu.classList.add("slide-out");
-//     })
-// }
+function slideInOut() {
+    console.log("hi there")
+    let sideMenu = document.querySelector("#side-bar");
+    let slideout = document.querySelector("#out");
+    let slidein = document.querySelector("#in");
+    slidein.addEventListener("click", function (e) {
+        e.preventDefault();
+        sideMenu.classList.remove("slide-out");
+        sideMenu.classList.add("slide-in");
+    });
+    slideout.addEventListener("click", function (e) {
+        sideMenu.classList.remove("slide-in");
+        sideMenu.classList.add("slide-out");
+    })
+}
