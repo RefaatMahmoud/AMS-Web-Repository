@@ -185,18 +185,24 @@
 
 /* New Member form section  */
 
-#member-form {
+.member-form {
     background: black;
     padding: 20px;
     border-radius: 5px
 }
-#member-form select {
+#memberForm select {
     background: black;
     color: white;
     border: 1px solid silver
 }
 
-#member-form button {
+#subjectForm select {
+    background: black;
+    color: white;
+    border: 1px solid silver
+}
+
+.member-form button {
     background-color: black;
     border:  2px solid teal;
     color: teal;
@@ -204,7 +210,7 @@
     width: 100%
 }
 
-#member-form button:hover {
+.member-form button:hover {
     background: #00b7cb;
     border-color: #00b7cb;
     color: white !important;

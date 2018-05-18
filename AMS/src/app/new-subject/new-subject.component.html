@@ -1,0 +1,65 @@
+<div class="col-md-6 col-lg-4 col-sm-8 mx-auto mt-5">
+
+  <form class="member-form"
+        id="subjectForm"
+        [formGroup]="addSubjectForm"
+        (ngSubmit)="onSubmit()">
+<div class="form-group ">
+        <label for="subjectName">Subject Name</label>
+        <div class="input-group">
+                <input type="text" 
+                       class="form-control"
+                        id="subjectName"  
+                        formControlName="subjectName"
+                        placeholder="Enter subject name">
+                        <!-- <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span> -->
+        </div>
+        <span 
+        *ngIf="!addSubjectForm.get('subjectName').valid && addSubjectForm.get('subjectName').touched"
+        class="help-block" >Subject name Requird!</span>
+</div>
+
+<div class="form-group ">
+        <label for="totalMark">Total Mark</label>
+        <div class="input-group">
+                <input type="number" 
+                       class="form-control"
+                       id="totalMark" 
+                       placeholder="Enter total mark"
+                       formControlName="totalMark"
+                       >
+                        <!-- <span class="input-group-addon">
+                            <i class="fa fa-envelope"></i>
+                        </span> -->
+        </div>
+  <!-- <i class="fas fa-envelope"></i> -->
+  <span 
+        *ngIf="!addSubjectForm.get('totalMark').valid && addSubjectForm.get('totalMark').touched"
+        class="help-block" >Enter a valid total mark!</span>
+        
+  
+</div>
+
+
+
+
+<select class="form-control"
+        formControlName="duration">
+        <option>Duration</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+</select>
+<br>
+<input type="hidden" value="5" id="groupNumber">
+<button type="submit" class="btn btn-success " >Add Subject</button>
+
+</form>
+
+
+
+</div>
