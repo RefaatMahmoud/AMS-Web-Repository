@@ -13,7 +13,7 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
   name : string;
   private arr : any [];
 
-  private subjects   : SubjectModel [];
+  private subjects   : SubjectModel[];
 
   constructor(private router: Router,
      private activatedRoute:ActivatedRoute,
@@ -21,9 +21,10 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
 
   ngOnInit() {
     this.subjectService.getSubjects().subscribe(
-      (response : SubjectModel []) =>{
-         this.subjects = response;
-         console.log(Array.of(this.subjects))
+      (response) =>{
+         this.subjects = response.subjects;
+         console.log(response);
+
       } ,
       (error) => console.log(error)
     );
@@ -39,12 +40,7 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
       this.router.navigate(["new-subject"]);
   }
 
-  // getSubject(){
-  //   this.subjectService.getSubjects().subscribe(
-  //     (response) =>  console.log(response),
-  //     (error) => console.log(error)
-  //   );
-  // }
+
 
 
 

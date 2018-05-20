@@ -20,7 +20,7 @@ export class NewSubject {
 
    
     getSubjects(){
-        let url = `${environment.apiPath}/subjects` ;
+        let url = `${environment.apiPath}subjects` ;
         return this.http.get<PageModel<SubjectModel>>(url) ;
     }
 
