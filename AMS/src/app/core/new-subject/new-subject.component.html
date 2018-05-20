@@ -1,3 +1,18 @@
+<app-sidebar></app-sidebar>
+<app-header></app-header>
+
+<nav class="">
+        <ul class="breadcrumb bg-dark">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+           
+            <li class="breadcrumb-item active">
+                New Subject
+            </li>
+        </ul>
+    </nav>
+
 <div class="col-md-6 col-lg-4 col-sm-8 mx-auto mt-5">
 
   <form class="member-form"
@@ -12,9 +27,7 @@
                         id="subjectName"  
                         formControlName="subjectName"
                         placeholder="Enter subject name">
-                        <!-- <span class="input-group-addon">
-                            <i class="fa fa-user"></i>
-                        </span> -->
+                       
         </div>
         <span 
         *ngIf="!addSubjectForm.get('subjectName').valid && addSubjectForm.get('subjectName').touched"
@@ -30,11 +43,9 @@
                        placeholder="Enter total mark"
                        formControlName="totalMark"
                        >
-                        <!-- <span class="input-group-addon">
-                            <i class="fa fa-envelope"></i>
-                        </span> -->
+                        
         </div>
-  <!-- <i class="fas fa-envelope"></i> -->
+  
   <span 
         *ngIf="!addSubjectForm.get('totalMark').valid && addSubjectForm.get('totalMark').touched"
         class="help-block" >Enter a valid total mark!</span>

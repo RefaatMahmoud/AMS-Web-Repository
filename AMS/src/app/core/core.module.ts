@@ -14,8 +14,9 @@ import { NewAdmin } from "./services/newAdmin.service";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthGuard } from "./services/auth-gaurd.service";
 import { HttpModule } from "@angular/http";
-import { NewSubjectComponent } from "../new-subject/new-subject.component";
+import { NewSubjectComponent } from "./new-subject/new-subject.component";
 import { NewSubject } from "./services/newSubject.service";
+import { SubjectTableComponent } from './subject-table/subject-table.component';
 
 
 
@@ -29,7 +30,8 @@ import { NewSubject } from "./services/newSubject.service";
         SidebarComponent,
         AddNewMemberComponent,
         HeaderComponent,
-        NewSubjectComponent
+        NewSubjectComponent,
+        SubjectTableComponent,
     ],
     imports: [
         AppRoutingModule,
