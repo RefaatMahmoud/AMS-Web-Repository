@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2018 at 09:45 PM
+-- Generation Time: May 20, 2018 at 06:33 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -50,7 +50,13 @@ INSERT INTO `instructors` (`id`, `name`, `username`, `password`, `email`, `telep
 (3, 'Ms. Lavonne Marvin', 'larson.mollie', '$2y$10$egYq3UmIYNOizlg/ZePpe.lRhb3pDnZK8VXBmmW2X4m.Q8Uht59qa', 'rebeka.greenholt@example.org', '1-510-500-1754', 'physics', '2018-04-30 00:44:48', '2018-04-30 00:44:48'),
 (4, 'Mr. Michale Morar V', 'ramona.keebler', '$2y$10$9l/pCVgw3EAuadtGLxg9U.YknHkTBXpyxpi3xhZFPrQ//EeI5rJIq', 'hkuvalis@example.com', '(281) 810-8687', 'Math', '2018-04-30 00:44:48', '2018-04-30 00:44:48'),
 (5, 'Domenic Braun', 'kokuneva', '$2y$10$e4B4SoR.v5guFlpsOaTAK.kshSipC9vnz8dYSYo2JMfqLXeNPOO6i', 'reynolds.theresia@example.org', '+1.886.733.4153', 'Medical tools', '2018-04-30 00:44:48', '2018-04-30 00:44:48'),
-(6, 'Mohamed Zead', 'zead', '$2y$10$ta.4YiwO3H2YRqzczYBeBOg.xy8TGm3qxwTqeKeq6E4pIdca6W3CK', 'refo@gmail.com', '01003616844', 'Math', '2018-05-11 21:43:09', '2018-05-11 21:43:09');
+(6, 'Mohamed Zead', 'zead', '$2y$10$ta.4YiwO3H2YRqzczYBeBOg.xy8TGm3qxwTqeKeq6E4pIdca6W3CK', 'refo@gmail.com', '01003616844', 'Math', '2018-05-11 21:43:09', '2018-05-11 21:43:09'),
+(7, 'Mrs. Cathy Hauck', 'loy.ziemann', '$2y$10$VTJNFlluQJjicxV/d.JhU.aSNIciejzj6C6vZfsYWbfHCTlL4x.86', 'jlangworth@example.org', '1-314-924-5641 x7878', 'Math', '2018-05-20 23:32:40', '2018-05-20 23:32:40'),
+(8, 'Prof. Erica Mueller', 'ejacobson', '$2y$10$vzCvu6j3yqG7PQngXNeM..lNXMKR8N28eDA4gJh5VcvnJKIG.5AV6', 'domingo.jacobson@example.org', '664.316.8234', 'Medical tools', '2018-05-20 23:32:40', '2018-05-20 23:32:40'),
+(9, 'Dr. Alford Conn MD', 'roscoe.cronin', '$2y$10$pdzGPBfw9ci0/CACAEh54uFz6sFmSa6F3rgVg7tM5rymTiCx.taJu', 'uhammes@example.net', '671.647.1907 x499', 'Math', '2018-05-20 23:32:40', '2018-05-20 23:32:40'),
+(10, 'Dr. Jefferey Jenkins', 'kirlin.christ', '$2y$10$tXl0FCpKjDnFfuW3TvuwFe3yYNlxHYWKsyRATHQcsMdlOIHJYrTo6', 'vandervort.verdie@example.com', '(831) 565-3351', 'Medical tools', '2018-05-20 23:32:40', '2018-05-20 23:32:40'),
+(11, 'Matilde Labadie V', 'kihn.chelsey', '$2y$10$7DO8d2raXMV6e94vbv7jBeMadJmsvKLgQa4xn9beIK3GEsLQlQq6C', 'erunte@example.com', '217-777-0346 x510', 'physics', '2018-05-20 23:32:40', '2018-05-20 23:32:40'),
+(12, 'Lisette Hoeger', 'godfrey.stoltenberg', '$2y$10$RrWqU/yuKKmag74bqMdyJeB9bVCUTDXkhQur0OKxTbC/kzroJ0lDa', 'tryan@example.com', '619.967.5216 x987', 'Math', '2018-05-20 23:32:40', '2018-05-20 23:32:40');
 
 -- --------------------------------------------------------
 
@@ -298,7 +304,13 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `remember_to
 (4, 'ucummings', 'ruthe.cummerata@example.org', '$2y$10$QrOT4QgQ0k77l8kKpKwfD.ZGkh/CSa7EnaS.7USCofIcJLjvUhnHG', '4', 'RsqTq3hNuXJtCA9gLvV9DptWkJWrKeEghAs64J5MceGPdOyRmvS42SkqbElv', '2018-05-15 17:06:30', '2018-05-15 17:06:30'),
 (5, 'daisy.quitzon', 'wade.legros@example.com', '$2y$10$1zPy37meuN0zOOIt1qzHZu3uY5WxSf1TdmhwPtV45.dVDl5e1F7Oq', '1', 'prP3HPixCm5d8EGcYQfcL3N21T9lN3tKOCTHMqnTiVHGDLhaGqobxPdxQ2Hs', '2018-05-15 17:06:30', '2018-05-15 17:06:30'),
 (6, 'zead', 'zead99@gmail.com', '$2y$10$YsqzokHbIPu1n2.jwpwuT.jYjlA0oJL0YTNQisFgc7G1w.7K5Ad5q', '4', '7Ww1PwiXCTl99Gx3yZDQP4XZnsBRzDHA36pddzQobQWr3PQgrr3yUVyThNWH', '2018-05-15 17:06:57', '2018-05-15 17:06:57'),
-(7, 'refo', 'refo101@gmail.com', '$2y$10$mniHaVjq1UUHBdM/pA17GufmG31zyZdtC18Eo.0xAHAgw5qn573Rm', '4', 'twHVjnxVesI8z1TzcVkf6ryYyZRF4m7sEeg5KWCrgxBEGVkbkv48Z7gt9bgZ', '2018-05-15 17:07:20', '2018-05-15 17:07:20');
+(7, 'refo', 'refo101@gmail.com', '$2y$10$mniHaVjq1UUHBdM/pA17GufmG31zyZdtC18Eo.0xAHAgw5qn573Rm', '4', 'twHVjnxVesI8z1TzcVkf6ryYyZRF4m7sEeg5KWCrgxBEGVkbkv48Z7gt9bgZ', '2018-05-15 17:07:20', '2018-05-15 17:07:20'),
+(8, 'stracke.grayson', 'noah61@example.com', '$2y$10$0YRzmAhiE78C0ql0YIvree7qOQ77FrVQYvJgWCqgKaP7d/0k/V7JG', '3', 'cKQXxQwTgOGiNStjwdWvkrymQ3LdESffcahDs4usyejNV2ZrJVz4Yt2ayaZB', '2018-05-20 23:32:38', '2018-05-20 23:32:38'),
+(9, 'ashton.kuphal', 'verdie.eichmann@example.com', '$2y$10$e7/sarHU9Ua7wQzj7MkZ3OH/Pzdl5C.c5rsTrRNVXcjV93LPXJbjS', '3', 'W3qoivPC4PmmCOriggR4cxt7CoJgwpzUcmtXnffTt96GPd5hiK8IoP47Vijm', '2018-05-20 23:32:39', '2018-05-20 23:32:39'),
+(10, 'dherman', 'esther74@example.com', '$2y$10$6tumptWTyE8HisdccNEWuu1AafLx5RMSfY1GZcqH6CTd5g64LHMqO', '3', 'tTwrPBQUUr35StkDeMYM9pzXkJLEnuZZsfe66mdb1UBh0bfZ41ogpT4z7SkK', '2018-05-20 23:32:39', '2018-05-20 23:32:39'),
+(11, 'sarah98', 'breanne.crooks@example.net', '$2y$10$pYP0N0O2ldoGHfvArT7/hekn7Q5NlHlemjcS4j4zU9Qy4icJ6k9Wy', '5', 'ZcmIJMgX3q7LYDEEAFA4B79ygtbasJz8pMAVz9Ux5ic5avt72Z3E2sRy9bxP', '2018-05-20 23:32:39', '2018-05-20 23:32:39'),
+(12, 'marley69', 'modesta.swaniawski@example.org', '$2y$10$n0F3XL/X3/Lxj.q2zzzcOOeFHyJwSAI81vSnFG5pqBJGj0NS3EnAW', '4', 'n9j4jT6FirKZtt3Ilj3DG5RetMmQUZVLMwogrYPzc3dlCfB1AMaJCy8O1QDV', '2018-05-20 23:32:39', '2018-05-20 23:32:39'),
+(13, 'metz.lauretta', 'berge.deanna@example.org', '$2y$10$0R4kr6ehIe9cSjF4vpjXFuBPZzFwVQyeENhKPncPWC4YEdsmsr9hi', '3', 'jf9agnNzif3D56s6iDuB1RVZxBHivF3zap3jdIQBUoEXPeVBhK3iAtWfYEsQ', '2018-05-20 23:32:39', '2018-05-20 23:32:39');
 
 --
 -- Indexes for dumped tables
@@ -376,7 +388,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `instructors`
 --
 ALTER TABLE `instructors`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -416,7 +428,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Constraints for dumped tables
 --
