@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NewSubject } from '../core/services/newSubject.service';
+import { NewSubject } from '../services/newSubject.service';
 
 @Component({
   selector: 'app-new-subject',
