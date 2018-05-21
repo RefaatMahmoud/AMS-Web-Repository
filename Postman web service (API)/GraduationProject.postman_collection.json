@@ -12,9 +12,25 @@
 		"d3a828b0-724e-25a6-8fb6-b874dab38c34",
 		"28111545-6381-3142-fc78-68637c2f8879",
 		"06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
-		"140f0155-ba17-4348-8258-bfe12df7273b"
+		"140f0155-ba17-4348-8258-bfe12df7273b",
+		"2fb4fdf9-d64b-49e1-9810-fca012d4da5e",
+		"3ccb170d-cd7f-4b94-8056-8ebd9aaaaf70"
 	],
 	"folders": [
+		{
+			"id": "2fb4fdf9-d64b-49e1-9810-fca012d4da5e",
+			"name": "ActivityType",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"folder": null,
+			"order": [
+				"3d2ecd91-0b3b-451b-a948-3ab38efd9880",
+				"779c6fe7-5eee-474b-8266-4983c4ab6422"
+			],
+			"folders_order": []
+		},
 		{
 			"id": "ed0fd794-b002-888b-27ef-86cdf032a15b",
 			"name": "Admin",
@@ -66,6 +82,20 @@
 			]
 		},
 		{
+			"id": "3ccb170d-cd7f-4b94-8056-8ebd9aaaaf70",
+			"name": "Role",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"folder": null,
+			"order": [
+				"e28d8e2b-2c02-455f-9fd4-9daa7b1b97d3",
+				"c399286b-b26f-4c38-abe4-7f0e0f372618"
+			],
+			"folders_order": []
+		},
+		{
 			"id": "06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
 			"name": "Schedule",
 			"description": "",
@@ -97,7 +127,9 @@
 				"9c84ccbb-22be-b855-42cd-2e8ca0c83323",
 				"709955aa-a760-4e56-aa10-d7dcd3c35846",
 				"c8338666-7777-4dd8-8450-e7688eb071c6",
-				"73d24f7d-47f5-4a07-9cfc-c3b73eca1715"
+				"73d24f7d-47f5-4a07-9cfc-c3b73eca1715",
+				"b2876766-f361-4f33-8524-9dff1bf41565",
+				"ff13bc0e-d3ce-4c29-ad0d-5b50c17f493a"
 			],
 			"folders_order": []
 		},
@@ -311,8 +343,37 @@
 			"auth": null,
 			"events": null,
 			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
-			"rawModeData": "{\n  \"name\":\"Refaat Aish\",\n  \"username\":\"refaat1201\",\n  \"password\":\"112312\",\n  \"email\":\"refo@gmail.com\",\n  \"level\":\"First\",\n  \"telephone\":\"01003616844\"\n}",
+			"rawModeData": "{\n  \"name\":\"Mohamed zead\",\n  \"username\":\"zead\",\n  \"password\":\"1111\",\n  \"email\":\"zead99@gmail.com\",\n  \"level\":\"First\",\n  \"telephone\":\"01003616844\",\n  \"role\":\"2\"\n}",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "3d2ecd91-0b3b-451b-a948-3ab38efd9880",
+			"name": "POST activityType",
+			"url": "http://localhost:8000/api/activityType",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "2fb4fdf9-d64b-49e1-9810-fca012d4da5e",
+			"rawModeData": "{\n\t\"title\":\"lecture\",\n\t\"flag\":true\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
 		{
@@ -357,7 +418,7 @@
 			"auth": null,
 			"events": null,
 			"folder": "d3a828b0-724e-25a6-8fb6-b874dab38c34",
-			"rawModeData": "{\n  \"name\":\"Refaat Aish\",\n  \"username\":\"refaat101\",\n  \"password\":\"112312\",\n  \"email\":\"refo@gmail.com\",\n  \"subjectName\":\"Math\",\n  \"telephone\":\"01003616844\"\n}",
+			"rawModeData": "{\n  \"name\":\"Mohamed Zead\",\n  \"username\":\"zead\",\n  \"password\":\"1111\",\n  \"email\":\"zead99@gmail.com\",\n  \"subjectName\":\"Math\",\n  \"telephone\":\"01003616844\",\n  \"role\":\"1\"\n}",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
 			"pathVariables": {}
 		},
@@ -439,7 +500,7 @@
 			"auth": null,
 			"events": [],
 			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
-			"rawModeData": "{\n  \"username\":\"refo\",\n  \"password\":\"1111\"\n}",
+			"rawModeData": "{\n  \"username\":\"zead\",\n  \"password\":\"1111\"\n}",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
 			"pathVariables": {}
 		},
@@ -468,8 +529,25 @@
 			"auth": null,
 			"events": [],
 			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
-			"rawModeData": "{\n\t\"name\":\"zead\"\n}",
+			"rawModeData": "{\n\t\"name\":\"zead\",\n\t\"level\":\"4\",\n\t\"status\":\"1\"\n}",
 			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "779c6fe7-5eee-474b-8266-4983c4ab6422",
+			"name": "GET activityType",
+			"url": "http://localhost:8000/api/activityType",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "2fb4fdf9-d64b-49e1-9810-fca012d4da5e",
+			"headers": "",
 			"pathVariables": {}
 		},
 		{
@@ -578,7 +656,7 @@
 			"auth": null,
 			"events": [],
 			"folder": "140f0155-ba17-4348-8258-bfe12df7273b",
-			"rawModeData": "{\n\t\"subjectName\":\"Medical Tools\",\n\t\"duration\":1,\n\t\"totalMark\":200,\n\t\"groupNumber\":5\n}",
+			"rawModeData": "{\n\t\"subjectName\":\"Medical Tools\",\n\t\"duration\":\"2\",\n\t\"totalMark\":\"100\",\n\t\"groupNumber\":\"2\"\n}",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
 			"pathVariables": {}
 		},
@@ -696,6 +774,23 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "b2876766-f361-4f33-8524-9dff1bf41565",
+			"name": "DELETE students_in_Location",
+			"url": "http://localhost:8000/api/students_in_Location/2",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
 			"id": "b376c029-d420-cb92-5491-c7fcb4d9a4d3",
 			"name": "http://localhost:8000/api/instructors/6",
 			"url": "http://localhost:8000/api/instructors/",
@@ -808,6 +903,23 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "c399286b-b26f-4c38-abe4-7f0e0f372618",
+			"name": "GET membersRole",
+			"url": "http://localhost:8000/api/membersRole",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "3ccb170d-cd7f-4b94-8056-8ebd9aaaaf70",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
 			"id": "c3cb12a6-e09b-381b-9e06-e8e652e88dd4",
 			"name": "Get specific question",
 			"url": "http://localhost:8000/api/questionsByAdmin/1",
@@ -867,7 +979,7 @@
 			"auth": null,
 			"events": [],
 			"folder": "06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
-			"rawModeData": "{\n\t\"day\":\"Monday\",\n\t\"instructorName\":\"Refaat Aish\",\n\t\"subjectName\":\"Medical\",\n\t\"startTime\":2,\n\t\"endTime\":5,\n\t\"type\":\"lecture\",\n\t\"Location\":\"Hall 3\",\n\t\"groupNumber\":2\n}",
+			"rawModeData": "{\n\t\"day\":\"Monday\",\n\t\"instructorName\":\"Refaat Aish\",\n\t\"subjectName\":\"Medical\",\n\t\"startTime\":\"2\",\n\t\"endTime\":\"5\",\n\t\"totalMark\":\"100\",\n\t\"type\":\"lecture\",\n\t\"Location\":\"Hall 3\",\n\t\"groupNumber\":\"2\"\n}",
 			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
@@ -886,6 +998,29 @@
 			"events": null,
 			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
 			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "e28d8e2b-2c02-455f-9fd4-9daa7b1b97d3",
+			"name": "POST membersRole",
+			"url": "http://localhost:8000/api/membersRole",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "3ccb170d-cd7f-4b94-8056-8ebd9aaaaf70",
+			"rawModeData": "{\n\t\"accessNumber\":\"2\"\n}",
+			"headers": "Content-Type: application/json\n",
 			"pathVariables": {}
 		},
 		{
@@ -949,7 +1084,7 @@
 			"auth": null,
 			"events": null,
 			"folder": "ed0fd794-b002-888b-27ef-86cdf032a15b",
-			"rawModeData": "{\n  \"username\":\"ss\",\n  \"email\":\"AbdoAllah99@gmail.com\",\n  \"password\":\"123123\",\n  \"role\":6\n}",
+			"rawModeData": "{\n  \"username\":\"zead\",\n  \"email\":\"zead99@gmail.com\",\n  \"password\":\"1111\",\n  \"role\":\"2\"\n}",
 			"headers": "Accept: application/json\nContent-Type: application/json\n",
 			"pathVariables": {}
 		},
@@ -980,6 +1115,23 @@
 			"folder": "ed0fd794-b002-888b-27ef-86cdf032a15b",
 			"rawModeData": "{\n  \"username\":\"refo\",\n  \"password\":\"012031203\",\n  \"email\":\"refo@yahoo.com\",\n  \"name\":\"Refaat Aish\"\n}",
 			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ff13bc0e-d3ce-4c29-ad0d-5b50c17f493a",
+			"name": "GET membersRole",
+			"url": "http://localhost:8000/api/membersRole",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
+			"headers": "",
 			"pathVariables": {}
 		}
 	]
