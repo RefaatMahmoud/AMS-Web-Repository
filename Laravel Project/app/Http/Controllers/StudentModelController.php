@@ -27,6 +27,7 @@ class StudentModelController extends Controller
         $studentObj->email = $request->email;
         $studentObj->level = $request->level;
         $studentObj->telephone = $request->telephone;
+        $studentObj->role = $request->role;
         //save
         $studentObj->save();
         //response

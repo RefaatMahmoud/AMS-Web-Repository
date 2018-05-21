@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Requests\Subject\subjectRequest;
 use App\Http\Resources\Subject\subjectResource;
 use App\subject;
@@ -32,6 +33,12 @@ class SubjectController extends Controller
         ],200);
     }
 
+    public function show($id){
+        $subjectObj = subject::find($id);
+        return response([
+            "data" => new subjectResource($subjectObj)
+        ],200);
+    }
     public function update(subjectRequest $request, $id)
     {
         $subjectObj = subject::find($id);

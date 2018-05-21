@@ -5,6 +5,7 @@ use App\Http\Resources\Users\AdminResource;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class adminUsersController extends Controller
 {
@@ -18,12 +19,12 @@ class adminUsersController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'username' => 'required',
-            'password' => 'required',
-            'email' => 'required' ,
-            'role' => 'required'
+            'username' => 'required|string|min:3',
+            'password' => 'required|string|min:3',
+            'email' => 'required|string' ,
+            'role' => 'required|string'
         ];
-        $validator = \Illuminate\Support\Facades\Validator::make($request->all() , $rules);
+        $validator = Validator::make($request->all() , $rules);
         if($validator->fails())
         {
             return response([
@@ -39,7 +40,7 @@ class adminUsersController extends Controller
             $adminObj->password  = Hash::make($request->password);
             $adminObj->email = $request->email;
             $adminObj->role = $request->role;
-            $adminObj->remember_token = str_random(60);
+            //$adminObj->remember_token = str_random(60);
             //Save
             $adminObj->save();
             //Response

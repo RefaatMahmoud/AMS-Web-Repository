@@ -15,6 +15,7 @@ class CreateStudentModelsTable extends Migration
             $table->string('password');
             $table->string('email');
             $table->string('telephone');
+            $table->string('role');
             $table->string('level');
             $table->timestamps();
         });

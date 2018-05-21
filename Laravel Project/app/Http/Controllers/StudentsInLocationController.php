@@ -21,6 +21,7 @@ class StudentsInLocationController extends Controller
         //set request
         $studentLocationObj->name = $request->name;
         $studentLocationObj->status = $request->status;
+        $studentLocationObj->level = $request->level;
         //save
         $studentLocationObj->save();
         //response

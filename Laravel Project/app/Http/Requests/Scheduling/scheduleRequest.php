@@ -14,15 +14,15 @@ class scheduleRequest extends FormRequest
     public function rules()
     {
         return [
-            "day" => "required",
-            "Location" => "required",
-            "instructorName" => "required",
-            "subjectName" => "required",
-            "totalMark" => "required",
-            "startTime" => "required",
-            "endTime" => "required",
-            "type" => "required",
-            "groupNumber" => 'required'
+            "day" => "required|string",
+            "Location" => "required|string",
+            "instructorName" => "required|string",
+            "subjectName" => "required|string",
+            "totalMark" => "required|string",
+            "startTime" => "required|string",
+            "endTime" => "required|string",
+            "type" => "required|string",
+            "groupNumber" => 'required|string'
         ];
     }
 }

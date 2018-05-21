@@ -8,14 +8,6 @@ class InstructorsResource extends JsonResource
 {
     public function toArray($request)
     {
-        return [
-            "id" => $this->id ,
-            "name" => $this->name ,
-            "username" => $this->username,
-            "password" => $this->password,
-            "email" => $this->email,
-            "subjectName" => $this->subjectName,
-            "telepnone" => $this->telephone
-        ];
+        return parent::toArray($request);
     }
 }

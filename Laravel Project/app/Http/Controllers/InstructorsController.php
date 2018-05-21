@@ -26,6 +26,7 @@ class InstructorsController extends Controller
         $instructorObj->email = $request->email;
         $instructorObj->subjectName = $request->subjectName;
         $instructorObj->telephone = $request->telephone;
+        $instructorObj->role = $request->role;
         //save
         $instructorObj->save();
         //response

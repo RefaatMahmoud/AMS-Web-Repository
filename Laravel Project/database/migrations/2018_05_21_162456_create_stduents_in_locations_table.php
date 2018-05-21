@@ -11,6 +11,7 @@ class CreateStduentsInLocationsTable extends Migration
         Schema::create('stduents_in_locations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('level');
             $table->boolean('status');
             $table->timestamps();
         });

@@ -14,10 +14,10 @@ class subjectRequest extends FormRequest
     public function rules()
     {
         return [
-            "subjectName" => "required",
-            "totalMark" => "required",
-            "duration" => "required",
-            "groupNumber" => "required"
+            "subjectName" => "required|string",
+            "totalMark" => "required|string",
+            "duration" => "required|string",
+            "groupNumber" => "required|string"
         ];
     }
 }
