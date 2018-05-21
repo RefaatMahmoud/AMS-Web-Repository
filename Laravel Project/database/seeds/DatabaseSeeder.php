@@ -6,9 +6,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-       factory(\App\User::class,6)->create();
+//       factory(\App\User::class,6)->create();
 //        factory(\App\StudentModel::class,10)->create();
-        factory(\App\Instructors::class,6)->create();
+//        factory(\App\Instructors::class,6)->create();
 //        factory(\App\setQuestionsByAdmin::class,5)->create();
 //        factory(\App\questionsByStudents::class,5)->create();
 //        factory(\App\students_in_Location::class,5)->create();
