@@ -1,0 +1,147 @@
+<section id="new-activity-form" class="row">
+  <div class="col-md-2  d-sm-none d-md-block "></div>
+  <div class=" col-md-10">
+    <form [formGroup]="addNewActivityForm" (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+        <div class="col-sm-4 col-md-3">
+          <label for="day">Day</label>
+        </div>
+        <div class="col-sm-7">
+          <select id="day" formControlName="day" class="form-control">
+            <option [selected]=true [disabled]=true value="{{null}}">select a day ....</option>
+            <option *ngFor="let day of days  " value="{{day.name}}">{{day.name}}</option>
+           
+          </select>
+          <p *ngIf="addNewActivityForm.get('day').touched && !addNewActivityForm.get('day').value " class="form-text text-danger">
+  This field is required !
+</p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4 col-md-3">
+          <label for="level">Level</label>
+        </div>
+        <div class="col-sm-7">
+          <select id="level" formControlName="groupNumber" class="form-control">
+            <option [selected]="true" disabled value="{{null}}">select a level ....</option>
+            <option *ngFor="let level of levels " value="{{level.id}}">{{level.name}}</option>
+          </select>
+          <p *ngIf="addNewActivityForm.get('groupNumber').touched && !addNewActivityForm.get('groupNumber').value " class="form-text text-danger">
+            This field is required !
+          </p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4 col-md-3">
+          <label for="subject">Subject</label>
+        </div>
+        <div class="col-sm-7
+        ">
+
+          <select id="subject" formControlName="subjectName" class="form-control">
+            <option disabled [selected]="true"  value="{{null}}">select a subject ....</option>
+            <option *ngFor="let subject of subjects  , let i = index" value="{{subject.subjectName}}">{{subject.subjectName}}</option>
+          </select>
+          <p *ngIf="addNewActivityForm.get('subjectName').touched && !addNewActivityForm.get('subjectName').value " class="form-text text-danger">
+            This field is required !
+          </p>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4 col-md-3">
+          <label for="professor">Professor </label>
+        </div>
+        <div class="col-sm-7
+            ">
+          <select id="professor" formControlName ="instructorName" class="form-control">
+            <option disabled [selected]="true"  value="{{null}}">select a professor ....</option>
+            <option *ngFor="let instructor of instructors  , let i = index" value="{{instructor.name}}">{{instructor.name}}</option>
+          </select>
+          <p *ngIf="addNewActivityForm.get('instructorName').touched && !addNewActivityForm.get('instructorName').value " class="form-text text-danger">
+            This field is required !
+          </p>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4 col-md-3">
+          <label for="type">Type of activity </label>
+        </div>
+        <div class="col-sm-7
+                ">
+          <select id="type" formControlName="type" class="form-control">
+            <option [selected]="true" disabled value="{{null}}">select a type ....</option>
+            <option *ngFor="let type of types  , let i = index" value="{{type.name}}">{{type.name}}</option>
+          </select>
+          <p *ngIf="addNewActivityForm.get('type').touched && !addNewActivityForm.get('type').value " class="form-text text-danger">
+            This field is required !
+          </p>
+          
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4 col-md-3">
+          <label for="location">Location </label>
+        </div>
+        <div class="col-sm-7
+                    ">
+          <!-- <select id="type" class="form-control">
+                            <option selected disabled value="none">select a location ....</option>
+                            <option value="AI">Section</option>
+                            <option value="CV">Lecture</option>
+                            <option value="NW">Clinical</option>
+                            <option value="AR">Hospitals</option>
+                            <option value="DS">Labs</option>
+                        </select> -->
+          <input type="text" formControlName="location" id="location" class="form-control" placeholder="get your location">
+          <p *ngIf="addNewActivityForm.get('location').touched && !addNewActivityForm.get('location').value " class="form-text text-danger">
+            This field is required !
+          </p>      
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-4 col-md-3">
+          <label for="startTime">Start time </label>
+        </div>
+        <div class="col-sm-7
+                        ">
+
+          <input type="text" formControlName="startTime" class="form-control" placeholder="start time">
+          <p *ngIf="addNewActivityForm.get('startTime').touched && !addNewActivityForm.get('startTime').value " class="form-text text-danger">
+            This field is required !
+          </p>
+          
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-4 col-md-3">
+          <label for="type">End time </label>
+        </div>
+        <div class="col-sm-7
+                            ">
+
+          <input type="text" formControlName="endTime" class="form-control" placeholder="end time">
+          <p *ngIf="addNewActivityForm.get('endTime').touched && !addNewActivityForm.get('endTime').value " class="form-text text-danger">
+            This field is required !
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-11 col-md-10 ">
+          <button  class="btn btn-lg btn-green float-right">
+            <i class="px-2 fa fa-plus"></i>Add Activity</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+</section>
+
+<!-- <p *ngIf="loginForm.get('email').touched && !loginForm.get('email').value " class="form-text text-danger">
+  This field is required !
+</p> -->

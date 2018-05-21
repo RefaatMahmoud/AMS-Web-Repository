@@ -1,8 +1,7 @@
 export class InstructorModel { 
     id : number ; 
     name : string ;
-    username: string;
-    password : string ;  
+    username: string;   
     email : string ; 
     subjectName : string; 
     telephone : string ;

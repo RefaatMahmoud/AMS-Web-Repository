@@ -19,6 +19,11 @@ import { NewSubject } from "./services/newSubject.service";
 import { SubjectTableComponent } from './subject-table/subject-table.component';
 
 import { IndexComponent } from './index/index.component';
+import { AddNewActivityComponent } from './add-new-activity/add-new-activity.component';
+import { ActivityService } from "./services/activity.service";
+import { TestService } from "./services/test.service";
+import { ActivityViewComponent } from './activity-view/activity-view.component';
+import { UpdateActivityComponent } from './update-activity/update-activity.component';
 
 
 
@@ -35,6 +40,9 @@ import { IndexComponent } from './index/index.component';
         NewSubjectComponent,
         SubjectTableComponent,
         IndexComponent,
+        AddNewActivityComponent,
+        ActivityViewComponent,
+        UpdateActivityComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -52,7 +60,9 @@ import { IndexComponent } from './index/index.component';
         AuthGuard,
         AuthService,
         NewAdmin,
-        NewSubject
+        NewSubject , 
+        ActivityService , 
+        TestService 
 
     ]
 

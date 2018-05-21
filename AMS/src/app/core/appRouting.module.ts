@@ -7,12 +7,18 @@ import { AuthGuard } from "./services/auth-gaurd.service";
 import { NewSubjectComponent } from "./new-subject/new-subject.component";
 import { SubjectTableComponent } from "./subject-table/subject-table.component";
 import { IndexComponent } from "./index/index.component";
+import { AddNewActivityComponent } from "./add-new-activity/add-new-activity.component";
+import { ActivityViewComponent } from "./activity-view/activity-view.component";
+import { UpdateActivityComponent } from "./update-activity/update-activity.component";
 
 const ROUTES : Routes =[
     {path : "index",component : IndexComponent , },
     { path : "login" , component : LoginComponent} , 
     {path : "new-admin" , component: AddNewMemberComponent},
     {path : "new-subject" , component: NewSubjectComponent},
+    {path : "activities/new" , component: AddNewActivityComponent},
+    {path : "activities" , component: ActivityViewComponent},
+    {path : "activities/update" , component: UpdateActivityComponent},
     {path:"subject-table", component:SubjectTableComponent},
     { path : "" , component : HomeComponent,canActivateChild:[AuthGuard],children :[
         
