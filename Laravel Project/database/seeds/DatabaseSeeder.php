@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
 //        factory(\App\students_in_Location::class,5)->create();
 //        factory(App\schedule::class,5)->create();
 //        factory(App\subject::class,5)->create();
+//        factory(App\activityType::class,5)->create();
     }
 }
