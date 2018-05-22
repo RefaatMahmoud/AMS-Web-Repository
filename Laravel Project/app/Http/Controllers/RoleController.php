@@ -21,6 +21,7 @@ class RoleController extends Controller
         $roleObj = new role();
         //set requests
         $roleObj->accessNumber = $request->accessNumber;
+        $roleObj->title = $request->title;
         //save
         $roleObj->save();
         //response

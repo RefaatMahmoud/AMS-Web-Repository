@@ -14,7 +14,8 @@ class roleRequest extends FormRequest
     public function rules()
     {
         return [
-            "accessNumber" => "required|string"
+            "accessNumber" => "required|string",
+            "title" => "required|string"
         ];
     }
 }
