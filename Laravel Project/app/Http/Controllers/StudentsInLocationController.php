@@ -38,4 +38,11 @@ class StudentsInLocationController extends Controller
             "students_in_Location" => "deleted successfully"
         ],200);
     }
+
+    public function show($id)
+    {
+        return response([
+            'student' => new students_in_LocationResource(stduents_in_locations::find($id))
+        ],200);
+    }
 }

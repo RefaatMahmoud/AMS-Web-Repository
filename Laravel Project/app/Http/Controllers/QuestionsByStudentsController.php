@@ -31,4 +31,11 @@ class QuestionsByStudentsController extends Controller
             'student_Questions' => new questionsByStudentsResource($studentQuestionObj)
         ],201);
     }
+
+    public function show($id)
+    {
+        return response([
+            'admin' => new questionsByStudentsResource(questionsByStudents::find($id))
+        ],200);
+    }
 }

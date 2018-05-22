@@ -32,6 +32,12 @@ class ActivityTypeController extends Controller
         ],201);
     }
 
+    public function show($id){
+        $activityObj = activityType::find($id);
+        return response([
+            "data" => new activityTypeResource($activityObj)
+        ],200);
+    }
     public function update(Request $request, activityType $activityType)
     {
         //

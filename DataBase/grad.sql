@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2018 at 02:48 AM
+-- Generation Time: May 22, 2018 at 10:20 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -205,16 +205,17 @@ CREATE TABLE `schedules` (
 --
 
 INSERT INTO `schedules` (`id`, `day`, `subjectName`, `instructorName`, `totalMark`, `Location`, `startTime`, `endTime`, `type`, `groupNumber`, `created_at`, `updated_at`) VALUES
-(1, 'Friday', 'Surgery', 'Kirk Stracke', '100', 'Hall 5', '2', '5', 'section', '1', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(2, 'Friday', 'medical tools', 'Cassandre Beer', '80', 'Hall 4', '8', '9', 'lecture', '4', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(3, 'Thursday', 'dentist', 'Mrs. Sabina Miller Jr.', '100', 'Hall 3', '6', '10', 'section', '1', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(4, 'Wednesday', 'dentist', 'Keshaun Mohr V', '120', 'Hall 4', '5', '7', 'lecture', '1', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
+(1, 'Saturday', 'Surgery', 'Kirk Stracke', '100', 'Hall 5', '2', '5', 'section', '1', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
+(2, 'Sunday', 'medical tools', 'Cassandre Beer', '80', 'Hall 4', '8', '9', 'lecture', '4', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
+(3, 'Monday', 'dentist', 'Mrs. Sabina Miller Jr.', '100', 'Hall 3', '6', '10', 'section', '1', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
+(4, 'Tuesday', 'dentist', 'Keshaun Mohr V', '120', 'Hall 4', '5', '7', 'lecture', '1', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
 (5, 'Wednesday', 'pharmacy', 'Ryder Waelchi', '120', 'Hall 4', '9', '3', 'lecture', '4', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(6, 'Monday', 'dentist', 'Stan Abernathy', '80', 'Hall 4', '11', '12', 'section', '5', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(7, 'Thursday', 'medical tools', 'Deborah Anderson V', '80', 'Hall 5', '9', '7', 'lecture', '3', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(8, 'Saturday', 'dentist', 'Cassandre Miller', '80', 'Hall 5', '7', '5', 'lecture', '3', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(9, 'Friday', 'medical tools', 'Dr. Emilio Blanda', '80', 'Hall 4', '5', '10', 'section', '1', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(10, 'Sunday', 'medical tools', 'Burnice Lockman', '80', 'Hall 3', '10', '10', 'lecture', '4', '2018-05-22 07:38:10', '2018-05-22 07:38:10');
+(6, 'Thursday', 'dentist', 'Stan Abernathy', '80', 'Hall 4', '11', '12', 'section', '5', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
+(21, 'Sunday', 'dentist', 'Ms. Wendy Schuster III', '200', 'Hall 2', '3', '3', 'lecture', '5', '2018-05-23 03:19:47', '2018-05-23 03:19:47'),
+(22, 'Thursday', 'pharmacy', 'Marianna Ullrich', '100', 'Hall 1', '1', '8', 'lecture', '2', '2018-05-23 03:19:47', '2018-05-23 03:19:47'),
+(23, 'Wednesday', 'pharmacy', 'Mr. Buster Buckridge', '80', 'Hall 1', '5', '1', 'section', '1', '2018-05-23 03:19:47', '2018-05-23 03:19:47'),
+(24, 'Saturday', 'Surgery', 'Elsa Leannon', '80', 'Hall 1', '8', '6', 'section', '2', '2018-05-23 03:19:47', '2018-05-23 03:19:47'),
+(25, 'Wednesday', 'dentist', 'Mrs. Elna O\'Kon Jr.', '200', 'Hall 2', '7', '1', 'lecture', '5', '2018-05-23 03:19:47', '2018-05-23 03:19:47');
 
 -- --------------------------------------------------------
 
@@ -483,12 +484,12 @@ ALTER TABLE `questions_by_students`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `set_questions_by_admins`
 --

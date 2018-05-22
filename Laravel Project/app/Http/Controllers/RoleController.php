@@ -29,4 +29,11 @@ class RoleController extends Controller
             "role" => new roleResource($roleObj)
         ],201);
     }
+
+    public function show($id)
+    {
+        return response([
+            'admin' => new roleResource(role::find($id))
+        ],200);
+    }
 }
