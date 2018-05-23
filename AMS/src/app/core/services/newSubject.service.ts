@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import { PageModel } from '../models/page';
 import { SubjectModel } from '../models/subject.model';
@@ -9,6 +9,7 @@ import { SubjectModel } from '../models/subject.model';
 @Injectable()
 export class NewSubject {
 
+    private subject : SubjectModel ;
 
     constructor(private http: HttpClient){}
 
@@ -25,6 +26,15 @@ export class NewSubject {
     }
 
 
+    
+
+
+    getSubject(id:number){
+        let url = `${environment.apiPath}subjects/`+id ;
+        return this.http.get<SubjectModel>(url) ;
+    }
+
+    
 
 }
 

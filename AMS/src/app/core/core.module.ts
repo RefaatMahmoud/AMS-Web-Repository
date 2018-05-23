@@ -19,6 +19,8 @@ import { NewSubject } from "./services/newSubject.service";
 import { SubjectTableComponent } from './subject-table/subject-table.component';
 
 import { IndexComponent } from './index/index.component';
+import { SubjectResolver } from "./services/subject.resolver.service";
+import { SubjectEditComponent } from './subject-edit/subject-edit.component';
 
 
 
@@ -35,6 +37,7 @@ import { IndexComponent } from './index/index.component';
         NewSubjectComponent,
         SubjectTableComponent,
         IndexComponent,
+        SubjectEditComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -52,7 +55,8 @@ import { IndexComponent } from './index/index.component';
         AuthGuard,
         AuthService,
         NewAdmin,
-        NewSubject
+        NewSubject,
+        SubjectResolver
 
     ]
 

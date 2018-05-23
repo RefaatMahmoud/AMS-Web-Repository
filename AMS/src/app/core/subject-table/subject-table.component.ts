@@ -40,7 +40,14 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
       this.router.navigate(["new-subject"]);
   }
 
-
+  getSubject( id: number){
+    const subject = this.subjects.find(
+        (s) => {
+            return s.id === id;
+        }
+    );
+    return subject;
+}
 
 
 
