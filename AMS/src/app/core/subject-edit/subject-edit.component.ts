@@ -20,7 +20,7 @@ private subject : SubjectModel;
 
     this.activatedRoute.data.subscribe(
       (data: Data) => {
-        this.subject = data['subject'];
+        this.subject = data['subject'].data;
         console.log(this.subject)
 
         this.editSubjectForm = new FormGroup({
