@@ -34,7 +34,11 @@ days: Array<{ id: number, name: string }> =
 ] ;
 instructors: Array<InstructorModel> ;
 subjects: Array<SubjectModel> ;
-types: Array<{ id: number, name: string }> ; 
+types: Array<{ id: number, name: string }> = [
+  { id: 1, name: "Lecture" }, 
+  { id: 2, name: "Section" }, 
+  { id: 3, name: "Lab" }, 
+] ; 
   constructor( private testService: TestService ,private subjectService  : NewSubject ,  private activityservice :ActivityService ) { }
 
   ngOnInit() {
@@ -50,10 +54,11 @@ types: Array<{ id: number, name: string }> ;
     ) ; 
     this.testService.getInstructors().subscribe(
       res=>{
-        console.log(res.instructors) ; 
+        console.log(res.instructor) ; 
+        this.instructors = res.instructor ;
       } , 
       err => {
-        console.log(err) ; 
+        console.log(err); 
       }
     ) ;
   }
@@ -65,7 +70,7 @@ types: Array<{ id: number, name: string }> ;
       subjectName: new FormControl(),
       startTime: new FormControl(null),
       endTime: new FormControl(null),
-      location: new FormControl(null),
+      Location: new FormControl(null),
       type: new FormControl(),
       groupNumber: new FormControl()
 
@@ -73,6 +78,12 @@ types: Array<{ id: number, name: string }> ;
   }
   onSubmit(){
     console.log(this.addNewActivityForm.value);
+    let data = {...this.addNewActivityForm.value , totalMark :`${2}`} ;
+    this.activityservice.addActivity(data).subscribe(
+      res =>{ 
+        console.log(res) ;
+      }
+    ) ; 
   }
 
 }

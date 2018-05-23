@@ -1,5 +1,5 @@
 export class InstructorPageModel<T>{
- instructors : Array<T> ; 
+ instructor : Array<T> ; 
 }
 
 

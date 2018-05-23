@@ -1,9 +1,8 @@
 import {Injectable}from "@angular/core" ; 
 import {HttpClient} from "@angular/common/http" 
 import { environment } from "../../../environments/environment";
-import { InstructorModel } from "../models/instructor.model";
-import { InstructorPageModel } from "../models/instructor-page";
 import { ActivityModel } from "../models/activity.model";
+import { ActivityPageModel } from "../models/activity-page";
 
 
 @Injectable()
@@ -13,14 +12,19 @@ export class ActivityService {
 
     getActivities(){
         let url = `${environment.apiPath}schedule`; 
-        return this.http.get<InstructorPageModel<InstructorModel>>(url) ; 
+        return this.http.get<ActivityPageModel<ActivityModel>>(url) ; 
+    }
+    getActivity(id : number){
+        let url = `${environment.apiPath}schedule/${id}`; 
+        return this.http.get<ActivityModel>(url) ; 
     }
     addActivity(data : ActivityModel) { 
         let url = `${environment.apiPath}schedule`; 
         return this.http.post<ActivityModel>(url,data) ; 
     }
-    updateActivity(data : ActivityModel) { 
-        let url = `${environment.apiPath}schedule`; 
+    updateActivity(data : ActivityModel , id : number) { 
+        console.log(id) ;
+        let url = `${environment.apiPath}schedule/${id}`; 
         return this.http.put<ActivityModel>(url,data) ; 
     }
     deleteActivity(id) { 

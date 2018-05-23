@@ -24,6 +24,7 @@ import { ActivityService } from "./services/activity.service";
 import { TestService } from "./services/test.service";
 import { ActivityViewComponent } from './activity-view/activity-view.component';
 import { UpdateActivityComponent } from './update-activity/update-activity.component';
+import { ActivityResolverService } from "./services/activity-resolver.service";
 
 
 
@@ -62,7 +63,8 @@ import { UpdateActivityComponent } from './update-activity/update-activity.compo
         NewAdmin,
         NewSubject , 
         ActivityService , 
-        TestService 
+        TestService  , 
+        ActivityResolverService
 
     ]
 

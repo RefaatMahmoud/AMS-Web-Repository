@@ -5,6 +5,8 @@ import { ActivityService } from '../services/activity.service';
 import { InstructorModel } from '../models/instructor.model';
 import { SubjectModel } from '../models/subject.model';
 import { NewSubject } from '../services/newSubject.service';
+import { ActivatedRoute, Data, Router } from '@angular/router';
+import { ActivityModel } from '../models/activity.model';
 
 
 @Component({
@@ -15,14 +17,15 @@ import { NewSubject } from '../services/newSubject.service';
 export class UpdateActivityComponent implements OnInit {
 
   updateActivityForm: FormGroup;
-  levels: Array<{ id: number, name: string }> = 
+  id : string ; 
+  levels: Array<{ id: string, name: string }> = 
   [
-  { id: 1, name: "First" }, 
-  { id: 2, name: "Second" }, 
-  { id: 3, name: "Third" }, 
-  { id: 4, name: "Fourth" }, 
-  { id: 5, name: "Fifth" }, 
-  { id: 6, name: "Sixth" }
+  { id: "1", name: "First" }, 
+  { id: "2", name: "Second" }, 
+  { id: "3", name: "Third" }, 
+  { id: "4", name: "Fourth" }, 
+  { id: "5", name: "Fifth" }, 
+  { id: "6", name: "Sixth" }
 ];
 days: Array<{ id: number, name: string }> = 
   [
@@ -34,13 +37,31 @@ days: Array<{ id: number, name: string }> =
   { id: 6, name: "Thursday" } ,
   { id: 7, name: "Friday" }
 ] ;
+activity : ActivityModel ;
 instructors: Array<InstructorModel> ;
 subjects: Array<SubjectModel> ;
 types: Array<{ id: number, name: string }> ; 
-  constructor( private testService: TestService ,private subjectService  : NewSubject ,  private activityservice :ActivityService ) { }
+  constructor( private testService: TestService ,private router : Router , private route: ActivatedRoute,private subjectService  : NewSubject ,  private activityservice :ActivityService ) { }
 
   ngOnInit() {
-    this.initForm()
+    this.route.params.subscribe(
+      data =>{
+        this.id = data["id"] ; 
+      }
+    )
+    this.route.data.subscribe(
+      (res : Data)=>{
+        this.activity = res.activity.admin ;
+        console.log(this.activity) ;
+        this.initForm(this.activity);
+        // console.log(this.updateActivityForm.get("instructorName").value) ;
+      }
+      ,
+      err =>{
+        console.log(err) ;
+      }
+    )
+    
     this.subjectService.getSubjects().subscribe(
       res=>{
         console.log(res.subjects) ; 
@@ -52,7 +73,8 @@ types: Array<{ id: number, name: string }> ;
     ) ; 
     this.testService.getInstructors().subscribe(
       res=>{
-        console.log(res.instructors) ; 
+        this.instructors = res.instructor ;   
+        console.log(res.instructor) ; 
       } , 
       err => {
         console.log(err) ; 
@@ -60,21 +82,29 @@ types: Array<{ id: number, name: string }> ;
     ) ;
   }
 
-  initForm() {
+  initForm(data : ActivityModel) {
     this.updateActivityForm = new FormGroup({
-      day: new FormControl(),
-      instructorName: new FormControl(),
-      subjectName: new FormControl(),
-      startTime: new FormControl(null),
-      endTime: new FormControl(null),
-      location: new FormControl(null),
-      type: new FormControl(),
-      groupNumber: new FormControl()
+      day: new FormControl(data.day),
+      subjectName: new FormControl(data.subjectName),
+      instructorName: new FormControl(null),
+      startTime: new FormControl(data.startTime),
+      endTime: new FormControl(data.endTime),
+      Location: new FormControl(data.Location),
+      type: new FormControl(data.type),
+      groupNumber: new FormControl(data.groupNumber)
 
-    })
+    }) ; 
   }
   onSubmit(){
-    console.log(this.updateActivityForm.value);
+    let data  = {...this.updateActivityForm.value ,totalMark : `${this.activity.totalMarks}` }  
+    
+     this.activityservice.updateActivity(data , +this.id).subscribe(
+       res => {
+         console.log(res) ;
+         this.router.navigate(["activities"]) ;
+       }
+     )
+  console.log(this.id);
   }
 
 }

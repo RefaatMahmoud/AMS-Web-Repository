@@ -8,13 +8,13 @@
         </div>
         <div class="col-sm-7">
           <select id="day" formControlName="day" class="form-control">
-            <option [selected]=true [disabled]=true value="{{null}}">select a day ....</option>
-            <option *ngFor="let day of days  " value="{{day.name}}">{{day.name}}</option>
-           
+            <option  [disabled]=true [ngValue]="null">select a day ....</option>
+            <option *ngFor="let day of days  " [ngValue]="day.name">{{day.name}}</option>
+
           </select>
           <p *ngIf="updateActivityForm.get('day').touched && !updateActivityForm.get('day').value " class="form-text text-danger">
-  This field is required !
-</p>
+            This field is required !
+          </p>
         </div>
       </div>
       <div class="form-group row">
@@ -23,8 +23,8 @@
         </div>
         <div class="col-sm-7">
           <select id="level" formControlName="groupNumber" class="form-control">
-            <option [selected]="true" disabled value="{{null}}">select a level ....</option>
-            <option *ngFor="let level of levels " value="{{level.id}}">{{level.name}}</option>
+            <option disabled [ngValue]="null">select a level ....</option>
+            <option *ngFor="let level of levels " [ngValue]="level.id">{{level.name}}</option>
           </select>
           <p *ngIf="updateActivityForm.get('groupNumber').touched && !updateActivityForm.get('groupNumber').value " class="form-text text-danger">
             This field is required !
@@ -39,8 +39,8 @@
         ">
 
           <select id="subject" formControlName="subjectName" class="form-control">
-            <option disabled [selected]="true"  value="{{null}}">select a subject ....</option>
-            <option *ngFor="let subject of subjects  , let i = index" value="{{subject.subjectName}}">{{subject.subjectName}}</option>
+            <option disabled [ngValue]="null">select a subject ....</option>
+            <option *ngFor="let subject of subjects  , let i = index" [ngValue]="subject.subjectName">{{subject.subjectName}}</option>
           </select>
           <p *ngIf="updateActivityForm.get('subjectName').touched && !updateActivityForm.get('subjectName').value " class="form-text text-danger">
             This field is required !
@@ -54,9 +54,9 @@
         </div>
         <div class="col-sm-7
             ">
-          <select id="professor" formControlName ="instructorName" class="form-control">
-            <option disabled [selected]="true"  value="{{null}}">select a professor ....</option>
-            <option *ngFor="let instructor of instructors  , let i = index" value="{{instructor.name}}">{{instructor.name}}</option>
+          <select id="professor" formControlName="instructorName"  class="form-control">
+            <option  disabled  [ngValue]="null">select a professor ....</option>
+            <option *ngFor="let instructor of instructors , let i = index" [ngValue]="instructor.name">{{instructor.name}}</option>
           </select>
           <p *ngIf="updateActivityForm.get('instructorName').touched && !updateActivityForm.get('instructorName').value " class="form-text text-danger">
             This field is required !
@@ -71,13 +71,13 @@
         <div class="col-sm-7
                 ">
           <select id="type" formControlName="type" class="form-control">
-            <option [selected]="true" disabled value="{{null}}">select a type ....</option>
-            <option *ngFor="let type of types  , let i = index" value="{{type.name}}">{{type.name}}</option>
+            <option disabled [ngValue]="null">select a type ....</option>
+            <option *ngFor="let type of types  , let i = index" [ngValue]="type.name">{{type.name}}</option>
           </select>
           <p *ngIf="updateActivityForm.get('type').touched && !updateActivityForm.get('type').value " class="form-text text-danger">
             This field is required !
           </p>
-          
+
         </div>
         <div class="col-sm-1"></div>
       </div>
@@ -88,17 +88,17 @@
         <div class="col-sm-7
                     ">
           <!-- <select id="type" class="form-control">
-                            <option selected disabled value="none">select a location ....</option>
+                            <option selected disabled [ngValue]="null">select a location ....</option>
                             <option value="AI">Section</option>
                             <option value="CV">Lecture</option>
                             <option value="NW">Clinical</option>
                             <option value="AR">Hospitals</option>
                             <option value="DS">Labs</option>
                         </select> -->
-          <input type="text" formControlName="location" id="location" class="form-control" placeholder="get your location">
-          <p *ngIf="updateActivityForm.get('location').touched && !updateActivityForm.get('location').value " class="form-text text-danger">
+          <input type="text" formControlName="Location" id="location" class="form-control" placeholder="get your location">
+          <p *ngIf="updateActivityForm.get('Location').touched && !updateActivityForm.get('Location').value " class="form-text text-danger">
             This field is required !
-          </p>      
+          </p>
         </div>
       </div>
 
@@ -113,7 +113,7 @@
           <p *ngIf="updateActivityForm.get('startTime').touched && !updateActivityForm.get('startTime').value " class="form-text text-danger">
             This field is required !
           </p>
-          
+
         </div>
       </div>
       <div class="form-group row">
@@ -132,7 +132,7 @@
 
       <div class="form-group row">
         <div class="col-sm-11 col-md-10 ">
-          <button  class="btn btn-lg btn-green float-right">
+          <button class="btn btn-lg btn-green float-right">
             <i class="fa fa-edit px-2"></i>Update Activity</button>
         </div>
       </div>
