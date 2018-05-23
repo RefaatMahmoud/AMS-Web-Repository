@@ -14,7 +14,9 @@ class students_in_LocationRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required"
+            "name" => "required|string",
+            "status" => "required|boolean",
+            "level" => "required|string"
         ];
     }
 }

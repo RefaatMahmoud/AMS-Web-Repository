@@ -27,3 +27,5 @@ Route::apiresource('/adminLogin','adminLogin');
 Route::apiresource('/students_in_Location','StudentsInLocationController');
 Route::apiresource('/schedule','ScheduleController');
 Route::apiresource('/subjects','SubjectController');
+Route::apiresource('/activityType' , 'ActivityTypeController');
+Route::apiresource('/membersRole' , 'RoleController');

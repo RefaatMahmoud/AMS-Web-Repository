@@ -1,0 +1,76 @@
+<app-sidebar></app-sidebar>
+<app-header></app-header>
+
+<nav class="">
+        <ul class="breadcrumb bg-dark">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+           
+            <li class="breadcrumb-item active">
+                Edit Subject
+            </li>
+        </ul>
+    </nav>
+
+<div class="col-md-6 col-lg-4 col-sm-8 mx-auto mt-5">
+
+  <form class="member-form"
+        id="subjectForm"
+        [formGroup]="editSubjectForm"
+        (ngSubmit)="onSubmit()">
+<div class="form-group ">
+        <label for="subjectName">Subject Name</label>
+        <div class="input-group">
+                <input type="text" 
+                       class="form-control"
+                        id="subjectName"  
+                        formControlName="subjectName"
+                        placeholder="Enter subject name">
+                       
+        </div>
+        <span 
+        *ngIf="!editSubjectForm.get('subjectName').valid && editSubjectForm.get('subjectName').touched"
+        class="help-block" >Subject name Requird!</span>
+</div>
+
+<div class="form-group ">
+        <label for="totalMark">Total Mark</label>
+        <div class="input-group">
+                <input type="number" 
+                       class="form-control"
+                       id="totalMark" 
+                       placeholder="Enter total mark"
+                       formControlName="totalMark"
+                       >
+                        
+        </div>
+  
+  <span 
+        *ngIf="!editSubjectForm.get('totalMark').valid && editSubjectForm.get('totalMark').touched"
+        class="help-block" >Enter a valid total mark!</span>
+        
+  
+</div>
+
+
+
+
+<select class="form-control"
+        formControlName="duration">
+        <option>Duration</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+</select>
+<br>
+<input type="hidden" value="5" id="groupNumber">
+<button type="submit" class="btn btn-success " >Save</button>
+
+</form>
+
+
+
+</div>

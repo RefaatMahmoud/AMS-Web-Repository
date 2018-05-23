@@ -11,6 +11,8 @@ import { AddNewActivityComponent } from "./add-new-activity/add-new-activity.com
 import { ActivityViewComponent } from "./activity-view/activity-view.component";
 import { UpdateActivityComponent } from "./update-activity/update-activity.component";
 import { ActivityResolverService } from "./services/activity-resolver.service";
+import { SubjectEditComponent } from "./subject-edit/subject-edit.component";
+import { SubjectResolver } from "./services/subject.resolver.service";
 
 const ROUTES : Routes =[
     {path : "index",component : IndexComponent , },
@@ -20,6 +22,7 @@ const ROUTES : Routes =[
     {path : "activities/new" , component: AddNewActivityComponent},
     {path : "activities" , component: ActivityViewComponent},
     {path : "activities/:id/edit" , component: UpdateActivityComponent , resolve:{activity : ActivityResolverService}},
+    {path : ":id/edit" , component: SubjectEditComponent, resolve:{subject:SubjectResolver}},
     {path:"subject-table", component:SubjectTableComponent},
     { path : "" , component : HomeComponent,canActivateChild:[AuthGuard],children :[
         

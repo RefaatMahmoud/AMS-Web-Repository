@@ -15,10 +15,11 @@ class StudentRequest extends FormRequest
         return [
             'name' => 'required|min:4',
             'email' => 'required' ,
-            'password' => 'required|min:3|max:15',
+            'password' => 'required|min:3',
             'username' => 'required|min:3',
             'telephone' => 'required|min:10',
-            'level' =>'required'
+            'level' =>'required',
+            'role' => 'required|string'
         ];
     }
 }

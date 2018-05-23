@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\Users\students_in_LocationRequest;
 use App\Http\Resources\Users\students_in_LocationResource;
-use App\students_in_Location;
-use Illuminate\Http\Request;
+use App\stduents_in_locations;
 
 class StudentsInLocationController extends Controller
 {
@@ -13,15 +11,17 @@ class StudentsInLocationController extends Controller
     public function index()
     {
         return response([
-            "students_in_Location" => students_in_LocationResource::collection(students_in_Location::all())
+            "students_in_Location" => students_in_LocationResource::collection(stduents_in_locations::all())
         ],200);
     }
     public function store(students_in_LocationRequest $request)
     {
         //create obj
-        $studentLocationObj = new students_in_Location();
+        $studentLocationObj = new stduents_in_locations();
         //set request
         $studentLocationObj->name = $request->name;
+        $studentLocationObj->status = $request->status;
+        $studentLocationObj->level = $request->level;
         //save
         $studentLocationObj->save();
         //response
@@ -32,10 +32,17 @@ class StudentsInLocationController extends Controller
 
     public function destroy($id)
     {
-        $studentLocationObj = students_in_Location::find($id);
+        $studentLocationObj = stduents_in_locations::find($id);
         $studentLocationObj->delete();
         return response([
             "students_in_Location" => "deleted successfully"
+        ],200);
+    }
+
+    public function show($id)
+    {
+        return response([
+            'student' => new students_in_LocationResource(stduents_in_locations::find($id))
         ],200);
     }
 }

@@ -8,12 +8,6 @@ class AdminResource extends JsonResource
 {
     public function toArray($request)
     {
-        return[
-            "id" => $this->id,
-            "username" => $this->username,
-            "password" => $this->password,
-            "email" => $this->email,
-            "role" => $this->role
-        ];
+        return parent::toArray($request);
     }
 }

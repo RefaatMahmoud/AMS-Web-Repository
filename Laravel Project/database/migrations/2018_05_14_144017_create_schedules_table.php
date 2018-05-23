@@ -13,9 +13,10 @@ class CreateSchedulesTable extends Migration
             $table->string('day');
             $table->string('subjectName');
             $table->string('instructorName');
+            $table->string('totalMark');
             $table->string('Location');
-            $table->integer('startTime');
-            $table->integer('endTime');
+            $table->string('startTime');
+            $table->string('endTime');
             $table->string('type');
             $table->string('groupNumber');
             $table->timestamps();

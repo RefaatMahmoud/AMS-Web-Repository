@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NewSubject } from '../services/newSubject.service';
@@ -11,7 +12,8 @@ export class NewSubjectComponent implements OnInit {
 
   addSubjectForm: FormGroup ;
 
-  constructor(private newSubject: NewSubject) { }
+  constructor(private newSubject: NewSubject, 
+              private router:Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.addSubjectForm = new FormGroup({
@@ -33,6 +35,7 @@ export class NewSubjectComponent implements OnInit {
     this.newSubject.newSubject(data).subscribe(
       data => {
         console.log(data);
+        this.router.navigate(["subject-table"]);
       }
     )
     

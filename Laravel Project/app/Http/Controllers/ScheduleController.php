@@ -56,4 +56,12 @@ class ScheduleController extends Controller
             "schedule" => "deleted successfully"
         ],200);
     }
+
+    public function show($id)
+    {
+        return response([
+            'admin' => new scheduleResource(schedule::find($id))
+        ],200);
+    }
+
 }
