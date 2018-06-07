@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2018 at 10:20 PM
+-- Generation Time: Jun 07, 2018 at 07:45 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -90,6 +90,31 @@ INSERT INTO `instructors` (`id`, `name`, `username`, `password`, `email`, `telep
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `locations`
+--
+
+CREATE TABLE `locations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `locationName` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `locations`
+--
+
+INSERT INTO `locations` (`id`, `locationName`, `created_at`, `updated_at`) VALUES
+(1, 'Hall 3', '2018-06-07 23:54:30', '2018-06-07 23:54:30'),
+(2, 'Hall 2', '2018-06-07 23:54:30', '2018-06-07 23:54:30'),
+(3, 'Hall 3', '2018-06-07 23:54:30', '2018-06-07 23:54:30'),
+(4, 'Hall 1', '2018-06-07 23:54:30', '2018-06-07 23:54:30'),
+(5, 'Hall 5', '2018-06-07 23:54:30', '2018-06-07 23:54:30'),
+(6, 'Hall 7', '2018-06-08 00:41:19', '2018-06-08 00:41:19');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -114,7 +139,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (71, '2018_05_14_172009_create_subjects_table', 1),
 (72, '2018_05_20_224642_create_activity_types_table', 1),
 (73, '2018_05_21_162456_create_stduents_in_locations_table', 1),
-(74, '2018_05_21_221515_create_roles_table', 1);
+(74, '2018_05_21_221515_create_roles_table', 1),
+(75, '2018_06_07_165012_create_locations_table', 2);
 
 -- --------------------------------------------------------
 
@@ -265,7 +291,7 @@ CREATE TABLE `stduents_in_locations` (
 --
 
 INSERT INTO `stduents_in_locations` (`id`, `name`, `level`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Dena Farrell', '4', 1, '2018-05-22 07:38:09', '2018-05-22 07:38:09'),
+(1, 'Eldiasty', '1', 1, '2018-05-22 07:38:09', '2018-05-24 22:57:00'),
 (2, 'Dahlia Thompson', '3', 0, '2018-05-22 07:38:09', '2018-05-22 07:38:09'),
 (3, 'Miss Evangeline Gulgowski', '3', 0, '2018-05-22 07:38:09', '2018-05-22 07:38:09'),
 (4, 'Hipolito Thiel', '4', 1, '2018-05-22 07:38:09', '2018-05-22 07:38:09'),
@@ -274,7 +300,8 @@ INSERT INTO `stduents_in_locations` (`id`, `name`, `level`, `status`, `created_a
 (7, 'Ferne O\'Kon', '3', 0, '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
 (8, 'Mr. Skye Lynch IV', '4', 1, '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
 (9, 'Helga Moore', '3', 1, '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(10, 'Stacy Cartwright', '2', 1, '2018-05-22 07:38:10', '2018-05-22 07:38:10');
+(10, 'Stacy Cartwright', '2', 1, '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
+(11, 'zead', '4', 1, '2018-05-24 22:53:45', '2018-05-24 22:53:45');
 
 -- --------------------------------------------------------
 
@@ -394,6 +421,12 @@ ALTER TABLE `instructors`
   ADD UNIQUE KEY `instructors_username_unique` (`username`);
 
 --
+-- Indexes for table `locations`
+--
+ALTER TABLE `locations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -471,10 +504,15 @@ ALTER TABLE `activity_types`
 ALTER TABLE `instructors`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
+-- AUTO_INCREMENT for table `locations`
+--
+ALTER TABLE `locations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 --
 -- AUTO_INCREMENT for table `questions_by_students`
 --
@@ -499,7 +537,7 @@ ALTER TABLE `set_questions_by_admins`
 -- AUTO_INCREMENT for table `stduents_in_locations`
 --
 ALTER TABLE `stduents_in_locations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `student_models`
 --

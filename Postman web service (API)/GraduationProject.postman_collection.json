@@ -14,7 +14,8 @@
 		"06de071e-37c7-4a6a-b2a5-b7b8f314e19c",
 		"140f0155-ba17-4348-8258-bfe12df7273b",
 		"2fb4fdf9-d64b-49e1-9810-fca012d4da5e",
-		"3ccb170d-cd7f-4b94-8056-8ebd9aaaaf70"
+		"3ccb170d-cd7f-4b94-8056-8ebd9aaaaf70",
+		"d813ea06-344c-4e20-b87a-cbe9ffd4b93a"
 	],
 	"folders": [
 		{
@@ -64,6 +65,21 @@
 				"ebcd4093-7e17-65e8-831d-e7e183939153",
 				"7aa441c9-69d6-5593-7bfd-f015afa422d0",
 				"ba907caa-7b93-46e9-b920-266efe7f19b1"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "d813ea06-344c-4e20-b87a-cbe9ffd4b93a",
+			"name": "Locations",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "d0d6b844-6ff3-403c-1475-211eee5766f5",
+			"folder": null,
+			"order": [
+				"2169961f-dd26-4f3b-a85d-c0fc3c6e212a",
+				"e5e35556-85f4-431b-a238-60d9fc3811d8",
+				"75c95bfe-d01e-426e-913d-cb8f67cb5a11"
 			],
 			"folders_order": []
 		},
@@ -319,6 +335,23 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "2169961f-dd26-4f3b-a85d-c0fc3c6e212a",
+			"name": "GET locationsName",
+			"url": "http://localhost:8000/api/locationsName",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "d813ea06-344c-4e20-b87a-cbe9ffd4b93a",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
 			"id": "224b49a1-1d05-d49f-ecf4-a474776d1e12",
 			"name": "Post Student Data",
 			"url": "http://localhost:8000/api/students",
@@ -530,6 +563,35 @@
 			"events": [],
 			"folder": "acd333be-bca4-2f56-c600-35fa30a532dd",
 			"rawModeData": "{\n\t\"name\":\"zead\",\n\t\"level\":\"4\",\n\t\"status\":\"1\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "75c95bfe-d01e-426e-913d-cb8f67cb5a11",
+			"name": "PUT locationsName",
+			"url": "http://localhost:8000/api/locationsName/7",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "d813ea06-344c-4e20-b87a-cbe9ffd4b93a",
+			"rawModeData": "{\n\t\"locationName\":\"Hall 1\"\n}",
 			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
@@ -1021,6 +1083,35 @@
 			"folder": "3ccb170d-cd7f-4b94-8056-8ebd9aaaaf70",
 			"rawModeData": "{\n\t\"accessNumber\":\"2\"\n}",
 			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e5e35556-85f4-431b-a238-60d9fc3811d8",
+			"name": "POST locationsName",
+			"url": "http://localhost:8000/api/locationsName",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "d813ea06-344c-4e20-b87a-cbe9ffd4b93a",
+			"rawModeData": "{\n\t\"locationName\":\"Hall 7\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
 		{

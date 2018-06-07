@@ -20,6 +20,9 @@ tags:
 - name: students_in_Location
 - name: schedule
 - name: subjects
+- name: activity_Type
+- name: membersRole
+- name: locationsName
 # - name: students
 
 paths:
@@ -66,6 +69,23 @@ paths:
           description: an existing item already exists
         
   /api/admin/{id}:
+    get:
+      tags:
+      - admin
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get admin
+      description: |
+        get single admin by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok
+          
     delete:
       tags:
       - admin
@@ -76,7 +96,7 @@ paths:
           required: true 
       summary: delete admin
       description: |
-        delete admin by his id
+        delete admin by id
       produces:
       - application/json
       responses:
@@ -170,11 +190,29 @@ paths:
         409:
           description: an existing item already exists
           
+  /api/students/{id}:
+    get:
+      tags:
+      - student
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get student
+      description: |
+        get student by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok
+          
   /api/studentLogin:      
     post:
       tags:
       - studentLogin
-      summary: Admin Login into system
+      summary: student Login into system
       consumes:
       - application/json
       produces:
@@ -239,6 +277,45 @@ paths:
           description: an existing item already exists
           
   /api/students_in_Location/{id}:
+    get:
+      tags:
+      - students_in_Location
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get students_in_Location
+      description: |
+        get students_in_Location by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok
+    
+    put:
+      tags:
+      - students_in_Location
+      summary: Update an students_in_Location
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path 
+        type: number
+        required: true 
+      - in: body
+        name: students_in_Location
+        description: admin to update
+        schema:
+          $ref: '#/definitions/students_in_Location'
+      responses:
+        200:
+          description: student in location updated successfully  
+          
     delete:
       tags:
       - students_in_Location
@@ -249,12 +326,14 @@ paths:
           required: true 
       summary: delete student if he disconnect from router
       description: |
-        Delete student by his id if he outside the lecture or disconnected from router
+        Delete student by id if he outside the lecture or disconnected from router
       produces:
       - application/json
       responses:
         200:
           description: that's mean is deleted successfully
+          
+  
 #################################
 ######## start instructors ######
 #################################
@@ -296,6 +375,24 @@ paths:
           description: invalid input, object invalid
         409:
           description: an existing item already exists
+  
+  /api/instructors/{id}:
+    get:
+      tags:
+      - instructor
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get instructor
+      description: |
+        get instructor by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok
           
   /api/instructorLogin:      
     post:
@@ -361,6 +458,24 @@ paths:
           description: invalid input, object invalid
         409:
           description: an existing item already exists
+          
+  /api/questionsByAdmin/{id}:
+    get:
+      tags:
+      - admin_Questions
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get admin_Questions
+      description: |
+        get admin_Questions by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok
               
 #################################
 ### start Question students #####
@@ -403,7 +518,24 @@ paths:
           description: invalid input, object invalid
         409:
           description: an existing item already exists
-     
+  
+  /api/questionsByStudtents/{id}:
+    get:
+      tags:
+      - student_Questions
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get instructor
+      description: |
+        get student_Questions by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok   
 ####################################
 ######### start schedule ###########
 #################################### 
@@ -435,7 +567,7 @@ paths:
       parameters:
       - in: body
         name: admin
-        description: schedule to add
+        description: Note groupNumber will post it as input type hidden when he choice level and totalMark will post it as input type hidden when user choice subjectName from select
         schema:
           $ref: '#/definitions/schedule'
       responses:
@@ -447,6 +579,22 @@ paths:
           description: an existing item already exists
         
   /api/schedule/{id}:
+    get:
+      tags:
+      - schedule
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get schedule
+      description: |
+        get schedule by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok 
     delete:
       tags:
       - schedule
@@ -457,7 +605,7 @@ paths:
           required: true 
       summary: delete schedule
       description: |
-        delete schedule by his id
+        delete schedule by id
       produces:
       - application/json
       responses:
@@ -496,7 +644,7 @@ paths:
       - subjects
       summary: Get all subjects information  
       description: |
-        GET data for all subjects information For (First-Second-Thrid-Fourth-Fifth) groups
+        GET data for all subjects information For (First-Second-Thrid-Fourth-Fifth) groups 
       produces:
       - application/json
       responses:
@@ -518,7 +666,7 @@ paths:
       parameters:
       - in: body
         name: subjects
-        description: subjects to add
+        description: Note groupNumber will post it as input type hidden when he choice level
         schema:
           $ref: '#/definitions/subjects'
       responses:
@@ -530,6 +678,23 @@ paths:
           description: an existing item already exists
         
   /api/subjects/{id}:
+    get:
+      tags:
+      - subjects
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get subject
+      description: |
+        get single subject by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok
+    
     delete:
       tags:
       - subjects
@@ -540,7 +705,7 @@ paths:
           required: true 
       summary: delete subject
       description: |
-        delete subject by his id
+        delete subject by id
       produces:
       - application/json
       responses:
@@ -568,7 +733,225 @@ paths:
       responses:
         200:
           description: item updated successfully
+          
+          
+#########################################
+######### start activity_Type ###########
+#########################################
+  /api/activityType:
+    get:
+      tags:
+      - activity_Type
+      summary: Get all activites information  
+      description: |
+        GET data for all activites information For any day
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/membersRole'
+   
+    post:
+      tags:
+      - activity_Type
+      summary: Create a new activity rcole into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: activity_Type
+        description: activity to add
+        schema:
+          $ref: '#/definitions/activity_Type'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
 
+  /api/activityType/{id}:
+    get:
+      tags:
+      - activity_Type
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get activity_Type
+      description: |
+        get activity_Type by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok 
+#######################################
+######### start membersRole ###########
+#######################################
+  /api/membersRole:
+    get:
+      tags:
+      - membersRole
+      summary: Get all roles information  
+      description: |
+        GET data for all roles information For any member in application
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/membersRole'
+   
+    post:
+      tags:
+      - membersRole
+      summary: Create a new role into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: membersRole
+        description: role to add
+        schema:
+          $ref: '#/definitions/membersRole'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+  /api/membersRole/{id}:
+    get:
+      tags:
+      - membersRole
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get membersRole
+      description: |
+        get membersRole by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok 
+######################################
+######### start locations ############
+######################################
+  /api/locationsName:
+    get:
+      tags:
+      - locationsName
+      summary: Get all Locations Name   
+      description: |
+        GET data for locationsName 
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/locationsName'
+              
+    post:
+      tags:
+      - locationsName
+      summary: Create a new location  into application
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: locationsName
+        description: Create a new location
+        schema:
+          $ref: '#/definitions/locationsName'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+        
+  /api/locationsName/{id}:
+    get:
+      tags:
+      - locationsName
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get locationsName
+      description: |
+        get single location Name by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok
+    
+    delete:
+      tags:
+      - locationsName
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: delete location Name
+      description: |
+        delete location Name by id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is deleted successfully
+          
+    put:
+      tags:
+      - locationsName
+      summary: Update an existing location Name
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path 
+        type: number
+        required: true 
+      - in: body
+        name: locationsName
+        description: location Name to update
+        schema:
+          $ref: '#/definitions/locationsName'
+      responses:
+        200:
+          description: item updated successfully
+          
 #########################################################
 #-------------------- Start definitions ----------------#
 #########################################################          
@@ -586,13 +969,13 @@ definitions:
         example: 1
       username:
         type: string
-        example: Refaat Aish
+        example: "Refaat Aish"
       password:
         type: string
-        example: 01012341234
+        example: "01012341234"
       email:
         type: string
-        example: refaat.aish.fciscu1@gmail.com
+        example: "refaat.aish.fciscu1@gmail.com"
       role:
         type: integer
         example: 1
@@ -606,26 +989,38 @@ definitions:
       - email
       - level
       - telephone
+      - role
       properties:
         id:
           type: integer
           example: 1
         name:
           type: string
-          example: Refaat Aish
+          example: "Refaat Aish"
         username:
           type: string
-          example: refo99
+          example: "refo99"
+        password:
+          type: string
+          example: "01012341234"
         email:
           type: string
-          example: refaat.aish.fciscu1@gmail.com
+          example: "refaat.aish.fciscu1@gmail.com"
         level:
           type: string
-          example: first
+          example: "1"
         telephone:
           type: string
-          example: 01003616844
-    
+          example: "01003616844"
+        role:
+          type: string
+          example: "1"
+        created_at:
+          type: string
+          example: "2018-05-21 22:48:23"
+        updated_at:
+          type: string
+          example: "2018-05-21 22:48:23"
   instructor:
       type: object
       required:
@@ -634,25 +1029,39 @@ definitions:
       - password
       - email
       - subjectName
+      - telephone
+      - role
       properties:
         id:
           type: integer
           example: 1
         name:
           type: string
-          example: Refaat Aish
+          example: "Refaat Aish"
         username:
           type: string
-          example: refo99
+          example: "refo99"
+        password:
+          type: string
+          example: "01012341234"
         email:
           type: string
-          example: refaat.aish.fciscu1@gmail.com
+          example: "refaat.aish.fciscu1@gmail.com"
         subjectName:
           type: string
-          example: medicalTools
+          example: "medicalTools"
         telephone:
           type: string
-          example: 01003616844
+          example: "01003616844"
+        role:
+          type: string
+          example: "1"
+        created_at:
+          type: string
+          example: "2018-05-21 22:48:23"
+        updated_at:
+          type: string
+          example: "2018-05-21 22:48:23"
           
   adminLogin:
     type: object
@@ -662,10 +1071,10 @@ definitions:
     properties:
       username:
         type: string
-        example: zead
+        example: "zead"
       password:
         type: string
-        example: 1111
+        example: "1111"
         
   studentLogin:
     type: object
@@ -675,10 +1084,10 @@ definitions:
     properties:
       username:
         type: string
-        example: zead
+        example: "zead"
       password:
         type: string
-        example: 1111 
+        example: "1111" 
   
   instructorLogin:
     type: object
@@ -688,10 +1097,10 @@ definitions:
     properties:
       username:
         type: string
-        example: zead
+        example: "zead"
       password:
         type: string
-        example: 1111
+        example: "1111"
    
   admin_Questions:
       type: object
@@ -707,19 +1116,19 @@ definitions:
           example: 1
         question:
           type: string
-          example: Whats about this lect today? 
+          example: "Whats about this lect today?" 
         option1:
           type: string
-          example: bad
+          example: "bad"
         option2:
           type: string
-          example: good
+          example: "good"
         option3:
           type: string
-          example: very good
+          example: "very good"
         option4:
           type: string
-          example: excellent
+          example: "excellent"
           
   student_Questions:
       type: object
@@ -735,31 +1144,39 @@ definitions:
           example: 1
         student_info_link:
           type: string
-          example: http://syntax-eg.esy.es/api/students/4
+          example: "http://syntax-eg.esy.es/api/students/4"
         answer1:
           type: string
-          example: bad
+          example: "bad"
         answer2:
           type: string
-          example: good
+          example: "good"
         answer3:
           type: string
-          example: very good
+          example: "very good"
         answer4:
           type: string
-          example: excellent
+          example: "excellent"
     
   students_in_Location:
     type: object
     required:
     - name
+    - level
+    - status
     properties:
       id:
         type: integer
         example: 1
       name:
         type: string
-        example: Refaat Aish
+        example: "Refaat Aish"
+      level:
+        type: string
+        example: "2"
+      status:
+        type: boolean
+        example: true
     
   schedule:
     type: object
@@ -772,34 +1189,38 @@ definitions:
     - type
     - Location
     - groupNumber
+    - totalMark
     properties:
       id:
         type: integer
         example: 1
       day:
         type: string
-        example: Monday
+        example: "Monday"
       instructorName:
         type: string
-        example: Dr/Hazem Tarek
+        example: "Dr/Hazem Tarek"
       subjectName:
         type: string
-        example: Medical tools
+        example: "Medical tools"
       startTime:
-        type: integer
-        example: 2
+        type: string
+        example: "2"
       endTime:
-        type: integer
-        example: 5
+        type: string
+        example: "5"
       type:
         type: string
-        example: lecture 
+        example: "lecture" 
       Location:
         type: string
-        example: Hall 2
+        example: "Hall 2"
       groupNumber:
-        type: number
-        example: 2
+        type: string
+        example: "2"
+      totalMark:
+        type: string
+        example: "100"
 
   subjects:
     type: object
@@ -816,15 +1237,67 @@ definitions:
         type: string
         example: Medical tools
       duration:
-        type: integer
-        example: 3
+        type: string
+        example: '3'
       totalMark:
-        type: integer
-        example: 100 
+        type: string
+        example: "100" 
       groupNumber:
+        type: string
+        example: "2" 
+    
+  activity_Type:
+    type: object
+    required:
+    - title
+    - flag
+    properties:
+      id:
         type: integer
-        example: 2 
+        example: 1
+      title:
+        type: string
+        example: "lecture"
+      flag:
+        type: boolean
+        example: true
+      created_at:
+          type: string
+          example: "2018-05-21 22:48:23"
+      updated_at:
+        type: string
+        example: "2018-05-21 22:48:23"
         
+        
+  membersRole:
+    type: object
+    required:
+    - accessNumber
+    - title
+    properties:
+      id:
+        type: integer
+        example: 1
+      accessNumber:
+        type: string
+        example: "0"
+      title:
+        type: string
+        example: "admin"
+        
+  locationsName:
+    type: object
+    required:
+    - locationName
+    properties:
+      id:
+        type: integer
+        example: 1
+      locationName:
+        type: string
+        example: "Hall 3"
+    
+    
 # Added by API Auto Mocking Plugin
 # host: http://www.syntax-eg.esy.es/
 schemes:

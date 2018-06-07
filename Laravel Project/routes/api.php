@@ -29,3 +29,4 @@ Route::apiresource('/schedule','ScheduleController');
 Route::apiresource('/subjects','SubjectController');
 Route::apiresource('/activityType' , 'ActivityTypeController');
 Route::apiresource('/membersRole' , 'RoleController');
+Route::apiresource('/locationsName' , 'LocationsController');
