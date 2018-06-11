@@ -1,5 +1,5 @@
-import {NgModule} from "@angular/core" ; 
-import {Routes , RouterModule} from "@angular/router" ;
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
 import { HomeComponent } from "./home/home.component";
 import { AddNewMemberComponent } from "./add-new-member/add-new-member.component";
@@ -14,32 +14,35 @@ import { ActivityResolverService } from "./services/activity-resolver.service";
 import { SubjectEditComponent } from "./subject-edit/subject-edit.component";
 import { SubjectResolver } from "./services/subject.resolver.service";
 
-const ROUTES : Routes =[
-    {path : "index",component : IndexComponent , },
-    { path : "login" , component : LoginComponent} , 
-    {path : "new-admin" , component: AddNewMemberComponent},
-    {path : "new-subject" , component: NewSubjectComponent},
-    {path : "activities/new" , component: AddNewActivityComponent},
-    {path : "activities" , component: ActivityViewComponent},
-    {path : "activities/:id/edit" , component: UpdateActivityComponent , resolve:{activity : ActivityResolverService}},
-    {path : ":id/edit" , component: SubjectEditComponent, resolve:{subject:SubjectResolver}},
-    {path:"subject-table", component:SubjectTableComponent},
-    { path : "" , component : HomeComponent,canActivateChild:[AuthGuard],children :[
-        
-    ] } ,
+const ROUTES: Routes = [
+    { path: "login", component: LoginComponent },
+    {
+        path: "", component: HomeComponent, children: [
+            { path: "index", component: IndexComponent, },
+            
+            { path: "new-admin", component: AddNewMemberComponent },
+            { path: "new-subject", component: NewSubjectComponent },
+            { path: "activities/new", component: AddNewActivityComponent },
+            { path: "activities", component: ActivityViewComponent },
+            { path: "activities/:id/edit", component: UpdateActivityComponent, resolve: { activity: ActivityResolverService } },
+            { path: ":id/edit", component: SubjectEditComponent, resolve: { subject: SubjectResolver } },
+            { path: "subject-table", component: SubjectTableComponent },
+
+        ]
+    },
 ]
 
 
 
 @NgModule({
-    imports : [
+    imports: [
         RouterModule.forRoot(ROUTES)
-    ] , 
-    exports:[
+    ],
+    exports: [
         RouterModule
     ]
 
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 
 }
