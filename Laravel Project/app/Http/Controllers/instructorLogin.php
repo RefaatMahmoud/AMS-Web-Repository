@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Resources\Users\InstructorsResource;
 use Illuminate\Http\Request;
 use App\Instructors;
 use Illuminate\Support\Facades\DB;
@@ -31,15 +32,17 @@ class instructorLogin extends Controller
         $count = count($CheckData);
         if($count > 0 && $passwordCheck== true)
         {
+            //userInfo
+            $userInfo = DB::table('instructors')->where('username','=',$instructorLoginObj->username)->get();
             return response([
-                "instructorLogin" => "login successfully"
+                "instructorLogin" => new InstructorsResource($userInfo)
             ],200);
         }
         else
         {
             return response([
-                "instructorLoginz" => "you don't have an account"
-            ],200);
+                "instructorLogin" => "you don't have an account"
+            ],404);
         }
     }
 }
