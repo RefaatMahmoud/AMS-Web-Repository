@@ -40,7 +40,6 @@ class adminUsersController extends Controller
             $adminObj->password  = Hash::make($request->password);
             $adminObj->email = $request->email;
             $adminObj->role = $request->role;
-            $adminObj->remember_token = str_random(60);
             //$adminObj->remember_token = str_random(60);
             //Save
             $adminObj->save();
