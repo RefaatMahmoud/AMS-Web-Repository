@@ -49,6 +49,8 @@ class InstructorsController extends Controller
         $instructorObj = Instructors::find($id);
         //update Student
         $instructorObj->update($request->all());
+        $instructorObj->telephone = $request->telephone;
+        $instructorObj->role = $request->role;
         $instructorObj->password = Hash::make($request->password);
         $instructorObj->save();
         //response

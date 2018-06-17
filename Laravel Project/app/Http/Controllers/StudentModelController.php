@@ -50,6 +50,7 @@ class StudentModelController extends Controller
         //update Student
         $studentObj->update($request->all());
         $studentObj->password = Hash::make($request->password);
+        $studentObj->role = $request->role;
         $studentObj->save();
         //response
         return response([
