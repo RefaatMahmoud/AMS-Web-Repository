@@ -31,13 +31,13 @@ class StudentLoginController extends Controller
         if($count > 0 && $passwordCheck== true)
         {
             return response([
-                "studentLogin" => "login successfully"
+                "data" => "login successfully"
             ],200);
         }
         else
         {
             return response([
-                "studentLogin" => "you don't have an account"
+                "data" => "you don't have an account"
             ],200);
         }
     }

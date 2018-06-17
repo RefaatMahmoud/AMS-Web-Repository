@@ -10,7 +10,7 @@ class QuestionsByStudentsController extends Controller
     public function index()
     {
         return response([
-            "student_Questions"=>questionsByStudentsResource::collection(questionsByStudents::all())
+            "data"=>questionsByStudentsResource::collection(questionsByStudents::all())
         ],200);
     }
 
@@ -28,14 +28,14 @@ class QuestionsByStudentsController extends Controller
         $studentQuestionObj->save();
         //response
         return response([
-            'student_Questions' => new questionsByStudentsResource($studentQuestionObj)
+            'data' => new questionsByStudentsResource($studentQuestionObj)
         ],201);
     }
 
     public function show($id)
     {
         return response([
-            'admin' => new questionsByStudentsResource(questionsByStudents::find($id))
+            'data' => new questionsByStudentsResource(questionsByStudents::find($id))
         ],200);
     }
 }

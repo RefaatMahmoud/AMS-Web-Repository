@@ -12,7 +12,7 @@ class SubjectController extends Controller
     public function index()
     {
         return response([
-            "subjects" => subjectResource::collection(subject::all())
+            "data" => subjectResource::collection(subject::all())
         ],200);
     }
 
@@ -29,7 +29,7 @@ class SubjectController extends Controller
         $subjectObj->save();
         //response
         return response([
-            "subjects" => new subjectResource($subjectObj)
+            "data" => new subjectResource($subjectObj)
         ],200);
     }
 
@@ -47,7 +47,7 @@ class SubjectController extends Controller
         $subjectObj->save();
         //response
         return response([
-            "subjects" => new subjectResource($subjectObj)
+            "data" => new subjectResource($subjectObj)
         ],200);
     }
 
@@ -56,7 +56,7 @@ class SubjectController extends Controller
         $subjectObj = subject::find($id);
         $subjectObj->delete();
         return response([
-            "subjects" => "deleted successfully"
+            "data" => "deleted successfully"
         ],200);
     }
 }
