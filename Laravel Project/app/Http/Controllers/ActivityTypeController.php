@@ -13,7 +13,7 @@ class ActivityTypeController extends Controller
     {
         //
         return response([
-           "activity_Type" => activityTypeResource::collection(activityType::all())
+           "data" => activityTypeResource::collection(activityType::all())
         ],200);
     }
 
@@ -28,7 +28,7 @@ class ActivityTypeController extends Controller
         $activityObj->save();
         //response
         return response([
-            "activity_Type" => new activityTypeResource($activityObj)
+            "data" => new activityTypeResource($activityObj)
         ],201);
     }
 

@@ -10,7 +10,7 @@ class ScheduleController extends Controller
     public function index()
     {
         return response([
-            "schedule" => scheduleResource::collection(schedule::all())
+            "data" => scheduleResource::collection(schedule::all())
         ],200);
     }
 
@@ -32,7 +32,7 @@ class ScheduleController extends Controller
         $scheduleObj->save();
         //response
         return response([
-            "schedule" => new scheduleResource($scheduleObj)
+            "data" => new scheduleResource($scheduleObj)
         ],201);
     }
 
@@ -44,7 +44,7 @@ class ScheduleController extends Controller
         $scheduleObj->save();
         //response
         return response([
-            "schedule" => new scheduleResource($scheduleObj)
+            "data" => new scheduleResource($scheduleObj)
         ],200);
     }
 
@@ -53,14 +53,14 @@ class ScheduleController extends Controller
         $scheduleObj = schedule::find($id);
         $scheduleObj->delete();
         return response([
-            "schedule" => "deleted successfully"
+            "data" => "deleted successfully"
         ],200);
     }
 
     public function show($id)
     {
         return response([
-            'admin' => new scheduleResource(schedule::find($id))
+            'data' => new scheduleResource(schedule::find($id))
         ],200);
     }
 

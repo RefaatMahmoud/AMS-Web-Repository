@@ -62,8 +62,8 @@ class adminLogin extends Controller
             else
             {
                 return response([
-                    "adminLogin" => "you don't have an account"
-                ],404);
+                    "data" => "you don't have an account"
+                ],200);
             }
         }
     }

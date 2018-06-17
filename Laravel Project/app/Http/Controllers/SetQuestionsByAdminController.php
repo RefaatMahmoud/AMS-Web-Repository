@@ -12,7 +12,7 @@ class SetQuestionsByAdminController extends Controller
     public function index()
     {
         return response([
-            "admin_Questions"=>setQuestionsByAdminResources::collection(setQuestionsByAdmin::all())
+            "data"=>setQuestionsByAdminResources::collection(setQuestionsByAdmin::all())
         ],200);
     }
 
@@ -30,7 +30,7 @@ class SetQuestionsByAdminController extends Controller
         $questionObj->save();
         //response
         return response([
-            'admin_Questions' => new setQuestionsByAdminResources($questionObj)
+            'data' => new setQuestionsByAdminResources($questionObj)
         ],201);
     }
 
@@ -38,7 +38,7 @@ class SetQuestionsByAdminController extends Controller
     {
         $questionObj = setQuestionsByAdmin::find($id);
         return response([
-            'admin_Questions' => new setQuestionsByAdminResources($questionObj)
+            'data' => new setQuestionsByAdminResources($questionObj)
         ],200);
     }
 
@@ -54,7 +54,7 @@ class SetQuestionsByAdminController extends Controller
         //save update request
         $questionObj->save();
         return response([
-            'admin_Questions' => new setQuestionsByAdminResources($questionObj)
+            'data' => new setQuestionsByAdminResources($questionObj)
         ],200);
     }
 
@@ -63,7 +63,7 @@ class SetQuestionsByAdminController extends Controller
         $questionObj = setQuestionsByAdmin::find($id);
         $questionObj->delete();
         return response([
-            "admin_Questions" => "deleted successfully"
+            "data" => "deleted successfully"
         ],200);
     }
 

@@ -12,7 +12,7 @@ class adminUsersController extends Controller
     public function index()
     {
         return response([
-            "admin" => AdminResource::collection(User::all())
+            "data" => AdminResource::collection(User::all())
         ]);
     }
 
@@ -40,13 +40,12 @@ class adminUsersController extends Controller
             $adminObj->password  = Hash::make($request->password);
             $adminObj->email = $request->email;
             $adminObj->role = $request->role;
-            $adminObj->remember_token = str_random(60);
             //$adminObj->remember_token = str_random(60);
             //Save
             $adminObj->save();
             //Response
             return response([
-                'admin' => new AdminResource($adminObj)
+                'data' => new AdminResource($adminObj)
             ],201);
         }
     }
@@ -54,7 +53,7 @@ class adminUsersController extends Controller
     public function show($id)
     {
         return response([
-            'admin' => new AdminResource(User::find($id))
+            'data' => new AdminResource(User::find($id))
         ],200);
     }
 
@@ -67,7 +66,7 @@ class adminUsersController extends Controller
         $adminObj->role = $request->role;
         $adminObj->save(); //save username
         return response([
-            'admin' => new AdminResource($adminObj)
+            'data' => new AdminResource($adminObj)
         ],200);
     }
 
@@ -76,7 +75,7 @@ class adminUsersController extends Controller
         $adminObj = User::find($id);
         $adminObj->delete();
         return response([
-            "admin" => "deleted successfully"
+            "data" => "deleted successfully"
         ],200);
     }
 }

@@ -1,6 +1,5 @@
 <?php
 namespace App\Http\Controllers;
-use App\Http\Resources\Users\StudentsResource;
 use Illuminate\Http\Request;
 use App\StudentModel;
 use Illuminate\Support\Facades\DB;
@@ -31,17 +30,15 @@ class StudentLoginController extends Controller
         $count = count($CheckData);
         if($count > 0 && $passwordCheck== true)
         {
-            //user info
-            $userInfo = DB::table('student_models')->where('username','=',$studenLoginObj->username)->get();
             return response([
-                "studentLogin" => new StudentsResource($userInfo)
+                "data" => "login successfully"
             ],200);
         }
         else
         {
             return response([
-                "studentLogin" => "you don't have an account"
-            ],404);
+                "data" => "you don't have an account"
+            ],200);
         }
     }
 }

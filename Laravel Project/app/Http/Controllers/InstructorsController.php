@@ -12,7 +12,7 @@ class InstructorsController extends Controller
     public function index()
     {
         return response([
-            "instructor"=>InstructorsResource::collection(Instructors::all())
+            "data"=>InstructorsResource::collection(Instructors::all())
         ],200);
     }
     
@@ -31,7 +31,7 @@ class InstructorsController extends Controller
         $instructorObj->save();
         //response
         return response([
-            'instructor' => new InstructorsResource($instructorObj)
+            'data' => new InstructorsResource($instructorObj)
         ],201);
     }
 
@@ -39,7 +39,7 @@ class InstructorsController extends Controller
     public function show($id)
     {
         return response([
-            'instructor' => new InstructorsResource(Instructors::find($id))
+            'data' => new InstructorsResource(Instructors::find($id))
         ],200);
     }
 
@@ -49,11 +49,13 @@ class InstructorsController extends Controller
         $instructorObj = Instructors::find($id);
         //update Student
         $instructorObj->update($request->all());
+        $instructorObj->telephone = $request->telephone;
+        $instructorObj->role = $request->role;
         $instructorObj->password = Hash::make($request->password);
         $instructorObj->save();
         //response
         return response([
-            'instructor' => new InstructorsResource($instructorObj)
+            'data' => new InstructorsResource($instructorObj)
         ],200);
     }
 
@@ -64,7 +66,7 @@ class InstructorsController extends Controller
         $instructorObj = Instructors::find($id);
         $instructorObj->delete();
         return response([
-            "instructors" => "deleted successfully"
+            "data" => "deleted successfully"
         ],200);
     }
 }
