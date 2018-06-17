@@ -1,4 +1,7 @@
+
+ <h2 class="text-right text-green mr-5 my-5"> Create New Activity </h2>
 <section id="new-activity-form" class="row">
+ 
   <div class="col-md-2  d-sm-none d-md-block "></div>
   <div class=" col-md-10">
     <form [formGroup]="addNewActivityForm" (ngSubmit)="onSubmit()">
@@ -8,7 +11,7 @@
         </div>
         <div class="col-sm-7">
           <select id="day" formControlName="day" class="form-control">
-            <option [selected]=true [disabled]=true value="{{null}}">select a day ....</option>
+            <option selected=true disabled=true ngValue="null">select a day ....</option>
             <option *ngFor="let day of days  " value="{{day.name}}">{{day.name}}</option>
            
           </select>

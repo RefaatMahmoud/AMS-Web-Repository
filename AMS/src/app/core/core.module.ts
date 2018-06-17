@@ -27,6 +27,10 @@ import { UpdateActivityComponent } from './update-activity/update-activity.compo
 import { ActivityResolverService } from "./services/activity-resolver.service";
 import { SubjectResolver } from "./services/subject.resolver.service";
 import { SubjectEditComponent } from './subject-edit/subject-edit.component';
+import { LocationViewComponent } from './location-view/location-view.component';
+import { AddNewLocationComponent } from './add-new-location/add-new-location.component';
+import { UpdateLocationComponent } from './update-location/update-location.component';
+import {LocationService} from "./services/location.service"
 
 
 
@@ -47,6 +51,9 @@ import { SubjectEditComponent } from './subject-edit/subject-edit.component';
         ActivityViewComponent,
         UpdateActivityComponent,
         SubjectEditComponent,
+        LocationViewComponent,
+        AddNewLocationComponent,
+        UpdateLocationComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -68,7 +75,8 @@ import { SubjectEditComponent } from './subject-edit/subject-edit.component';
         ActivityService , 
         TestService  , 
         ActivityResolverService,
-        SubjectResolver
+        SubjectResolver , 
+        LocationService
 
     ]
 

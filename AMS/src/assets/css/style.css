@@ -19,10 +19,19 @@ nav.navbar {
  z-index: 30;
  width : 300px ; 
  overflow-y: auto ;
+ border-right : solid 2px rgba(0, 183, 203, 0.70) ;
+ background-color : #222;
+ 
 }
+#side-bar h1 { 
+  font-size : 45px ;
+}
+ h1 .fa { 
+   font-size : 20px;
+ }
 
 #side-bar::-webkit-scrollbar{
-   width : 10px ;
+   width : 2px ;
    background :none; 
 }
 #side-bar::-webkit-scrollbar-track{
@@ -35,7 +44,7 @@ nav.navbar {
    width : 5px ;
 
    border-radius : 5px; 
-   background: rgba(4, 162, 179, 0.6);
+   background: rgba(4, 162, 179, 0.8);
    transition : all 0.3s ease-in-out ;
   }
   #side-bar::-webkit-scrollbar-thumb:hover{
@@ -49,11 +58,14 @@ nav.navbar {
 
 .list-group .list-group-item {
    border-radius: 0 !important;
+   color :#aaa; 
+   background-color : #222 ; 
 }
 
 .list-group .list-group-item.active {
    background: #04a2b3 !important;
    border: solid 1px #04a2b3;
+   color : white ;
 }
 
 .list-group .list-group-item .badge {
@@ -62,33 +74,32 @@ nav.navbar {
 .nav-item.active i { 
    color : #00b7cb !important ;
 }
-.list-group .list-group-item .fa {
+.list-group .list-group-item .fa , h1{
    font-size: 1.25rem;
    position : relative ;
    padding-right: 5px;
 }
-
 .list-group .list-group-item-action:hover {
    background: rgba(4, 162, 179, 0.7);
-   color: white;
+   color: white !important;
+}
+#schedule .list-group-item {
+  background: rgba(4, 162, 179 , 0.6);
+  color: rgba(255, 255, 255, 0.60);
+  padding-left : 40px !important;
+  font-weight : 500 ;
+  transition : all 0.2s ease-in ;
 }
 
 #schedule .list-group-item:hover {
    background: rgba(4, 162, 179, 1);
-   color: white; 
-   border-bottom: solid 1.3px black ;
-   transition : all 0.1s ease-in ;
-}
-#schedule .list-group-item {
-   background: rgba(4, 162, 179, 0.7);
-   color: white;
-   padding-left : 40px !important;
-   font-weight : 500 ;
-   transition : all 0.1s ease-in ;
-   
-  
+   color: rgba(255, 255, 255) !important ; 
+   border-bottom: solid 1.3px rgba(4, 162, 179, 0.7);
+   transition : all 0.2s ease-in ;
+   /* background-color : #222; */
 
 }
+
 .alert-ball {
    position: static;
    top: 7px;
@@ -121,7 +132,6 @@ nav.navbar {
    height: 8px;
    border-radius: 4px;
 }
-
 .table-hover tbody tr:hover {
    background: rgba(4, 162, 179, 0.7) !important;
    color: white;
@@ -157,7 +167,7 @@ nav.navbar {
 .input-group-addon {
    border-color: rgba(255, 255, 255, 0.8);
    border-left: none;
-   background: rgba(0, 0, 0, 0.5);
+   background: rgba(0, 0, 0);
    padding: inherit 15px;
    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
    color: white;
@@ -170,7 +180,7 @@ nav.navbar {
    opacity: 0.8;
 }
 
-.input-group .form-control {
+.input-group .form-control ,.form-control:visited {
    border-color: rgba(255, 255, 255, 0.8);
    border-right: none;
    background: rgba(0, 0, 0);
@@ -201,9 +211,10 @@ nav.navbar {
    color: white !important;
 }
 
-.link-green {
+.link-green,.text-green {
    color: #00b7cb;
 }
+
 
 .link-green:hover {
    color: #04a2b3;
@@ -248,14 +259,17 @@ nav.navbar {
 }
 
 /* add new activity form  */
-#new-activity-form .form-control{
+.form-control , select.form-control{
   
        border-color: rgba(255, 255, 255, 0.8);
        background: rgba(0, 0, 0);
        color:#00b7cb;
-       height : 45px ;
+       height : 45px !important ;
 }
-#new-activity-form label {
+.form-control:focus{
+  background-color: rgba(0, 0, 0) !important;
+}
+ label {
    padding-top : 10px ;
 }
 

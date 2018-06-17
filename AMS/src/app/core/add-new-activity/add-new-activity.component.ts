@@ -5,6 +5,7 @@ import { ActivityService } from '../services/activity.service';
 import { InstructorModel } from '../models/instructor.model';
 import { SubjectModel } from '../models/subject.model';
 import { NewSubject } from '../services/newSubject.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-new-activity',
@@ -39,7 +40,7 @@ types: Array<{ id: number, name: string }> = [
   { id: 2, name: "Section" }, 
   { id: 3, name: "Lab" }, 
 ] ; 
-  constructor( private testService: TestService ,private subjectService  : NewSubject ,  private activityservice :ActivityService ) { }
+  constructor( private testService: TestService,private router :Router ,private subjectService  : NewSubject ,  private activityservice :ActivityService ) { }
 
   ngOnInit() {
     this.initForm()
@@ -82,6 +83,7 @@ types: Array<{ id: number, name: string }> = [
     this.activityservice.addActivity(data).subscribe(
       res =>{ 
         console.log(res) ;
+        this.router.navigate(["activities"]) ;
       }
     ) ; 
   }

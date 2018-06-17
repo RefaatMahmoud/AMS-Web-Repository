@@ -7,6 +7,7 @@ import { SubjectModel } from '../models/subject.model';
 import { NewSubject } from '../services/newSubject.service';
 import { ActivatedRoute, Data, Router } from '@angular/router';
 import { ActivityModel } from '../models/activity.model';
+import { ActivityTypeModel } from '../models/activity-type.model';
 
 
 @Component({
@@ -33,14 +34,15 @@ days: Array<{ id: number, name: string }> =
   { id: 2, name: "Sunday" }, 
   { id: 3, name: "Monday" }, 
   { id: 4, name: "Tuesday" }, 
-  { id: 5, name: "Wednesdat" }, 
+  { id: 5, name: "Wednesday" }, 
   { id: 6, name: "Thursday" } ,
   { id: 7, name: "Friday" }
 ] ;
 activity : ActivityModel ;
 instructors: Array<InstructorModel> ;
 subjects: Array<SubjectModel> ;
-types: Array<{ id: number, name: string }> ; 
+types: Array<ActivityTypeModel> ;
+// types :any ; 
   constructor( private testService: TestService ,private router : Router , private route: ActivatedRoute,private subjectService  : NewSubject ,  private activityservice :ActivityService ) { }
 
   ngOnInit() {
@@ -49,18 +51,7 @@ types: Array<{ id: number, name: string }> ;
         this.id = data["id"] ; 
       }
     )
-    this.route.data.subscribe(
-      (res : Data)=>{
-        this.activity = res.activity.admin ;
-        console.log(this.activity) ;
-        this.initForm(this.activity);
-        // console.log(this.updateActivityForm.get("instructorName").value) ;
-      }
-      ,
-      err =>{
-        console.log(err) ;
-      }
-    )
+    
     
     this.subjectService.getSubjects().subscribe(
       res=>{
@@ -80,13 +71,34 @@ types: Array<{ id: number, name: string }> ;
         console.log(err) ; 
       }
     ) ;
+    this.testService.getActivityTypes().subscribe(
+      (res )=>{
+        this.types  = res.activity_Type; 
+        console.log(res)
+      } , 
+      err => {
+        console.log(err) ;
+      }
+    )
+    this.route.data.subscribe(
+      (res : Data)=>{
+        this.activity = res.activity.admin ;
+        console.log(this.activity) ;
+        this.initForm(this.activity);
+        // console.log(this.updateActivityForm.get("instructorName").value) ;
+      }
+      ,
+      err =>{
+        console.log(err) ;
+      }
+    )
   }
 
   initForm(data : ActivityModel) {
     this.updateActivityForm = new FormGroup({
       day: new FormControl(data.day),
       subjectName: new FormControl(data.subjectName),
-      instructorName: new FormControl(null),
+      instructorName: new FormControl(data.instructorName),
       startTime: new FormControl(data.startTime),
       endTime: new FormControl(data.endTime),
       Location: new FormControl(data.Location),
