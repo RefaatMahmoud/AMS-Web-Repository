@@ -11,13 +11,20 @@ import { Router, ActivatedRoute, Data } from '@angular/router';
 })
 export class UpdateLocationComponent implements OnInit {
   updateLocationForm  : FormGroup ; 
-  location : LocationModel; 
+  location : LocationModel;
+  id : number ;  
   constructor(private locationService : LocationService,private route : ActivatedRoute , private router : Router) { }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      data=>{
+        this.id = data['id'] ;
+      }
+    )
     this.route.data.subscribe(
       (res : Data)=>{
-        this.location = res.admin ;
+        console.log(res) ;
+        this.location = res.location.data;
         console.log(this.location) ;
         this.formInit(this.location);
         // console.log(this.updateActivityForm.get("instructorName").value) ;
@@ -31,10 +38,27 @@ export class UpdateLocationComponent implements OnInit {
   }
  formInit(location : LocationModel){
    this.updateLocationForm = new FormGroup({
-     "locationName" : new FormControl(location.locationName , Validators.required)  
+     "locationName" : new FormControl(location.locationName, Validators.required)  
    });
  }
  onSubmit(){
-   console.log(this.updateLocationForm.value) ; 
+   if(!this.updateLocationForm.valid){
+   console.log(`Invalid Data !`) ; 
+   return ;   
+   }
+   else { 
+    this.locationService.updateLocation(this.id , this.updateLocationForm.value).subscribe(
+      res => {
+        console.log(res) ;
+        this.router.navigate(["locations"]) ; 
+      }, 
+      err => { 
+        console.log(err) ; 
+      }
+
+    )  
+   }
+   
+   
  }
 }

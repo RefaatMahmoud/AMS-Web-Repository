@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LocationModel } from '../models/location.model';
+import { LocationService } from '../services/location.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-new-location',
@@ -10,7 +12,7 @@ import { LocationModel } from '../models/location.model';
 export class AddNewLocationComponent implements OnInit {
 
   addNewLocationForm: FormGroup;
-  constructor() { }
+  constructor( private  locationService : LocationService , private router : Router) { }
 
   ngOnInit() {
     this.formInit();
@@ -21,8 +23,24 @@ export class AddNewLocationComponent implements OnInit {
     });
   }
   onSubmit(){
-    console.log(this.addNewLocationForm.value) ; 
-    console.log(this.addNewLocationForm.get("locationName").dirty) ;
+    if(!this.addNewLocationForm.valid) {
+      console.log(` Invalid Date`); 
+      return ; 
+    }
+    else { 
+      console.log(this.addNewLocationForm.value) ; 
+      console.log(this.addNewLocationForm.get("locationName").dirty) ;
+      this.locationService.addNewLocation(this.addNewLocationForm.value).subscribe(
+        res => { 
+          console.log(res) ; 
+          this.router.navigate(['locations']) ; 
+        }
+        ,
+        err=>{
+          console.log(err) ; 
+        }
+      ) 
+    }
   }
 
 }

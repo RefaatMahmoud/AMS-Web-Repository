@@ -1,5 +1,5 @@
 export class PageModel<T>{
- subjects : Array<T> ; 
+ data : Array<T> ; 
 }
 
 

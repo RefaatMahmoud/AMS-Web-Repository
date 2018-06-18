@@ -15,7 +15,7 @@ export class LocationViewComponent implements OnInit {
   ngOnInit() {
     this.locationService.getLocations().subscribe(
       res => { 
-        
+        this.locations = res.data ;  
         console.log(res) ;
 
       }, 

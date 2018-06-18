@@ -31,6 +31,7 @@ import { LocationViewComponent } from './location-view/location-view.component';
 import { AddNewLocationComponent } from './add-new-location/add-new-location.component';
 import { UpdateLocationComponent } from './update-location/update-location.component';
 import {LocationService} from "./services/location.service"
+import { LocationResolverService } from "./services/location-resolver.service";
 
 
 
@@ -76,7 +77,8 @@ import {LocationService} from "./services/location.service"
         TestService  , 
         ActivityResolverService,
         SubjectResolver , 
-        LocationService
+        LocationService , 
+        LocationResolverService
 
     ]
 

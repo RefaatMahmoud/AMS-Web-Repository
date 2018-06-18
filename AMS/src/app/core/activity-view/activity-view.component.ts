@@ -15,8 +15,8 @@ export class ActivityViewComponent implements OnInit {
   ngOnInit() {
     this.activityService.getActivities().subscribe(
       res => {
-        console.log(res.schedule);
-        this.activities = res.schedule ;
+        console.log(res.data);
+        this.activities = res.data ;
       },
       err => {
         console.log(err)

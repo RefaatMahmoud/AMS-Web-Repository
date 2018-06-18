@@ -6,8 +6,8 @@
     <form [formGroup]="addNewLocationForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
          <label for="location">Location Name</label>
-         <input type="text" fromControlName = "locationName" class="form-control" placeholder="Enter Location Name">
-         <p *ngIf="!addNewLocationForm.get('locationName').value " class="form-text text-danger">
+         <input id="location" type="text" formControlName = "locationName" class="form-control" placeholder="Enter Location Name">
+         <p *ngIf="addNewLocationForm.get('locationName').touched && !addNewLocationForm.get('locationName').value " class="form-text text-danger">
           This field is required ! 
         </p>
         </div>

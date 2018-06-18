@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TestService } from '../services/test.service';
 import { ActivityService } from '../services/activity.service';
 import { InstructorModel } from '../models/instructor.model';
 import { SubjectModel } from '../models/subject.model';
 import { NewSubject } from '../services/newSubject.service';
 import { Router } from '@angular/router';
+import { ActivityTypeModel } from '../models/activity-type.model';
 
 @Component({
   selector: 'app-add-new-activity',
@@ -35,19 +36,15 @@ days: Array<{ id: number, name: string }> =
 ] ;
 instructors: Array<InstructorModel> ;
 subjects: Array<SubjectModel> ;
-types: Array<{ id: number, name: string }> = [
-  { id: 1, name: "Lecture" }, 
-  { id: 2, name: "Section" }, 
-  { id: 3, name: "Lab" }, 
-] ; 
+types: Array<ActivityTypeModel> = [ ] ; 
   constructor( private testService: TestService,private router :Router ,private subjectService  : NewSubject ,  private activityservice :ActivityService ) { }
 
   ngOnInit() {
     this.initForm()
     this.subjectService.getSubjects().subscribe(
       res=>{
-        console.log(res.subjects) ; 
-        this.subjects = res.subjects ;
+        console.log(res.data) ; 
+        this.subjects = res.data ;
       } , 
       err => {
         console.log(err) ; 
@@ -55,37 +52,55 @@ types: Array<{ id: number, name: string }> = [
     ) ; 
     this.testService.getInstructors().subscribe(
       res=>{
-        console.log(res.instructor) ; 
-        this.instructors = res.instructor ;
+        console.log(res.data) ; 
+        this.instructors = res.data ;
       } , 
       err => {
         console.log(err); 
       }
     ) ;
+    this.testService.getActivityTypes().subscribe(
+      res => {
+        console.log(res) ;  
+        this.types = res.data ; 
+      } , 
+      err=>{
+        console.log(err) ;
+      }
+    )
   }
 
   initForm() {
     this.addNewActivityForm = new FormGroup({
-      day: new FormControl(),
-      instructorName: new FormControl(),
-      subjectName: new FormControl(),
-      startTime: new FormControl(null),
-      endTime: new FormControl(null),
-      Location: new FormControl(null),
-      type: new FormControl(),
-      groupNumber: new FormControl()
+      day: new FormControl(null,Validators.required),
+      instructorName: new FormControl(null,Validators.required),
+      subjectName: new FormControl(null,Validators.required),
+      startTime: new FormControl(null,Validators.required),
+      endTime: new FormControl(null,Validators.required),
+      Location: new FormControl(null,Validators.required),
+      type: new FormControl(null,Validators.required),
+      groupNumber: new FormControl(null,Validators.required)
 
     })
   }
   onSubmit(){
+   if(!this.addNewActivityForm.valid) {
+     console.log(`Invalid Data`) ;  
+     return ; 
+   }
+   else { 
     console.log(this.addNewActivityForm.value);
     let data = {...this.addNewActivityForm.value , totalMark :`${2}`} ;
     this.activityservice.addActivity(data).subscribe(
       res =>{ 
         console.log(res) ;
         this.router.navigate(["activities"]) ;
+      } , 
+      err => { 
+        console.log(err) ; 
       }
-    ) ; 
+    ) ;
+   }
   }
 
 }
