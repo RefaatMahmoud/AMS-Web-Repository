@@ -11,7 +11,7 @@ class RoleController extends Controller
     public function index()
     {
         return response([
-            "role" => roleResource::collection(role::all())
+            "data" => roleResource::collection(role::all())
         ],200);
     }
 
@@ -26,14 +26,14 @@ class RoleController extends Controller
         $roleObj->save();
         //response
         return response([
-            "role" => new roleResource($roleObj)
+            "data" => new roleResource($roleObj)
         ],201);
     }
 
     public function show($id)
     {
         return response([
-            'admin' => new roleResource(role::find($id))
+            'data' => new roleResource(role::find($id))
         ],200);
     }
 }

@@ -32,13 +32,13 @@ class instructorLogin extends Controller
         if($count > 0 && $passwordCheck== true)
         {
             return response([
-                "instructorLogin" => "login successfully"
+                "data" => "login successfully"
             ],200);
         }
         else
         {
             return response([
-                "instructorLoginz" => "you don't have an account"
+                "data" => "you don't have an account"
             ],200);
         }
     }

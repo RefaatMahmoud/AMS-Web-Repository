@@ -13,13 +13,16 @@ import { UpdateActivityComponent } from "./update-activity/update-activity.compo
 import { ActivityResolverService } from "./services/activity-resolver.service";
 import { SubjectEditComponent } from "./subject-edit/subject-edit.component";
 import { SubjectResolver } from "./services/subject.resolver.service";
+import { LocationViewComponent } from "./location-view/location-view.component";
+import { UpdateLocationComponent } from "./update-location/update-location.component";
+import { AddNewLocationComponent } from "./add-new-location/add-new-location.component";
+import { LocationResolverService } from "./services/location-resolver.service";
 
 const ROUTES: Routes = [
     { path: "login", component: LoginComponent },
     {
         path: "", component: HomeComponent, children: [
-            { path: "index", component: IndexComponent, },
-            
+            { path: "", component: IndexComponent, },  
             { path: "new-admin", component: AddNewMemberComponent },
             { path: "new-subject", component: NewSubjectComponent },
             { path: "activities/new", component: AddNewActivityComponent },
@@ -27,6 +30,9 @@ const ROUTES: Routes = [
             { path: "activities/:id/edit", component: UpdateActivityComponent, resolve: { activity: ActivityResolverService } },
             { path: ":id/edit", component: SubjectEditComponent, resolve: { subject: SubjectResolver } },
             { path: "subject-table", component: SubjectTableComponent },
+            { path: "locations", component: LocationViewComponent },
+            { path: "locations/new", component: AddNewLocationComponent },
+            { path: "locations/:id/edit", component: UpdateLocationComponent , resolve : {location : LocationResolverService} },
 
         ]
     },

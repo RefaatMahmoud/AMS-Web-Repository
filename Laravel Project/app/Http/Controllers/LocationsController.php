@@ -10,7 +10,7 @@ class LocationsController extends Controller
     public function index()
     {
         return response([
-            "locationsName" => LocationsNameResource::collection(Locations::all())
+            "data" => LocationsNameResource::collection(Locations::all())
         ],200);
     }
 
@@ -20,7 +20,7 @@ class LocationsController extends Controller
         $locationNameObj->locationName = $request->locationName;
         $locationNameObj->save();
         return response([
-            "locationsName" => new LocationsNameResource($locationNameObj)
+            "data" => new LocationsNameResource($locationNameObj)
         ],201);
     }
 
@@ -28,7 +28,7 @@ class LocationsController extends Controller
     {
         $locationNameObj = Locations::find($id);
         return response([
-            "locationsName" => new LocationsNameResource($locationNameObj)
+            "data" => new LocationsNameResource($locationNameObj)
         ],200);
     }
 
@@ -37,7 +37,7 @@ class LocationsController extends Controller
         $locationNameObj = Locations::find($id);
         $locationNameObj->update($request->all());
         return response([
-            "locationsName" => new LocationsNameResource($locationNameObj)
+            "data" => new LocationsNameResource($locationNameObj)
         ],200);
     }
 
@@ -46,7 +46,7 @@ class LocationsController extends Controller
         $locationNameObj = Locations::find($id);
         $locationNameObj->delete();
         return response([
-            "locationName" => "deleted successfully"
+            "data" => "deleted successfully"
         ],200);
     }
 }

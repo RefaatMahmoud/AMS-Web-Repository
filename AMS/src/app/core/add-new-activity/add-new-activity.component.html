@@ -1,4 +1,7 @@
+
+ <h2 class="text-right text-green mr-5 my-5"> Create New Activity </h2>
 <section id="new-activity-form" class="row">
+ 
   <div class="col-md-2  d-sm-none d-md-block "></div>
   <div class=" col-md-10">
     <form [formGroup]="addNewActivityForm" (ngSubmit)="onSubmit()">
@@ -8,7 +11,7 @@
         </div>
         <div class="col-sm-7">
           <select id="day" formControlName="day" class="form-control">
-            <option [selected]=true [disabled]=true value="{{null}}">select a day ....</option>
+            <option selected=true disabled=true [ngValue]="null">select a day ....</option>
             <option *ngFor="let day of days  " value="{{day.name}}">{{day.name}}</option>
            
           </select>
@@ -23,7 +26,7 @@
         </div>
         <div class="col-sm-7">
           <select id="level" formControlName="groupNumber" class="form-control">
-            <option [selected]="true" disabled value="{{null}}">select a level ....</option>
+            <option selected disabled [ngValue]="null">select a level ....</option>
             <option *ngFor="let level of levels " value="{{level.id}}">{{level.name}}</option>
           </select>
           <p *ngIf="addNewActivityForm.get('groupNumber').touched && !addNewActivityForm.get('groupNumber').value " class="form-text text-danger">
@@ -39,7 +42,7 @@
         ">
 
           <select id="subject" formControlName="subjectName" class="form-control">
-            <option disabled [selected]="true"  value="{{null}}">select a subject ....</option>
+            <option disabled [selected]="true"  [ngValue]="null">select a subject ....</option>
             <option *ngFor="let subject of subjects  , let i = index" value="{{subject.subjectName}}">{{subject.subjectName}}</option>
           </select>
           <p *ngIf="addNewActivityForm.get('subjectName').touched && !addNewActivityForm.get('subjectName').value " class="form-text text-danger">
@@ -55,7 +58,7 @@
         <div class="col-sm-7
             ">
           <select id="professor" formControlName ="instructorName" class="form-control">
-            <option disabled [selected]="true"  value="{{null}}">select a professor ....</option>
+            <option disabled [selected]="true"  [ngValue]="null">select a professor ....</option>
             <option *ngFor="let instructor of instructors  , let i = index" value="{{instructor.name}}">{{instructor.name}}</option>
           </select>
           <p *ngIf="addNewActivityForm.get('instructorName').touched && !addNewActivityForm.get('instructorName').value " class="form-text text-danger">
@@ -71,8 +74,8 @@
         <div class="col-sm-7
                 ">
           <select id="type" formControlName="type" class="form-control">
-            <option [selected]="true" disabled value="{{null}}">select a type ....</option>
-            <option *ngFor="let type of types  , let i = index" value="{{type.name}}">{{type.name}}</option>
+            <option [selected]="true" disabled [ngValue]="null">select a type ....</option>
+            <option *ngFor="let type of types  , let i = index" value="{{type.title}}">{{type.title}}</option>
           </select>
           <p *ngIf="addNewActivityForm.get('type').touched && !addNewActivityForm.get('type').value " class="form-text text-danger">
             This field is required !

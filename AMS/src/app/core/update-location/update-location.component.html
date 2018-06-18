@@ -1,0 +1,20 @@
+<h2 class="text-right text-green mr-5 my-5"> Update Location </h2>
+<section id="new-activity-form" class="row">
+ 
+  <!-- <div class="col-md-2  d-sm-none d-md-block "></div> -->
+  <div class=" col-md-6 mx-auto ">
+    <form [formGroup]="updateLocationForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+         <label for="location">Location Name</label>
+         <input type="text" formControlName = "locationName" class="form-control" placeholder="Enter Location Name">
+         <p *ngIf="updateLocationForm.get('locationName').touched && !updateLocationForm.get('locationName').value " class="form-text text-danger">
+          This field is required ! 
+        </p>
+        </div>
+      <div class="form-group">
+        
+          <button  class="btn btn-lg btn-green float-right">
+            <i class="px-2 fa fa-edit"></i>Update Location</button>
+        
+      </div>
+    </form>

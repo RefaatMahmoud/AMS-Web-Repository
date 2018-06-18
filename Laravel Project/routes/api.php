@@ -30,3 +30,7 @@ Route::apiresource('/subjects','SubjectController');
 Route::apiresource('/activityType' , 'ActivityTypeController');
 Route::apiresource('/membersRole' , 'RoleController');
 Route::apiresource('/locationsName' , 'LocationsController');
+Route::get('/students_in_Location_V2','students_in_locations_V2@index');
+Route::post('/students_in_Location_V2','students_in_locations_V2@store');
+Route::put('/students_in_Location_V2','students_in_locations_V2@update');
+Route::get('/groupNumber/{id}','groupNumberController@index');

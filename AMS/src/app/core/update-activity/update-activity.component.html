@@ -1,3 +1,4 @@
+<h2 class="text-right text-green mr-5 my-5"> Update Activity </h2>
 <section id="new-activity-form" class="row">
   <div class="col-md-2  d-sm-none d-md-block "></div>
   <div class=" col-md-10">
@@ -72,7 +73,7 @@
                 ">
           <select id="type" formControlName="type" class="form-control">
             <option disabled [ngValue]="null">select a type ....</option>
-            <option *ngFor="let type of types  , let i = index" [ngValue]="type.name">{{type.name}}</option>
+            <option *ngFor="let type of types  , let i = index" [ngValue]="type.title">{{type.title}}</option>
           </select>
           <p *ngIf="updateActivityForm.get('type').touched && !updateActivityForm.get('type').value " class="form-text text-danger">
             This field is required !

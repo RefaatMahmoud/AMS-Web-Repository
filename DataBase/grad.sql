@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2018 at 11:19 PM
+-- Generation Time: Jun 18, 2018 at 09:30 AM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -76,7 +76,7 @@ CREATE TABLE `instructors` (
 --
 
 INSERT INTO `instructors` (`id`, `name`, `username`, `password`, `email`, `telephone`, `subjectName`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Arnoldo Shields', 'marge49', '$2y$10$CuOaQYviKJkkc8HxaP36qOZSRWymFmtHgeuPQgkqDnsU3tWsEYeDi', 'wiegand.virgil@example.net', '1-629-403-2497 x707', 'physics', '2', '2018-05-22 07:38:07', '2018-05-22 07:38:07'),
+(1, 'Refaat Aish2', 'refoUpdate', '$2y$10$FnR33nOSpCjJtIDJama7OeOlrW/YiU3ymS.sclVt9BsAxFBHll7fa', 'refo@gmail.com2', '010036168442', 'Math2', '4', '2018-05-22 07:38:07', '2018-06-17 22:30:10'),
 (2, 'Tyler Littel Jr.', 'hyatt.jamil', '$2y$10$8f8/4d9mt7kBgiBNLwSNx.uVLgI2ssY28A/7YbKJ92EHRWp8rNoX6', 'keira.ankunding@example.net', '953-212-9589 x199', 'physics', '1', '2018-05-22 07:38:07', '2018-05-22 07:38:07'),
 (3, 'Zula Bradtke PhD', 'gschmeler', '$2y$10$7t2Z.FhKGVa.RnDKP9zi.e5oCwsDCS4ehunlS5EyY1HTrS61esLAu', 'mante.marian@example.com', '435.220.7059 x8647', 'Medical tools', '0', '2018-05-22 07:38:08', '2018-05-22 07:38:08'),
 (4, 'Mrs. Mollie Okuneva V', 'dbraun', '$2y$10$XGclPYIQy./k4BUhQHy5e.zZ5IWo2kMyPMk.wY0Tv0tfJa9sSef8W', 'ipacocha@example.com', '(834) 268-2678', 'physics', '1', '2018-05-22 07:38:08', '2018-05-22 07:38:08'),
@@ -141,7 +141,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (72, '2018_05_20_224642_create_activity_types_table', 1),
 (73, '2018_05_21_162456_create_stduents_in_locations_table', 1),
 (74, '2018_05_21_221515_create_roles_table', 1),
-(75, '2018_06_07_165012_create_locations_table', 2);
+(75, '2018_06_07_165012_create_locations_table', 2),
+(76, '2018_06_16_180215_add_activity_type_and_subject_name_to_stduents_in_locations', 3);
 
 -- --------------------------------------------------------
 
@@ -284,25 +285,27 @@ CREATE TABLE `stduents_in_locations` (
   `level` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(1) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `activityType` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subjectName` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `stduents_in_locations`
 --
 
-INSERT INTO `stduents_in_locations` (`id`, `name`, `level`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Eldiasty', '1', 1, '2018-05-22 07:38:09', '2018-05-24 22:57:00'),
-(2, 'Dahlia Thompson', '3', 0, '2018-05-22 07:38:09', '2018-05-22 07:38:09'),
-(3, 'Miss Evangeline Gulgowski', '3', 0, '2018-05-22 07:38:09', '2018-05-22 07:38:09'),
-(4, 'Hipolito Thiel', '4', 1, '2018-05-22 07:38:09', '2018-05-22 07:38:09'),
-(5, 'Miss Cora Davis', '4', 0, '2018-05-22 07:38:09', '2018-05-22 07:38:09'),
-(6, 'Laurie Hartmann', '2', 1, '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(7, 'Ferne O\'Kon', '3', 0, '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(8, 'Mr. Skye Lynch IV', '4', 1, '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(9, 'Helga Moore', '3', 1, '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(10, 'Stacy Cartwright', '2', 1, '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(11, 'zead', '4', 1, '2018-05-24 22:53:45', '2018-05-24 22:53:45');
+INSERT INTO `stduents_in_locations` (`id`, `name`, `level`, `status`, `created_at`, `updated_at`, `activityType`, `subjectName`) VALUES
+(12, 'Eldiasty', '1', 0, '2018-06-17 01:06:47', '2018-06-17 02:40:08', 'lecture', 'Medical Tools'),
+(13, 'Mercedes Feil Sr.', '1', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'medical tools'),
+(14, 'Mr. Norwood Ferry PhD', '5', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'pharmacy'),
+(15, 'Jaquelin Schmeler', '2', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'dentist'),
+(16, 'General Cummings', '4', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'dentist'),
+(17, 'Verner Fritsch', '4', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'pharmacy'),
+(18, 'Emily Fadel', '1', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'Surgery'),
+(19, 'Lyda Conn', '1', 1, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'lecture', 'medical tools'),
+(20, 'Christa Reynolds Jr.', '4', 0, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'lecture', 'dentist'),
+(21, 'Nikki Hayes', '3', 1, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'section', 'dentist'),
+(22, 'Eldiasty', '1', 0, '2018-06-17 02:34:27', '2018-06-17 02:34:27', 'lecture', 'Medical Tools');
 
 -- --------------------------------------------------------
 
@@ -366,11 +369,21 @@ INSERT INTO `subjects` (`id`, `subjectName`, `duration`, `totalMark`, `groupNumb
 (3, 'Surgery', '2', '100', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (4, 'pharmacy', '2', '80', '5', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (5, 'Surgery', '3', '80', '5', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
-(6, 'dentist', '1', '200', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
+(6, 'dentist', '1', '200', '2', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (7, 'Surgery', '1', '120', '4', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (8, 'Surgery', '4', '100', '4', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
-(9, 'pharmacy', '2', '200', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
-(10, 'medical tools', '1', '120', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11');
+(9, 'pharmacy', '2', '200', '6', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
+(10, 'medical tools', '1', '120', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
+(11, 'pharmacy', '2', '120', '5', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(12, 'dentist', '3', '80', '6', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(13, 'Surgery', '2', '200', '1', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(14, 'dentist', '4', '100', '3', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(15, 'dentist', '3', '80', '6', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(16, 'Surgery', '1', '200', '2', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(17, 'Surgery', '4', '80', '4', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(18, 'dentist', '4', '120', '5', '2018-06-18 14:28:32', '2018-06-18 14:28:32'),
+(19, 'dentist', '2', '200', '6', '2018-06-18 14:28:32', '2018-06-18 14:28:32'),
+(20, 'Surgery', '2', '100', '1', '2018-06-18 14:28:32', '2018-06-18 14:28:32');
 
 -- --------------------------------------------------------
 
@@ -515,7 +528,7 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT for table `questions_by_students`
 --
@@ -540,7 +553,7 @@ ALTER TABLE `set_questions_by_admins`
 -- AUTO_INCREMENT for table `stduents_in_locations`
 --
 ALTER TABLE `stduents_in_locations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `student_models`
 --
@@ -550,7 +563,7 @@ ALTER TABLE `student_models`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `users`
 --
