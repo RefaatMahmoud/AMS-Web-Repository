@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2018 at 10:26 PM
+-- Generation Time: Jun 18, 2018 at 09:30 AM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -76,7 +76,7 @@ CREATE TABLE `instructors` (
 --
 
 INSERT INTO `instructors` (`id`, `name`, `username`, `password`, `email`, `telephone`, `subjectName`, `role`, `created_at`, `updated_at`) VALUES
-(1, 'Arnoldo Shields', 'marge49', '$2y$10$CuOaQYviKJkkc8HxaP36qOZSRWymFmtHgeuPQgkqDnsU3tWsEYeDi', 'wiegand.virgil@example.net', '1-629-403-2497 x707', 'physics', '2', '2018-05-22 07:38:07', '2018-05-22 07:38:07'),
+(1, 'Refaat Aish2', 'refoUpdate', '$2y$10$FnR33nOSpCjJtIDJama7OeOlrW/YiU3ymS.sclVt9BsAxFBHll7fa', 'refo@gmail.com2', '010036168442', 'Math2', '4', '2018-05-22 07:38:07', '2018-06-17 22:30:10'),
 (2, 'Tyler Littel Jr.', 'hyatt.jamil', '$2y$10$8f8/4d9mt7kBgiBNLwSNx.uVLgI2ssY28A/7YbKJ92EHRWp8rNoX6', 'keira.ankunding@example.net', '953-212-9589 x199', 'physics', '1', '2018-05-22 07:38:07', '2018-05-22 07:38:07'),
 (3, 'Zula Bradtke PhD', 'gschmeler', '$2y$10$7t2Z.FhKGVa.RnDKP9zi.e5oCwsDCS4ehunlS5EyY1HTrS61esLAu', 'mante.marian@example.com', '435.220.7059 x8647', 'Medical tools', '0', '2018-05-22 07:38:08', '2018-05-22 07:38:08'),
 (4, 'Mrs. Mollie Okuneva V', 'dbraun', '$2y$10$XGclPYIQy./k4BUhQHy5e.zZ5IWo2kMyPMk.wY0Tv0tfJa9sSef8W', 'ipacocha@example.com', '(834) 268-2678', 'physics', '1', '2018-05-22 07:38:08', '2018-05-22 07:38:08'),
@@ -369,11 +369,21 @@ INSERT INTO `subjects` (`id`, `subjectName`, `duration`, `totalMark`, `groupNumb
 (3, 'Surgery', '2', '100', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (4, 'pharmacy', '2', '80', '5', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (5, 'Surgery', '3', '80', '5', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
-(6, 'dentist', '1', '200', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
+(6, 'dentist', '1', '200', '2', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (7, 'Surgery', '1', '120', '4', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (8, 'Surgery', '4', '100', '4', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
-(9, 'pharmacy', '2', '200', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
-(10, 'medical tools', '1', '120', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11');
+(9, 'pharmacy', '2', '200', '6', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
+(10, 'medical tools', '1', '120', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
+(11, 'pharmacy', '2', '120', '5', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(12, 'dentist', '3', '80', '6', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(13, 'Surgery', '2', '200', '1', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(14, 'dentist', '4', '100', '3', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(15, 'dentist', '3', '80', '6', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(16, 'Surgery', '1', '200', '2', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(17, 'Surgery', '4', '80', '4', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(18, 'dentist', '4', '120', '5', '2018-06-18 14:28:32', '2018-06-18 14:28:32'),
+(19, 'dentist', '2', '200', '6', '2018-06-18 14:28:32', '2018-06-18 14:28:32'),
+(20, 'Surgery', '2', '100', '1', '2018-06-18 14:28:32', '2018-06-18 14:28:32');
 
 -- --------------------------------------------------------
 
@@ -553,7 +563,7 @@ ALTER TABLE `student_models`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `users`
 --
