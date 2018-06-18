@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http"
 import { environment } from "../../../environments/environment";
 import { ActivityModel } from "../models/activity.model";
 import { ActivityPageModel } from "../models/activity-page";
+import { PageModel } from "../models/page";
 
 
 @Injectable()
@@ -12,7 +13,7 @@ export class ActivityService {
 
     getActivities(){
         let url = `${environment.apiPath}schedule`; 
-        return this.http.get<ActivityPageModel<ActivityModel>>(url) ; 
+        return this.http.get<PageModel<ActivityModel>>(url) ; 
     }
     getActivity(id : number){
         let url = `${environment.apiPath}schedule/${id}`; 

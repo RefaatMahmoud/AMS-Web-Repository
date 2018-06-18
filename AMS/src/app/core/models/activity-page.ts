@@ -1,3 +1,3 @@
-export class ActivityPageModel<T>{
-    schedule : Array<T> ; 
-   }
+export class ActivityPageModel <T> {
+     schedule : Array<T> ; 
+}

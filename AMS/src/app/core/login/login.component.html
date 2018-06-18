@@ -24,12 +24,12 @@
                               </div>
                               <p 
                               *ngIf="loginForm.get('email').touched && !loginForm.get('email').value "
-                              class="form-text text-danger">
+                              class="form-text mb-1  text-danger">
                              This field is required !
                             </p>
                             <p 
                             *ngIf="loginForm.get('email').value && !loginForm.get('email').valid"
-                            class="form-text text-danger">
+                            class="form-text  mb-1 text-danger">
                            Please set a valid email !
                           </p>
                           </div>
@@ -43,7 +43,7 @@
                               </div>
                               <p 
                               *ngIf="loginForm.get('password').touched && !loginForm.get('password').value "
-                              class="form-text text-danger">
+                              class="form-text mb-1 text-danger">
                              This field is required !
                             </p>
                           </div>

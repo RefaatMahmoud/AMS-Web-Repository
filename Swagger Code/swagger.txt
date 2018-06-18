@@ -20,6 +20,843 @@ tags:
 - name: students_in_Location
 - name: schedule
 - name: subjects
+# - name: students
+
+paths:
+#################################
+######### start Admin ###########
+#################################
+  /api/admin:
+    get:
+      tags:
+      - admin
+      summary: Get all admins 
+      description: |
+        this link will return json data for all admins in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/admin'
+              
+    post:
+      tags:
+      - admin
+      summary: Create a new admin into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: admin
+        description: admin to add
+        schema:
+          $ref: '#/definitions/admin'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+        
+  /api/admin/{id}:
+    delete:
+      tags:
+      - admin
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: delete admin
+      description: |
+        delete admin by his id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is deleted successfully
+          
+    put:
+      tags:
+      - admin
+      summary: Update an existing admin
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path 
+        type: number
+        required: true 
+      - in: body
+        name: admin
+        description: admin to update
+        schema:
+          $ref: '#/definitions/admin'
+      responses:
+        200:
+          description: item updated successfully
+          
+          
+  /api/adminLogin:      
+    post:
+      tags:
+      - adminLogin
+      summary: Admin Login into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: adminLogin
+        description: admin to login
+        schema:
+          $ref: '#/definitions/adminLogin'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+
+#################################
+######### start students ########
+#################################  
+  /api/students:
+    get:
+      tags:
+      - student
+      summary: get all students 
+      description: |
+        this link will return json data for all students in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/student'
+    post:
+      tags:
+      - student
+      summary: adds an new students into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: students
+        description: admin to add
+        schema:
+          $ref: '#/definitions/student'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+  /api/studentLogin:      
+    post:
+      tags:
+      - studentLogin
+      summary: Admin Login into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: studentLogin
+        description: admin to login
+        schema:
+          $ref: '#/definitions/studentLogin'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+  /api/students_in_Location:
+    get:
+      tags:
+      - students_in_Location
+      summary: Get All Students in Current Location
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: students_in_Location
+        description: Get All Students in Current Location in same Lecture and connected to same Router
+        schema:
+          $ref: '#/definitions/students_in_Location'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+    post:
+      tags:
+      - students_in_Location
+      summary: Create Student in Current Location
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: students_in_Location
+        description: add new student when he attend the lecture and connect to router in this lecture
+        schema:
+          $ref: '#/definitions/students_in_Location'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+  /api/students_in_Location/{id}:
+    delete:
+      tags:
+      - students_in_Location
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: delete student if he disconnect from router
+      description: |
+        Delete student by his id if he outside the lecture or disconnected from router
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is deleted successfully
+#################################
+######## start instructors ######
+#################################
+  /api/instructors:
+    get:
+      tags:
+      - instructor
+      summary: get all instructors 
+      description: |
+        this link will return json data for all instructors in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/instructor'
+              
+    post:
+      tags:
+      - instructor
+      summary: adds an new instructors into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: instructors
+        description: instructors to add
+        schema:
+          $ref: '#/definitions/instructor'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+  /api/instructorLogin:      
+    post:
+      tags:
+      - instructorLogin
+      summary: Admin Login into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: instructorLogin
+        description: admin to login
+        schema:
+          $ref: '#/definitions/instructorLogin'
+      responses:
+        200:
+          description: status ok
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists        
+            
+#################################
+##### start Question Admin ######
+#################################              
+  /api/questionsByAdmin:
+    get:
+      tags:
+      - admin_Questions
+      summary: get all questions By Admin 
+      description: |
+        this link will return json data for all questions By Admin in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/admin_Questions'
+      
+    post:
+      tags:
+      - admin_Questions
+      summary: adds an new question By Admin into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: questions_By_Admin
+        description: add Question By Andmin to add
+        schema:
+          $ref: '#/definitions/admin_Questions'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+              
+#################################
+### start Question students #####
+#################################               
+  /api/questionsByStudtents:
+    get:
+      tags:
+      - student_Questions
+      summary: get all questions By Studtents
+      description: |
+        this link will return json data for all questions By Studtents in system
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/student_Questions'
+              
+    post:
+      tags:
+      - student_Questions
+      summary: adds an new questions By_Students into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: questions_By_Students
+        description: add Question By Andmin to add
+        schema:
+          $ref: '#/definitions/student_Questions'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+     
+####################################
+######### start schedule ###########
+#################################### 
+  /api/schedule:
+    get:
+      tags:
+      - schedule
+      summary: Get all schedule information  
+      description: |
+        GET data for all schedule information For (First-Second-Thrid-Fourth-Fifth) groups
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/schedule'
+              
+    post:
+      tags:
+      - schedule
+      summary: Create a new schedule into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: admin
+        description: schedule to add
+        schema:
+          $ref: '#/definitions/schedule'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+        
+  /api/schedule/{id}:
+    delete:
+      tags:
+      - schedule
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: delete schedule
+      description: |
+        delete schedule by his id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is deleted successfully
+          
+    put:
+      tags:
+      - schedule
+      summary: Update an existing schedule
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path 
+        type: number
+        required: true 
+      - in: body
+        name: schedule
+        description: schedule to update
+        schema:
+          $ref: '#/definitions/schedule'
+      responses:
+        200:
+          description: item updated successfully
+          
+####################################
+######### start subjects ###########
+#################################### 
+
+  /api/subjects:
+    get:
+      tags:
+      - subjects
+      summary: Get all subjects information  
+      description: |
+        GET data for all subjects information For (First-Second-Thrid-Fourth-Fifth) groups
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/subjects'
+              
+    post:
+      tags:
+      - subjects
+      summary: Create a new subject into system
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: subjects
+        description: subjects to add
+        schema:
+          $ref: '#/definitions/subjects'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+        
+  /api/subjects/{id}:
+    delete:
+      tags:
+      - subjects
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: delete subject
+      description: |
+        delete subject by his id
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is deleted successfully
+          
+    put:
+      tags:
+      - subjects
+      summary: Update an existing subject
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path 
+        type: number
+        required: true 
+      - in: body
+        name: subjects
+        description: subject to update
+        schema:
+          $ref: '#/definitions/subjects'
+      responses:
+        200:
+          description: item updated successfully
+
+#########################################################
+#-------------------- Start definitions ----------------#
+#########################################################          
+definitions:
+  admin:
+    type: object
+    required:
+    - username 
+    - email
+    - role
+    - password
+    properties:
+      id:
+        type: integer
+        example: 1
+      username:
+        type: string
+        example: Refaat Aish
+      password:
+        type: string
+        example: 01012341234
+      email:
+        type: string
+        example: refaat.aish.fciscu1@gmail.com
+      role:
+        type: integer
+        example: 1
+          
+  student:
+      type: object
+      required:
+      - name
+      - username 
+      - password
+      - email
+      - level
+      - telephone
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Refaat Aish
+        username:
+          type: string
+          example: refo99
+        email:
+          type: string
+          example: refaat.aish.fciscu1@gmail.com
+        level:
+          type: string
+          example: first
+        telephone:
+          type: string
+          example: 01003616844
+    
+  instructor:
+      type: object
+      required:
+      - name
+      - username 
+      - password
+      - email
+      - subjectName
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Refaat Aish
+        username:
+          type: string
+          example: refo99
+        email:
+          type: string
+          example: refaat.aish.fciscu1@gmail.com
+        subjectName:
+          type: string
+          example: medicalTools
+        telephone:
+          type: string
+          example: 01003616844
+          
+  adminLogin:
+    type: object
+    required:
+    - username 
+    - password
+    properties:
+      username:
+        type: string
+        example: zead
+      password:
+        type: string
+        example: 1111
+        
+  studentLogin:
+    type: object
+    required:
+    - username 
+    - password
+    properties:
+      username:
+        type: string
+        example: zead
+      password:
+        type: string
+        example: 1111 
+  
+  instructorLogin:
+    type: object
+    required:
+    - username 
+    - password
+    properties:
+      username:
+        type: string
+        example: zead
+      password:
+        type: string
+        example: 1111
+   
+  admin_Questions:
+      type: object
+      required:
+      - question
+      - option1 
+      - option2
+      - option3
+      - option4
+      properties:
+        id:
+          type: integer
+          example: 1
+        question:
+          type: string
+          example: Whats about this lect today? 
+        option1:
+          type: string
+          example: bad
+        option2:
+          type: string
+          example: good
+        option3:
+          type: string
+          example: very good
+        option4:
+          type: string
+          example: excellent
+          
+  student_Questions:
+      type: object
+      required:
+      - student_id
+      - answer1 
+      - answer2
+      - answer3
+      - answer4
+      properties:
+        student_id:
+          type: integer
+          example: 1
+        student_info_link:
+          type: string
+          example: http://syntax-eg.esy.es/api/students/4
+        answer1:
+          type: string
+          example: bad
+        answer2:
+          type: string
+          example: good
+        answer3:
+          type: string
+          example: very good
+        answer4:
+          type: string
+          example: excellent
+    
+  students_in_Location:
+    type: object
+    required:
+    - name
+    properties:
+      id:
+        type: integer
+        example: 1
+      name:
+        type: string
+        example: Refaat Aish
+    
+  schedule:
+    type: object
+    required:
+    - day
+    - instructorName
+    - subjectName
+    - startTime
+    - endTime
+    - type
+    - Location
+    - groupNumber
+    properties:
+      id:
+        type: integer
+        example: 1
+      day:
+        type: string
+        example: Monday
+      instructorName:
+        type: string
+        example: Dr/Hazem Tarek
+      subjectName:
+        type: string
+        example: Medical tools
+      startTime:
+        type: integer
+        example: 2
+      endTime:
+        type: integer
+        example: 5
+      type:
+        type: string
+        example: lecture 
+      Location:
+        type: string
+        example: Hall 2
+      groupNumber:
+        type: number
+        example: 2
+
+  subjects:
+    type: object
+    required:
+    - subjectName
+    - duration
+    - totalMark
+    - groupNumber
+    properties:
+      id:
+        type: integer
+        example: 1
+      subjectName:
+        type: string
+        example: Medical tools
+      duration:
+        type: integer
+        example: 3
+      totalMark:
+        type: integer
+        example: 100 
+      groupNumber:
+        type: integer
+        example: 2 
+        
+# Added by API Auto Mocking Plugin
+# host: http://www.syntax-eg.esy.es/
+schemes:
+ - https
+# host: x
+# Added by API Auto Mocking Plugin
+# Added by API Auto Mocking Plugin
+# host: virtserver.swaggerhub.coms
+basePath: /DreamTeam33/GraduationProject_MSA/1.0.0
+# Added by API Auto Mocking Plugin
+swagger: '2.0'
+info:
+  description: This is Medical Faculty API and Base  URL / http://syntax-eg.esy.es
+  version: 1.0.0
+  title: Simple Graduatopn Project API
+  # put the contact info for your development or API team
+  contact:
+    email: refaat.aish.fciscu1@gmail.com
+
+# tags are used for organizing operations
+tags:
+- name: admin
+- name: student
+- name: instructor
+- name: adminLogin
+- name: studentLogin
+- name: instructorLogin
+- name: admin_Questions
+- name: student_Questions
+- name: students_in_Location
+- name: schedule
+- name: subjects
 - name: activity_Type
 - name: membersRole
 - name: locationsName

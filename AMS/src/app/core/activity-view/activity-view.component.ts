@@ -15,8 +15,8 @@ export class ActivityViewComponent implements OnInit {
   ngOnInit() {
     this.activityService.getActivities().subscribe(
       res => {
-        console.log(res.schedule);
-        this.activities = res.schedule ;
+        console.log(res.data);
+        this.activities = res.data ;
       },
       err => {
         console.log(err)
@@ -32,7 +32,7 @@ export class ActivityViewComponent implements OnInit {
   deleteActivity(data: ActivityModel, index : number) {
     // this.router.navigate(["activities",]);
     console.log("record deleted successfully !") ; 
-     this.activities.splice(index , 1) ; 
+    //  this.activities.splice(index , 1) ; 
      this.activityService.deleteActivity(data.id).subscribe(
        res =>{
         this.activities.splice(index , 1) ;  
