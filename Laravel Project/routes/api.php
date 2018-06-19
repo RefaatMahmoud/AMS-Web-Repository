@@ -33,4 +33,5 @@ Route::apiresource('/locationsName' , 'LocationsController');
 Route::get('/students_in_Location_V2','students_in_locations_V2@index');
 Route::post('/students_in_Location_V2','students_in_locations_V2@store');
 Route::put('/students_in_Location_V2','students_in_locations_V2@update');
-Route::get('/groupNumber/{id}','groupNumberController@index');
+Route::get('/subjects/groupNumber/{id}','groupNumberController@FetchSubjects');
+Route::get('/schedules/groupNumber/{id}','groupNumberController@FetchSchedule');

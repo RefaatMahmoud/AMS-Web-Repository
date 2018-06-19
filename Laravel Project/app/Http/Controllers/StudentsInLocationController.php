@@ -55,7 +55,7 @@ class StudentsInLocationController extends Controller
         $studentLocationObj->update($request->all());
         $studentLocationObj->save();
         return response([
-            'students_in_Location' => new students_in_LocationResource($studentLocationObj)
+            'data' => new students_in_LocationResource($studentLocationObj)
         ],200);
     }
 }

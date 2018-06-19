@@ -8,6 +8,6 @@ class stduents_in_locations extends Model
 {
     //
     protected $fillable=[
-      "name" , "status" , "level" , "subjectName" , "activityType"
+      "id" , "name" , "status" , "level" , "subjectName" , "activityType"
     ];
 }
