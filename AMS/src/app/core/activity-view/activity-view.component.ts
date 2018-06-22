@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Data } from '@angular/router';
 import { ActivityService } from '../services/activity.service';
 import { ActivityModel } from '../models/activity.model';
 
@@ -9,17 +9,24 @@ import { ActivityModel } from '../models/activity.model';
   styleUrls: ['./activity-view.component.css']
 })
 export class ActivityViewComponent implements OnInit {
+  id: number;
 
-  constructor(private router: Router, private activityService: ActivityService) { }
+  constructor(private router: Router,private route : ActivatedRoute ,  private activityService: ActivityService) { }
   activities : Array<ActivityModel> ; 
+  
   ngOnInit() {
-    this.activityService.getActivities().subscribe(
-      res => {
-        console.log(res.data);
-        this.activities = res.data ;
-      },
-      err => {
-        console.log(err)
+    this.route.params.subscribe(
+     ( res : Data) =>{
+      this.id = res['id'] ; 
+      this.activityService.getActivities().subscribe(
+        res => {
+          console.log(res.data);
+          this.activities = res.data ;
+        },
+        err => {
+          console.log(err)
+        }
+      )
       }
     )
   }

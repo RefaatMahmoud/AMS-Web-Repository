@@ -23,7 +23,7 @@ const ROUTES: Routes = [
     {
         path: "", component: HomeComponent, children: [
             { path: "", component: IndexComponent, },  
-            { path: "new-admin", component: AddNewMemberComponent },
+            { path: "new-admin", component: AddNewMemberComponent },    
             { path: "new-subject", component: NewSubjectComponent },
             { path: "activities/new", component: AddNewActivityComponent },
             { path: "activities", component: ActivityViewComponent },

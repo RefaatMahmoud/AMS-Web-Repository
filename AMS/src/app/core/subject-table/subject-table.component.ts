@@ -10,44 +10,44 @@ import { SubjectModel } from '../models/subject.model';
 export class SubjectTableComponent implements OnInit, AfterContentInit {
 
 
-  name : string;
-  private arr : any [];
+  name: string;
+  private arr: any[];
 
-  private subjects   : SubjectModel[];
+  private subjects: SubjectModel[];
 
   constructor(private router: Router,
-     private activatedRoute:ActivatedRoute,
-     private subjectService:NewSubject) { }
+    private activatedRoute: ActivatedRoute,
+    private subjectService: NewSubject) { }
 
   ngOnInit() {
     this.subjectService.getSubjects().subscribe(
-      (response) =>{
-         this.subjects = response.subjects;
-         console.log(response);
+      (response) => {
+        this.subjects = response.data;
+        console.log(response);
 
-      } ,
+      },
       (error) => console.log(error)
     );
-    
+
   }
 
 
-  ngAfterContentInit(){
-    
+  ngAfterContentInit() {
+
   }
 
-  addSubject(){
-      this.router.navigate(["new-subject"]);
+  addSubject() {
+    this.router.navigate(["new-subject"]);
   }
 
-  getSubject( id: number){
+  getSubject(id: number) {
     const subject = this.subjects.find(
-        (s) => {
-            return s.id === id;
-        }
+      (s) => {
+        return s.id === id;
+      }
     );
     return subject;
-}
+  }
 
 
 
