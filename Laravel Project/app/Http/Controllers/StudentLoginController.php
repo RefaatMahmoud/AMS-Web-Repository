@@ -30,8 +30,9 @@ class StudentLoginController extends Controller
         $count = count($CheckData);
         if($count > 0 && $passwordCheck== true)
         {
+            $userInfo = DB::table('student_models')->where('username','=',$studenLoginObj->username)->get();
             return response([
-                "data" => "login successfully"
+                "data" => $userInfo
             ],200);
         }
         else
