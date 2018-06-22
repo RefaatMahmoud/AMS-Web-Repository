@@ -16,7 +16,7 @@ export class ActivityService {
         return this.http.get<PageModel<ActivityModel>>(url) ; 
     }
     getLevelActivities(id:number){
-        let url = `${environment.apiPath}schedule/${id}`; 
+        let url = `${environment.apiPath}schedules/groupNumber/${id}`; 
         return this.http.get<PageModel<ActivityModel>>(url) ; 
     }
     getActivity(id : number){

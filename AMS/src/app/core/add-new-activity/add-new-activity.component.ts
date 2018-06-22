@@ -5,7 +5,7 @@ import { ActivityService } from '../services/activity.service';
 import { InstructorModel } from '../models/instructor.model';
 import { SubjectModel } from '../models/subject.model';
 import { NewSubject } from '../services/newSubject.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ActivityTypeModel } from '../models/activity-type.model';
 import { LocationModel } from '../models/location.model';
 import { LocationService } from '../services/location.service';
@@ -48,7 +48,7 @@ export class AddNewActivityComponent implements OnInit, AfterViewInit {
   @ViewChild("startTime") startTime: ElementRef;
   @ViewChild("endTime") endTime: ElementRef;
 
-  constructor(private testService: TestService,private atp : AmazingTimePickerService ,  private locationService: LocationService, private router: Router, private subjectService: NewSubject, private activityservice: ActivityService) { }
+  constructor(private testService: TestService,private route : ActivatedRoute , private atp : AmazingTimePickerService ,  private locationService: LocationService, private router: Router, private subjectService: NewSubject, private activityservice: ActivityService) { }
   ngAfterViewInit() {  
   }
   setEndTime() {
@@ -183,7 +183,7 @@ export class AddNewActivityComponent implements OnInit, AfterViewInit {
       this.activityservice.addActivity(data).subscribe(
         res => {
           console.log(res);
-          this.router.navigate(["activities"]);
+          this.router.navigate(["../" ,{relativeTo : this.route}]);
         },
         err => {
           console.log(err);

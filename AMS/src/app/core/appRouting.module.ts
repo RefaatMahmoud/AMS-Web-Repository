@@ -26,7 +26,7 @@ const ROUTES: Routes = [
             { path: "new-admin", component: AddNewMemberComponent },    
             { path: "new-subject", component: NewSubjectComponent },
             { path: "activities/new", component: AddNewActivityComponent },
-            { path: "activities", component: ActivityViewComponent },
+            { path: "activities/:id", component: ActivityViewComponent },
             { path: "activities/:id/edit", component: UpdateActivityComponent, resolve: { activity: ActivityResolverService } },
             { path: ":id/edit", component: SubjectEditComponent, resolve: { subject: SubjectResolver } },
             { path: "subject-table", component: SubjectTableComponent },

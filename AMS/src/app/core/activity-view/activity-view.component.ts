@@ -18,7 +18,7 @@ export class ActivityViewComponent implements OnInit {
     this.route.params.subscribe(
      ( res : Data) =>{
       this.id = res['id'] ; 
-      this.activityService.getActivities().subscribe(
+      this.activityService.getLevelActivities(this.id).subscribe(
         res => {
           console.log(res.data);
           this.activities = res.data ;
