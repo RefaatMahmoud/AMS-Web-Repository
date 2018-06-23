@@ -17,7 +17,7 @@ import { HttpModule } from "@angular/http";
 import { NewSubjectComponent } from "./new-subject/new-subject.component";
 import { NewSubject } from "./services/newSubject.service";
 import { SubjectTableComponent } from './subject-table/subject-table.component';
-
+import {AmazingTimePickerModule} from "amazing-time-picker" ; 
 import { IndexComponent } from './index/index.component';
 import { AddNewActivityComponent } from './add-new-activity/add-new-activity.component';
 import { ActivityService } from "./services/activity.service";
@@ -61,7 +61,8 @@ import { LocationResolverService } from "./services/location-resolver.service";
         ReactiveFormsModule,
         CommonModule,
         HttpClientModule,
-        HttpModule
+        HttpModule,
+        AmazingTimePickerModule
 
     ],
     exports: [

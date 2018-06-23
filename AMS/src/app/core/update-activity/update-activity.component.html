@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-7">
           <select id="day" formControlName="day" class="form-control">
-            <option  [disabled]=true [ngValue]="null">select a day ....</option>
+            <option [disabled]=true [ngValue]="null">select a day ....</option>
             <option *ngFor="let day of days  " [ngValue]="day.name">{{day.name}}</option>
 
           </select>
@@ -55,8 +55,8 @@
         </div>
         <div class="col-sm-7
             ">
-          <select id="professor" formControlName="instructorName"  class="form-control">
-            <option  disabled  [ngValue]="null">select a professor ....</option>
+          <select id="professor" formControlName="instructorName" class="form-control">
+            <option disabled [ngValue]="null">select a professor ....</option>
             <option *ngFor="let instructor of instructors , let i = index" [ngValue]="instructor.name">{{instructor.name}}</option>
           </select>
           <p *ngIf="updateActivityForm.get('instructorName').touched && !updateActivityForm.get('instructorName').value " class="form-text text-danger">
@@ -88,15 +88,11 @@
         </div>
         <div class="col-sm-7
                     ">
-          <!-- <select id="type" class="form-control">
-                            <option selected disabled [ngValue]="null">select a location ....</option>
-                            <option value="AI">Section</option>
-                            <option value="CV">Lecture</option>
-                            <option value="NW">Clinical</option>
-                            <option value="AR">Hospitals</option>
-                            <option value="DS">Labs</option>
-                        </select> -->
-          <input type="text" formControlName="Location" id="location" class="form-control" placeholder="get your location">
+          <select formControlName="Location" id="location" class="form-control">
+            <option selected disabled [ngValue]="null">select a location ....</option>
+            <option *ngFor="let location of locations" [ngValue]="location.locationName">{{location.locationName}}</option>
+          </select>
+          <!-- <input type="text" formControlName="Location" id="location" class="form-control" placeholder="get your location"> -->
           <p *ngIf="updateActivityForm.get('Location').touched && !updateActivityForm.get('Location').value " class="form-text text-danger">
             This field is required !
           </p>
@@ -110,9 +106,12 @@
         <div class="col-sm-7
                         ">
 
-          <input type="text" formControlName="startTime" class="form-control" placeholder="start time">
+          <input type="text" formControlName="startTime" class="form-control" apt-time-picker placeholder="00:00" #startTime (click)="setStartTime()" >
           <p *ngIf="updateActivityForm.get('startTime').touched && !updateActivityForm.get('startTime').value " class="form-text text-danger">
             This field is required !
+          </p>
+          <p *ngIf="updateActivityForm.get('startTime').hasError('validTime') " class="form-text text-danger">
+            This field is invalid !
           </p>
 
         </div>
@@ -121,12 +120,14 @@
         <div class="col-sm-4 col-md-3">
           <label for="type">End time </label>
         </div>
-        <div class="col-sm-7
-                            ">
+        <div class="col-sm-7 ">
 
-          <input type="text" formControlName="endTime" class="form-control" placeholder="end time">
+          <input type="text" formControlName="endTime" class="form-control" apt-time-picker placeholder="00:00" #endTime (click)="setEndTime()" >
           <p *ngIf="updateActivityForm.get('endTime').touched && !updateActivityForm.get('endTime').value " class="form-text text-danger">
             This field is required !
+          </p>
+          <p *ngIf="updateActivityForm.get('endTime').hasError('validTime') " class="form-text text-danger">
+            This field is invalid !
           </p>
         </div>
       </div>

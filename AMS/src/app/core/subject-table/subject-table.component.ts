@@ -16,8 +16,8 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
   private subjects   : SubjectModel[];
 
   constructor(private router: Router,
-     private activatedRoute:ActivatedRoute,
-     private subjectService:NewSubject) { }
+    private activatedRoute: ActivatedRoute,
+    private subjectService: NewSubject) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(
@@ -38,22 +38,22 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
   }
 
 
-  ngAfterContentInit(){
-    
+  ngAfterContentInit() {
+
   }
 
   addSubject(){
       this.router.navigate(["/new-subject/",this.groupNumber]);
   }
 
-  getSubject( id: number){
+  getSubject(id: number) {
     const subject = this.subjects.find(
-        (s) => {
-            return s.id === id;
-        }
+      (s) => {
+        return s.id === id;
+      }
     );
     return subject;
-}
+  }
 
 
 deleteSubject(data: SubjectModel, index : number) {

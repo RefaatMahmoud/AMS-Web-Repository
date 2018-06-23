@@ -6,6 +6,8 @@ import { InstructorPageModel } from "../models/instructor-page";
 import { ActivityTypeModel } from "../models/activity-type.model";
 import { ActivityTypePageModel } from "../models/activity-type-page.model";
 import { PageModel } from "../models/page";
+import { StudentModel } from "../models/student.model";
+import { AdminModel } from "../models/admin.model";
 
 
 @Injectable()
@@ -26,14 +28,14 @@ export class TestService {
 
     getAdminCount() { 
         let url = `${environment.apiPath}admin`; 
-        return this.http.get(url) ; 
+        return this.http.get<PageModel<AdminModel>>(url) ; 
     }
     getInstructorCount(){ 
         let url = `${environment.apiPath}instructors`; 
-        return this.http.get(url) ; 
+        return this.http.get<PageModel<InstructorModel>>(url) ; 
     }
     getStudentCount() { 
         let url = `${environment.apiPath}students`; 
-        return this.http.get(url) ; 
+        return this.http.get<PageModel<StudentModel>>(url) ; 
     }
 }
