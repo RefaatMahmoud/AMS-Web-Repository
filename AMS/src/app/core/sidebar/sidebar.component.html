@@ -57,13 +57,34 @@
                       <span class="badge d-inline-block mt-1 float-right badge-pill">10</span>
                   </a>
 
-                  <a href="#" class=" pl-4 list-group-item list-group-item-action ">
+                  <a href="#monitoring"  data-toggle ="collapse" class=" pl-4 list-group-item list-group-item-action ">
                       <i class="fa fa-signal pr-3"></i> Monitoring
                       <span class="d-inline-block mt-1 float-right ">
                           <i class="fa fa-plus"></i>
                       </span>
-                  </a>
-              
+                  </a>  
+                  <div class="collapse" id="monitoring">
+                    <div class="list-group">
+                     <a [routerLink]="['/subject-table/1']" class="list-group-item list-group-item-action">
+                         First year
+                     </a>
+                     <a [routerLink]="['/subject-table/2']" class="list-group-item list-group-item-action">
+                         Second year
+                     </a>
+                     <a [routerLink]="['/subject-table/3']" class="list-group-item list-group-item-action">
+                         Third year
+                     </a>
+                     <a [routerLink]="['/subject-table/4']" class="list-group-item list-group-item-action">
+                         Fourth year
+                     </a>
+                     <a [routerLink]="['/subject-table/5']" class="list-group-item list-group-item-action">
+                         Fifth year
+                     </a>
+                     <a [routerLink]="['/subject-table/6']" class="list-group-item list-group-item-action">
+                         Sixth year
+                     </a>
+                    </div>
+                 </div>
           </div>
 
       </div>

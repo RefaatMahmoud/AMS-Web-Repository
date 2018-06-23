@@ -1,6 +1,6 @@
 import { NewSubject } from './../services/newSubject.service';
 import { Component, OnInit, AfterContentInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { SubjectModel } from '../models/subject.model';
 @Component({
   selector: 'app-subject-table',
@@ -12,7 +12,7 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
 
   name : string;
   private arr : any [];
-
+  private groupNumber: number;
   private subjects   : SubjectModel[];
 
   constructor(private router: Router,
@@ -20,14 +20,20 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
      private subjectService:NewSubject) { }
 
   ngOnInit() {
-    this.subjectService.getSubjects().subscribe(
-      (response) =>{
-         this.subjects = response.subjects;
-         console.log(response);
-
-      } ,
-      (error) => console.log(error)
+    this.activatedRoute.params.subscribe(
+      (params: Params) => {
+        this.groupNumber = +params['groupNumber'];
+        this.subjectService.getSubjectsByGroupNumber(this.groupNumber).subscribe(
+          (response) =>{
+             this.subjects = response.data;
+             console.log(response);
+    
+          } ,
+          (error) => console.log(error)
+        );
+      }
     );
+    
     
   }
 
@@ -37,7 +43,7 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
   }
 
   addSubject(){
-      this.router.navigate(["new-subject"]);
+      this.router.navigate(["/new-subject/",this.groupNumber]);
   }
 
   getSubject( id: number){
@@ -50,7 +56,21 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
 }
 
 
-
+deleteSubject(data: SubjectModel, index : number) {
+  // this.router.navigate(["subject-table",]);
+  console.log("record deleted successfully !") ; 
+  //  this.activities.splice(index , 1) ; 
+   this.subjectService.deleteSubject(data.id).subscribe(
+     res =>{
+      this.subjects.splice(index , 1) ;  
+      console.log("record deleted successfully !") ; 
+    }
+     , 
+     err => {
+       console.log(err) ;
+     }
+   ) ; 
+}
 
 
 

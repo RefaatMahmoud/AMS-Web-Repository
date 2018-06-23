@@ -1,6 +1,7 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { NewAdmin } from '../services/newAdmin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-new-member',
@@ -11,7 +12,8 @@ export class AddNewMemberComponent implements OnInit {
 
   addMemberForm: FormGroup ;
 
-  constructor(private newAdmin: NewAdmin) { }
+  constructor(private newAdmin: NewAdmin,
+  private router:Router) { }
 
   ngOnInit() {
     this.addMemberForm = new FormGroup({
@@ -36,6 +38,7 @@ export class AddNewMemberComponent implements OnInit {
         console.log(data);
       }
     )
+    this.router.navigate(["/"])
   }
 
 }

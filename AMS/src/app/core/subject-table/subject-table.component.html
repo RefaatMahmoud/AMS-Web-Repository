@@ -1,7 +1,4 @@
 
-    <app-sidebar></app-sidebar>
-    
-    <app-header></app-header>
    
     <section id="new-member" class="bg-dark">
       <nav class="">
@@ -26,19 +23,23 @@
                               <th>Subject</th>
                               <th>Total Marks</th>
                               <th>credit Hours</th>
+                              <th>Monitor</th>
                               <th class="control">Control</th>
                           </tr>
                       </thead>
-                      <tbody class="text-muted" *ngFor="let subject of subjects">
+                      <tbody class="text-muted" *ngFor="let subject of subjects; let i = index">
                           <tr>
-                              <td>{{ subject.subjectName }}</td>
+                             
+                            <td>{{ subject.subjectName }}</td>
                               <td>{{ subject.totalMark }}</td>
                               <td>{{ subject.duration }}</td>
-                             
+                              <td>
+                              <button class="btn btn-sm btn-outline-success" (click)="monitor(subject,i)">Monitor</button>
+                             </td>
                               
                               <td class="control">
                                   <button class="btn btn-sm btn-green" [routerLink]="['/',subject.id,'edit']">Edit</button>
-                                  <button class="btn btn-sm btn-outline-danger">Delete</button>
+                                  <button class="btn btn-sm btn-outline-danger" (click)="deleteSubject(subject,i)">Delete</button>
                               </td>
                           </tr>
                           <!-- <tr>

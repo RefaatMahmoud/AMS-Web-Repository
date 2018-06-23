@@ -14,8 +14,8 @@ export class NewSubject {
     constructor(private http: HttpClient){}
 
 
-    newSubject(data: {subjectName: string, totalMark: number, duration: number, groupNumber: number}){
-        
+    newSubject(data: {subjectName: string, totalMark: string, duration: string, groupNumber: string}){
+
         return this.http.post(environment.apiPath+"subjects",data);
     }
 
@@ -26,7 +26,11 @@ export class NewSubject {
     }
 
 
-    
+    updateSubject(data : SubjectModel , id : number) { 
+        console.log(id) ;
+        let url = `${environment.apiPath}subjects/${id}`; 
+        return this.http.put<SubjectModel>(url,data) ; 
+    }
 
 
     getSubject(id:number){
@@ -34,7 +38,15 @@ export class NewSubject {
         return this.http.get<SubjectModel>(url) ;
     }
 
-    
+    deleteSubject(id:number){
+        let url = `${environment.apiPath}subjects/`+id ;
+        return this.http.delete<SubjectModel>(url) ;
+    }
+
+    getSubjectsByGroupNumber(id:number){
+        let url = `${environment.apiPath}subjects/groupNumber/`+id ;
+        return this.http.get<PageModel<SubjectModel>>(url) ;
+    }
 
 }
 

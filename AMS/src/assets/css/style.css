@@ -99,7 +99,22 @@ nav.navbar {
    /* background-color : #222; */
 
 }
+#monitoring .list-group-item {
+  background: rgba(4, 162, 179 , 0.6);
+  color: rgba(255, 255, 255, 0.60);
+  padding-left : 40px !important;
+  font-weight : 500 ;
+  transition : all 0.2s ease-in ;
+}
 
+#monitoring .list-group-item:hover {
+   background: rgba(4, 162, 179, 1);
+   color: rgba(255, 255, 255) !important ; 
+   border-bottom: solid 1.3px rgba(4, 162, 179, 0.7);
+   transition : all 0.2s ease-in ;
+   /* background-color : #222; */
+
+}
 .alert-ball {
    position: static;
    top: 7px;
@@ -232,30 +247,40 @@ nav.navbar {
 
 
 /* New Member form section  */
-
-#member-form {
-   background: black;
-   padding: 20px;
-   border-radius: 5px
+.member-form {
+  background: black;
+  padding: 20px;
+  border-radius: 5px
 }
-#member-form select {
-   background: black;
-   color: white;
-   border: 1px solid silver
-}
-
-#member-form button {
-   background-color: black;
-   border:  2px solid teal;
-   color: teal;
-   font-weight: bold;
-   width: 100%
+#memberForm select {
+  background: black;
+  color: white;
+  border: 1px solid silver
 }
 
-#member-form button:hover {
-   background: #00b7cb;
-   border-color: #00b7cb;
-   color: white !important;
+#subjectForm select {
+  background: black;
+  color: white;
+  border: 1px solid silver
+}
+
+.member-form button {
+  background-color: black;
+  border:  2px solid teal;
+  color: teal;
+  font-weight: bold;
+  width: 100%
+}
+
+.member-form button:hover {
+  background: #00b7cb;
+  border-color: #00b7cb;
+  color: white !important;
+}
+
+.ng-invalid
+{
+  color: red;
 }
 
 /* add new activity form  */
