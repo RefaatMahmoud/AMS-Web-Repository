@@ -335,7 +335,31 @@ paths:
       responses:
         200:
           description: that's mean is deleted successfully
-          
+    
+    
+  /api/students_in_Location/groupNumber/{id}:
+    get:
+      tags:
+      - students_in_Location
+      parameters:
+        - name: id
+          in: path 
+          type: number
+          required: true 
+      summary: get All students in same leve and online
+      description: |
+        get students_in_Location in same level by number
+        Example is http://syntax-eg.esy.es/api/students_in_Location/groupNumber/1
+        will get all subjects For First Level and with status = 1 
+        Example is http://syntax-eg.esy.es/api/students_in_Location/groupNumber/2
+        will get all subjects For second Level and with status = 1
+        ...
+      produces:
+      - application/json
+      responses:
+        200:
+          description: that's mean is ok
+  
   
 #################################
 ######## start instructors ######
@@ -1223,7 +1247,7 @@ definitions:
         example: "2"
       status:
         type: boolean
-        example: true
+        example: 1
     
   schedule:
     type: object
@@ -1360,7 +1384,7 @@ definitions:
         example: "lecture"
       flag:
         type: boolean
-        example: true
+        example: 1
       created_at:
           type: string
           example: "2018-05-21 22:48:23"

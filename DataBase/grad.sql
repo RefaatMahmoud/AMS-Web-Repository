@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2018 at 09:30 AM
+-- Generation Time: Jun 24, 2018 at 06:33 AM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -238,7 +238,7 @@ INSERT INTO `schedules` (`id`, `day`, `subjectName`, `instructorName`, `totalMar
 (3, 'Monday', 'dentist', 'Mrs. Sabina Miller Jr.', '100', 'Hall 3', '6', '10', 'section', '1', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
 (4, 'Tuesday', 'dentist', 'Keshaun Mohr V', '120', 'Hall 4', '5', '7', 'lecture', '1', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
 (5, 'Wednesday', 'pharmacy', 'Ryder Waelchi', '120', 'Hall 4', '9', '3', 'lecture', '4', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
-(6, 'Thursday', 'dentist', 'Stan Abernathy', '80', 'Hall 4', '11', '12', 'section', '5', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
+(6, 'Thursday', 'dentist', 'Stan Abernathy', '80', 'Hall 4', '11', '12', 'section', '6', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
 (21, 'Sunday', 'dentist', 'Ms. Wendy Schuster III', '200', 'Hall 2', '3', '3', 'lecture', '5', '2018-05-23 03:19:47', '2018-05-23 03:19:47'),
 (22, 'Thursday', 'pharmacy', 'Marianna Ullrich', '100', 'Hall 1', '1', '8', 'lecture', '2', '2018-05-23 03:19:47', '2018-05-23 03:19:47'),
 (23, 'Wednesday', 'pharmacy', 'Mr. Buster Buckridge', '80', 'Hall 1', '5', '1', 'section', '1', '2018-05-23 03:19:47', '2018-05-23 03:19:47'),
@@ -297,15 +297,17 @@ CREATE TABLE `stduents_in_locations` (
 INSERT INTO `stduents_in_locations` (`id`, `name`, `level`, `status`, `created_at`, `updated_at`, `activityType`, `subjectName`) VALUES
 (12, 'Eldiasty', '1', 0, '2018-06-17 01:06:47', '2018-06-17 02:40:08', 'lecture', 'Medical Tools'),
 (13, 'Mercedes Feil Sr.', '1', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'medical tools'),
-(14, 'Mr. Norwood Ferry PhD', '5', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'pharmacy'),
-(15, 'Jaquelin Schmeler', '2', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'dentist'),
+(14, 'Mr. Norwood Ferry PhD', '5', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'pharmacy'),
+(15, 'Jaquelin Schmeler', '2', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'dentist'),
 (16, 'General Cummings', '4', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'dentist'),
 (17, 'Verner Fritsch', '4', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'pharmacy'),
 (18, 'Emily Fadel', '1', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'Surgery'),
 (19, 'Lyda Conn', '1', 1, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'lecture', 'medical tools'),
 (20, 'Christa Reynolds Jr.', '4', 0, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'lecture', 'dentist'),
 (21, 'Nikki Hayes', '3', 1, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'section', 'dentist'),
-(22, 'Eldiasty', '1', 0, '2018-06-17 02:34:27', '2018-06-17 02:34:27', 'lecture', 'Medical Tools');
+(22, 'zead', '4', 1, '2018-06-17 02:34:27', '2018-06-19 13:14:30', 'lecture', 'Medical Tools'),
+(23, 'Sayed', '6', 1, '2018-06-19 12:00:57', '2018-06-19 12:42:40', 'section', 'Medical Tools'),
+(25, 'zead', '4', 1, '2018-06-19 13:13:48', '2018-06-19 13:13:48', 'lecture', 'Medical Tools');
 
 -- --------------------------------------------------------
 
@@ -331,7 +333,7 @@ CREATE TABLE `student_models` (
 --
 
 INSERT INTO `student_models` (`id`, `name`, `username`, `password`, `email`, `telephone`, `role`, `level`, `created_at`, `updated_at`) VALUES
-(1, 'Arden Marquardt IV', 'kane.kling', '$2y$10$mJtGrr5aCa9adUo68ZgI4eMkLyYuvv/aYXwWFCDSNOAz2pc3rF6rm', 'giovanny09@example.com', '+1 (850) 616-8158', '0', '4', '2018-05-22 07:38:05', '2018-05-22 07:38:05'),
+(1, 'Refaat Aish', 'refo', '$2y$10$S0rvgCV2VX7bisFvNCRg7.p9s5hkNX3ABFclbCMBNHuON614yhfaK', 'refo@gmail.com', '01003616844', '2', 'First', '2018-05-22 07:38:05', '2018-06-19 12:38:02'),
 (2, 'Prof. Timothy Waters', 'xbernier', '$2y$10$elQb8vBnGDhm0hbxFVPFWu.NR2sBfmRmra4RjpexHFIgsie9rgd7m', 'toy.halvorson@example.com', '+1-509-689-7381', '0', '4', '2018-05-22 07:38:05', '2018-05-22 07:38:05'),
 (3, 'Emerson Walsh', 'angelo91', '$2y$10$rlbZZy4Et7hn5GRz95bf..y1wpXZr3dU9ReV2HiQhmMMh3mFWGdiK', 'flangosh@example.net', '(609) 926-4553 x21097', '0', '1', '2018-05-22 07:38:06', '2018-05-22 07:38:06'),
 (4, 'Kathryne Haley PhD', 'pkunze', '$2y$10$ruvLHZkqj/3Kta1pmcexLO/T0UwO9kveRtQgBGicrwF0xfNytLDOG', 'hkutch@example.org', '+1-709-259-0700', '3', '4', '2018-05-22 07:38:06', '2018-05-22 07:38:06'),
@@ -553,7 +555,7 @@ ALTER TABLE `set_questions_by_admins`
 -- AUTO_INCREMENT for table `stduents_in_locations`
 --
 ALTER TABLE `stduents_in_locations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `student_models`
 --
