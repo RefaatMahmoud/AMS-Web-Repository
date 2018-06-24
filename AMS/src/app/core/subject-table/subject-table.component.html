@@ -34,7 +34,7 @@
                               <td>{{ subject.totalMark }}</td>
                               <td>{{ subject.duration }}</td>
                               <td>
-                              <button class="btn btn-sm btn-outline-success" (click)="monitor(subject,i)">Monitor</button>
+                              <button class="btn btn-sm btn-outline-success" [routerLink]="['/filter/',subject.id]">Monitor</button>
                              </td>
                               
                               <td class="control">

@@ -1,0 +1,56 @@
+
+<div class="col-md-6 col-lg-4 col-sm-8 mx-auto mt-5">
+
+  <form class=""
+  id="filterForm"
+  [formGroup]="filterForm"
+  (ngSubmit)="onSubmit()">
+
+  <div class="form-group row">
+    <div class="col-sm-4 col-md-3">
+      <label for="fromdate"> From:</label>
+    </div>
+    <div class="col-sm-7">
+
+        <input type="date" 
+        class="form-control "
+        id="fromdate" 
+        formControlName="fromdate"
+        placeholder="Enter start date">
+
+      <p *ngIf="filterForm.get('fromdate').touched && !filterForm.get('fromdate').value " class="form-text text-danger">
+        This field is required !
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group row">
+      <div class="col-sm-4 col-md-3">
+        <label for="todate"> To:</label>
+      </div>
+      <div class="col-sm-7">
+  
+          <input type="date" 
+          class="form-control "
+          id="todate" 
+          formControlName="todate"
+          placeholder="Enter start date">
+  
+        <p *ngIf="filterForm.get('todate').touched && !filterForm.get('todate').value " class="form-text text-danger">
+          This field is required !
+        </p>
+      </div>
+    </div>
+
+
+
+
+
+<br>
+<button type="submit" class="btn btn-success btn-green btn-lg" style="width: 83%;margin-top: -30px">Filter</button>
+
+</form>
+
+
+
+</div>

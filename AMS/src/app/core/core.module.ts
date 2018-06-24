@@ -32,6 +32,8 @@ import { AddNewLocationComponent } from './add-new-location/add-new-location.com
 import { UpdateLocationComponent } from './update-location/update-location.component';
 import {LocationService} from "./services/location.service"
 import { LocationResolverService } from "./services/location-resolver.service";
+import { FilterationComponent } from './filteration/filteration.component';
+import { StudentsInLocationService } from "./services/student_in_location.service";
 
 
 
@@ -55,6 +57,7 @@ import { LocationResolverService } from "./services/location-resolver.service";
         LocationViewComponent,
         AddNewLocationComponent,
         UpdateLocationComponent,
+        FilterationComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -79,8 +82,8 @@ import { LocationResolverService } from "./services/location-resolver.service";
         ActivityResolverService,
         SubjectResolver , 
         LocationService , 
-        LocationResolverService
-
+        LocationResolverService,
+        StudentsInLocationService
     ]
 
 })

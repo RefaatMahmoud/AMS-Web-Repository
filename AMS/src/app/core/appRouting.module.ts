@@ -17,6 +17,7 @@ import { LocationViewComponent } from "./location-view/location-view.component";
 import { UpdateLocationComponent } from "./update-location/update-location.component";
 import { AddNewLocationComponent } from "./add-new-location/add-new-location.component";
 import { LocationResolverService } from "./services/location-resolver.service";
+import { FilterationComponent } from "./filteration/filteration.component";
 
 const ROUTES: Routes = [
     { path: "login", component: LoginComponent },
@@ -27,6 +28,7 @@ const ROUTES: Routes = [
             { path: "new-subject/:groupNumber", component: NewSubjectComponent },
             { path: "new-admin", component: AddNewMemberComponent },    
             { path: "new-subject", component: NewSubjectComponent },
+            { path: "filter/:id", component: FilterationComponent },
             { path: "activities/new", component: AddNewActivityComponent },
             { path: "activities/:id", component: ActivityViewComponent },
             { path: "activities/:id/edit", component: UpdateActivityComponent, resolve: { activity: ActivityResolverService } },
