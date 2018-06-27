@@ -1,4 +1,26 @@
 slideInOut();
+const pieChart = document.getElementById("myPieChart");
+var CHART2 = new Chart(pieChart, {
+    type: 'pie',
+
+    // The data for our dataset
+    data:{
+        labels : ['Present','Absent'],
+        datasets: [
+            {
+                label: "My Pie Points",
+                backgroundColor: ['green','red'],
+                 borderColor: 'rgb(255, 99, 132)',
+                data: [10,55]
+            }
+        ]
+    }
+
+    // Configuration options go here
+  // options: {}
+});
+
+
 var data = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [{
@@ -19,16 +41,7 @@ var CHART1 = new Chart(lineChart, {
     // Configuration options go here
     options: {}
 });
-const pieChart = document.getElementById("pie-chart");
-var CHART2 = new Chart(pieChart, {
-    type: 'pie',
 
-    // The data for our dataset
-    data: data,
-
-    // Configuration options go here
-    options: {}
-});
 const barChart = document.getElementById("bar-chart");
 var CHART3 = new Chart(barChart, {
     type: 'bar',

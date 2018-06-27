@@ -31,7 +31,8 @@
         "assets/js/jquery.min.js",
         "assets/js/popper.min.js",
         "assets/js/bootstrap.min.js",
-        "assets/js/wickedpicker.min.js"
+        "assets/js/wickedpicker.min.js",
+        "assets/js/main.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

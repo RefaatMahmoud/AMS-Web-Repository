@@ -10,8 +10,11 @@ import { StudentsInLocationModel } from '../models/student_in_location.model';
 })
 export class FilterationComponent implements OnInit {
 
+  
+
   filterForm: FormGroup;
   studentInLocation: StudentsInLocationModel [];
+
 
 
   constructor(private studentInLocationService: StudentsInLocationService) { }
@@ -23,25 +26,51 @@ export class FilterationComponent implements OnInit {
     });
   }
 
-
   onSubmit(){
-  
+    var absent:number = 0;
+    var present:number = 0;
+    var from = new Date(Date.parse(this.filterForm.get('fromdate').value));
+    var to = new Date(Date.parse(this.filterForm.get('todate').value));
     this.studentInLocationService.getStudentsInLocation().subscribe(
       (response) =>{
         this.studentInLocation = response.data;
         
 
-      //   for(let student of this.studentInLocation){
-      //     console.log(student.id);
-      //     if(student.created_at >= this.filterForm.get('fromdate').value &&
-      //      student.created_at <= this.filterForm.get('todate').value){
-      //       console.log(student.id);
-      //     }
-      // }
+        for(let student of this.studentInLocation){
+          var created = new Date(Date.parse(student.created_at.toString()));
+          if(created.getTime() >= from.getTime()&&   
+           created.getTime() <= to.getTime()){
+            console.log(student.id);
+
+            if(student.status === "0"){
+              absent++;
+            }
+            else if (student.status === "1"){
+              present++;
+            }else{
+              console.log("Error happens in Logic");
+            }
 
 
 
-        console.log(this.studentInLocation);
+
+           }
+
+           
+
+          // var sCreated = Math.round(student.created_at.getTime()/1000);
+         
+          }
+      
+
+          console.log(present + " is Present");
+          console.log(absent + " is Absent");
+
+
+
+
+
+     //   console.log(this.studentInLocation);
 
 
 
