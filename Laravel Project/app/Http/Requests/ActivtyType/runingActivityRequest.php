@@ -19,7 +19,7 @@ class runingActivityRequest extends FormRequest
             'started_at' => 'required' ,
             'finished_at' => 'required' ,
             'students' =>'required|integer' ,
-            'delayTime' => 'required' ,
+            'delayTime' => 'required|integer' ,
             'fullDate' => 'required'
         ];
     }

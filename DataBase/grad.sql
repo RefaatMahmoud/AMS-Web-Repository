@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2018 at 06:33 AM
+-- Generation Time: Jun 30, 2018 at 09:23 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -142,7 +142,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (73, '2018_05_21_162456_create_stduents_in_locations_table', 1),
 (74, '2018_05_21_221515_create_roles_table', 1),
 (75, '2018_06_07_165012_create_locations_table', 2),
-(76, '2018_06_16_180215_add_activity_type_and_subject_name_to_stduents_in_locations', 3);
+(76, '2018_06_16_180215_add_activity_type_and_subject_name_to_stduents_in_locations', 3),
+(77, '2018_06_30_170043_create_runing_activities_table', 4);
 
 -- --------------------------------------------------------
 
@@ -206,6 +207,37 @@ INSERT INTO `roles` (`id`, `accessNumber`, `title`, `created_at`, `updated_at`) 
 (1, '0', 'admin', '2018-05-22 07:38:12', '2018-05-22 07:38:12'),
 (2, '1', 'instructor', '2018-05-22 07:38:12', '2018-05-22 07:38:12'),
 (3, '2', 'student', '2018-05-22 07:38:12', '2018-05-22 07:38:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `runing_activities`
+--
+
+CREATE TABLE `runing_activities` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `activity` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `isRuning` tinyint(1) NOT NULL,
+  `finished` tinyint(1) NOT NULL,
+  `started_at` date NOT NULL,
+  `finished_at` date NOT NULL,
+  `students` int(11) NOT NULL,
+  `delayTime` int(11) NOT NULL,
+  `fullDate` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `runing_activities`
+--
+
+INSERT INTO `runing_activities` (`id`, `activity`, `isRuning`, `finished`, `started_at`, `finished_at`, `students`, `delayTime`, `fullDate`, `created_at`, `updated_at`) VALUES
+(7, 'lecture', 0, 1, '1971-01-08', '1998-03-03', 59, 7, '1998-11-15', '2018-07-01 02:21:32', '2018-07-01 02:21:32'),
+(8, 'section', 0, 0, '1998-08-15', '2005-07-20', 79, 12, '2012-08-29', '2018-07-01 02:21:32', '2018-07-01 02:21:32'),
+(9, 'lecture', 0, 1, '2007-03-22', '1982-12-11', 97, 14, '1994-11-13', '2018-07-01 02:21:32', '2018-07-01 02:21:32'),
+(10, 'section', 1, 0, '2005-03-26', '2000-03-19', 74, 5, '2003-03-02', '2018-07-01 02:21:32', '2018-07-01 02:21:32'),
+(11, 'section', 0, 1, '2014-11-01', '2011-11-08', 96, 13, '1989-06-25', '2018-07-01 02:21:32', '2018-07-01 02:21:32');
 
 -- --------------------------------------------------------
 
@@ -409,9 +441,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'kelsi.smitham', 'maximillian67@example.org', '$2y$10$GceTQCX6RV5Eou3kCfi.tuV0wCTaV0wkncT4BeTGKmu6tPsHf.tqq', '3', 'KvAzwAcu4siLkfazsBanBdBALD4ywb1alUkKXMSYgYlbg31u4h4uTclcQRjg', '2018-05-22 07:38:03', '2018-05-22 07:38:03'),
-(2, 'rbashirian', 'zachariah65@example.com', '$2y$10$ujvnshnum6B8wf.n/JmNxu9xVbJ9lFKciLp/w/H3edxKUJO/kj5xu', '4', 'e2IR73IXT4VIazLo2a5NxjPnMlrz3JtSMpO2hMumewj6JYSIb2fiFAE1PDCE', '2018-05-22 07:38:03', '2018-05-22 07:38:03'),
-(3, 'madelyn88', 'murazik.stewart@example.com', '$2y$10$KIOmrlyIDr1Zit028Tce4.kJWV9zprNCRq/GeTIbXM44NmofDNFSy', '4', '3IXNq54ZISONAEg5f5vlgXmf4HKn0jYp0fJeeP96lQuyqEnq5detDexWxZqI', '2018-05-22 07:38:03', '2018-05-22 07:38:03'),
+(1, 'Refaat_Aish', 'refaat@example.org', '$2y$10$GceTQCX6RV5Eou3kCfi.tuV0wCTaV0wkncT4BeTGKmu6tPsHf.tqq', '3', 'KvAzwAcu4siLkfazsBanBdBALD4ywb1alUkKXMSYgYlbg31u4h4uTclcQRjg', '2018-05-22 07:38:03', '2018-05-22 07:38:03'),
+(2, 'Hazem_tarek', 'Zoom@example.com', '$2y$10$ujvnshnum6B8wf.n/JmNxu9xVbJ9lFKciLp/w/H3edxKUJO/kj5xu', '4', 'e2IR73IXT4VIazLo2a5NxjPnMlrz3JtSMpO2hMumewj6JYSIb2fiFAE1PDCE', '2018-05-22 07:38:03', '2018-05-22 07:38:03'),
+(3, 'Hussien_Asous', 'H7s@example.com', '$2y$10$KIOmrlyIDr1Zit028Tce4.kJWV9zprNCRq/GeTIbXM44NmofDNFSy', '4', '3IXNq54ZISONAEg5f5vlgXmf4HKn0jYp0fJeeP96lQuyqEnq5detDexWxZqI', '2018-05-22 07:38:03', '2018-05-22 07:38:03'),
 (4, 'layla.grimes', 'otha30@example.com', '$2y$10$VKdI4jIPEvC3Nl/xVZtMqe2KPyYMC7XXPtTTU.qEhKHqUwFMExjL2', '5', '4FashcEkKth4cyMsPptQGQwZ4dUaEMz3Lfj4IbtKvpHt9nfLycAjHlKWBcFw', '2018-05-22 07:38:03', '2018-05-22 07:38:03'),
 (5, 'sipes.monte', 'xschumm@example.org', '$2y$10$RsxUjfaO/Ot55ILptRFad.qaCFhBusGvItjU1gc6eXiv0/P1vHHKm', '4', 'EnGfcPeWPmyomvwvh5aEHsp1k7d4t4awVgVNFCnMqK3jKmKRCxadYd0wLAN0', '2018-05-22 07:38:04', '2018-05-22 07:38:04'),
 (6, 'alexandra53', 'gina69@example.net', '$2y$10$bDxuU6JPbuJFnHU4g32theBTdETzcbQKvKgioJZGrUfWQBLqbc1X2', '2', 'TW7ylaJgPIJO3By8mRlLj1L6luV1LePzuY2WE7t0Sf3aLwmiRa3axHkUS0Of', '2018-05-22 07:38:04', '2018-05-22 07:38:04'),
@@ -467,6 +499,12 @@ ALTER TABLE `questions_by_students`
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `runing_activities`
+--
+ALTER TABLE `runing_activities`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -530,7 +568,7 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 --
 -- AUTO_INCREMENT for table `questions_by_students`
 --
@@ -541,6 +579,11 @@ ALTER TABLE `questions_by_students`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `runing_activities`
+--
+ALTER TABLE `runing_activities`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `schedules`
 --
