@@ -35,7 +35,7 @@ export class NewSubject {
 
     getSubject(id:number){
         let url = `${environment.apiPath}subjects/`+id ;
-        return this.http.get<SubjectModel>(url) ;
+        return this.http.get<PageModel<SubjectModel>>(url) ;
     }
 
     deleteSubject(id:number){
