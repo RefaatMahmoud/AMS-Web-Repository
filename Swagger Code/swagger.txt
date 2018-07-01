@@ -25,6 +25,7 @@ tags:
 - name: locationsName
 - name: schedulesGroupNumber
 - name: subjectsGroupNumber 
+- name: runningActivity
 
 # - name: students
 
@@ -352,7 +353,7 @@ paths:
         Example is http://syntax-eg.esy.es/api/students_in_Location/groupNumber/1
         will get all subjects For First Level and with status = 1 
         Example is http://syntax-eg.esy.es/api/students_in_Location/groupNumber/2
-        will get all subjects For second Level and with status = 1
+        will get all subjects For second Level
         ...
       produces:
       - application/json
@@ -1023,6 +1024,73 @@ paths:
         200:
           description: item updated successfully
           
+          
+          
+          
+######################################
+####### start running Activity #######
+######################################
+  /api/runningActivity:
+    get:
+      tags:
+      - runningActivity
+      summary: Get all runningActivity  
+      description: |
+        GET data for runningActivity
+      produces:
+      - application/json
+      responses:
+        200:
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/runningActivity'
+              
+    post:
+      tags:
+      - runningActivity
+      summary: Create a new running Activity  into application
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: locationsName
+        description: Create a new running Activity
+        schema:
+          $ref: '#/definitions/runningActivity'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+          
+    put:
+      tags:
+      - runningActivity
+      summary: Update an existing running Activity
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path 
+        type: number
+        required: true 
+      - in: body
+        name: running Activity
+        description: runningActivity to update
+        schema:
+          $ref: '#/definitions/runningActivity'
+      responses:
+        200:
+          description: item updated successfully
+          
 #########################################################
 #-------------------- Start definitions ----------------#
 #########################################################          
@@ -1421,6 +1489,51 @@ definitions:
         type: string
         example: "Hall 3"
         
+  runningActivity:
+    type: object
+    required:
+    - activity
+    - isRuning
+    - finished
+    - started_at
+    - finished_at
+    - students
+    - delayTime
+    - fullDate
+    properties:
+      id:
+        type: integer
+        example: 1
+      activity:
+        type: string
+        example: "lecture"
+      isRuning:
+        type: boolean
+        example: 0
+      finished:
+        type: boolean
+        example: 0
+      started_at:
+        type: string
+        example: "1991-12-23"
+      finished_at:
+        type: string
+        example: "1991-12-25"
+      students:
+        type: integer
+        example: 60 
+      delayTime:
+        type: integer
+        example: 3
+      fullDate:
+        type: string
+        example: "1991-12-25"
+      created_at:
+        type: string
+        example: "2018-06-30 17:39:39"
+      updated_at:
+        type: string
+        example: "2018-06-30 17:39:39"
     
     
 # Added by API Auto Mocking Plugin

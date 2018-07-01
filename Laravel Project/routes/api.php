@@ -36,3 +36,4 @@ Route::put('/students_in_Location_V2','students_in_locations_V2@update');
 Route::get('/subjects/groupNumber/{id}','groupNumberController@FetchSubjects');
 Route::get('/schedules/groupNumber/{id}','groupNumberController@FetchSchedule');
 Route::get('students_in_Location/groupNumber/{id}' ,'students_in_same_locations_and_online@index' );
+Route::apiresource('/runningActivity' , 'RuningActivityController');
