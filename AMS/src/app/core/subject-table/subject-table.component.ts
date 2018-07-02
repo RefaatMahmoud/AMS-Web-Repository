@@ -42,8 +42,9 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
 
   }
 
+  
   addSubject(){
-      this.router.navigate(["/new-subject/",this.groupNumber]);
+      this.router.navigate(["new"], {relativeTo:this.activatedRoute});
   }
 
   getSubject(id: number) {

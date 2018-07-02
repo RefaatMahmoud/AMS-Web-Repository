@@ -30,6 +30,10 @@ nav.navbar {
    font-size : 20px;
  }
 
+ h3{
+   color: #00b7cb;
+ }
+
 #side-bar::-webkit-scrollbar{
    width : 2px ;
    background :none; 
