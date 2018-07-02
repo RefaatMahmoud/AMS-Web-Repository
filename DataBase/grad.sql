@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2018 at 09:48 AM
+-- Generation Time: Jul 02, 2018 at 02:08 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -265,14 +265,14 @@ CREATE TABLE `schedules` (
 --
 
 INSERT INTO `schedules` (`id`, `day`, `subjectName`, `instructorName`, `totalMark`, `Location`, `startTime`, `endTime`, `type`, `groupNumber`, `created_at`, `updated_at`) VALUES
-(29, 'Thursday', 'medical tools', 'Tavares Kovacek', '200', 'Hall 5', '12:36:38', '02:22:09', 'lecture', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(30, 'Wednesday', 'medical tools', 'Christelle Emard', '120', 'Hall 3', '12:44:42', '03:47:45', 'section', '3', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(32, 'Thursday', 'pharmacy', 'Bud Daniel', '100', 'Hall 1', '9:38:00', '10:59:36', 'section', '3', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(33, 'Saturday', 'medical tools', 'Ms. Marilie Walker', '100', 'Hall 1', '11:13:25', '12:53:13', 'section', '2', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(34, 'Monday', 'medical tools', 'Destiny Hintz', '100', 'Hall 4', '8:24:38', '10:26:06', 'lecture', '5', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(35, 'Thursday', 'dentist', 'Prof. Reagan Quigley II', '120', 'Hall 4', '11:06:36', '2:18:39', 'section', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(36, 'Tuesday', 'pharmacy', 'Nora Hills', '100', 'Hall 1', '11:58:32', '1:03:27', 'section', '2', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(37, 'Saturday', 'Surgery', 'Jordan Runolfsdottir', '200', 'Hall 1', '11:47:01', '1:59:14', 'section', '4', '2018-07-01 14:44:44', '2018-07-01 14:44:44');
+(29, 'Thursday', 'Surgery', 'Tavares Kovacek', '200', 'Hall 5', '10:30', '12:00', 'lecture', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(30, 'Wednesday', 'medical tools', 'Christelle Emard', '120', 'Hall 3', '08:00', '12:00', 'section', '3', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(32, 'Thursday', 'pharmacy', 'Bud Daniel', '100', 'Hall 1', '12:00', '02:00', 'section', '3', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(33, 'Saturday', 'medical tools', 'Ms. Marilie Walker', '100', 'Hall 1', '09:00', '12:00', 'section', '2', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(34, 'Monday', 'medical tools', 'Destiny Hintz', '100', 'Hall 4', '08:00', '10:00', 'lecture', '5', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(35, 'Thursday', 'dentist', 'Prof. Reagan Quigley II', '120', 'Hall 4', '09:00', '12:00', 'section', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(36, 'Tuesday', 'pharmacy', 'Nora Hills', '100', 'Hall 1', '08:00', '10:00', 'section', '2', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(37, 'Saturday', 'Surgery', 'Jordan Runolfsdottir', '200', 'Hall 1', '08:00', '09:00', 'section', '4', '2018-07-01 14:44:44', '2018-07-01 14:44:44');
 
 -- --------------------------------------------------------
 
@@ -324,19 +324,56 @@ CREATE TABLE `stduents_in_locations` (
 --
 
 INSERT INTO `stduents_in_locations` (`id`, `name`, `level`, `status`, `created_at`, `updated_at`, `activityType`, `subjectName`) VALUES
-(12, 'Eldiasty', '1', 0, '2018-06-17 01:06:47', '2018-06-17 02:40:08', 'lecture', 'Medical Tools'),
-(13, 'Mercedes Feil Sr.', '1', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'medical tools'),
-(14, 'Mr. Norwood Ferry PhD', '5', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'pharmacy'),
-(15, 'Jaquelin Schmeler', '2', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'dentist'),
-(16, 'General Cummings', '4', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'dentist'),
+(12, 'Eldiasty', '1', 0, '2018-06-17 01:06:47', '2018-06-17 02:40:08', 'lecture', 'medical tools'),
+(13, 'Mercedes Feil Sr.', '2', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'medical tools'),
+(14, 'Mr. Norwood Ferry PhD', '1', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'pharmacy'),
+(15, 'Jaquelin Schmeler', '5', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'dentist'),
+(16, 'General Cummings', '6', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'dentist'),
 (17, 'Verner Fritsch', '4', 0, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'section', 'pharmacy'),
 (18, 'Emily Fadel', '1', 1, '2018-06-17 01:06:47', '2018-06-17 01:06:47', 'lecture', 'Surgery'),
-(19, 'Lyda Conn', '1', 1, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'lecture', 'medical tools'),
+(19, 'Lyda Conn', '3', 1, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'lecture', 'medical tools'),
 (20, 'Christa Reynolds Jr.', '4', 0, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'lecture', 'dentist'),
 (21, 'Nikki Hayes', '3', 1, '2018-06-17 01:06:48', '2018-06-17 01:06:48', 'section', 'dentist'),
-(22, 'zead', '4', 1, '2018-06-17 02:34:27', '2018-06-19 13:14:30', 'lecture', 'Medical Tools'),
-(23, 'Sayed', '6', 1, '2018-06-19 12:00:57', '2018-06-19 12:42:40', 'section', 'Medical Tools'),
-(25, 'zead', '4', 1, '2018-06-19 13:13:48', '2018-06-19 13:13:48', 'lecture', 'Medical Tools');
+(22, 'zead', '4', 1, '2018-06-17 02:34:27', '2018-06-19 13:14:30', 'lecture', 'Surgery'),
+(23, 'Sayed', '6', 1, '2018-06-19 12:00:57', '2018-06-19 12:42:40', 'section', 'medical tools'),
+(25, 'zead', '5', 1, '2018-06-19 13:13:48', '2018-06-19 13:13:48', 'lecture', 'Surgery'),
+(26, 'Prof. Leo Rath', '2', 1, '2018-07-02 19:06:21', '2018-07-02 19:06:21', 'section', 'Surgery'),
+(27, 'Pablo Gaylord', '3', 0, '2018-07-02 19:06:21', '2018-07-02 19:06:21', 'section', 'Surgery'),
+(28, 'Retta Goldner', '4', 1, '2018-07-02 19:06:21', '2018-07-02 19:06:21', 'section', 'medical tools'),
+(29, 'Ludwig Ritchie', '4', 1, '2018-07-02 19:06:21', '2018-07-02 19:06:21', 'section', 'pharmacy'),
+(30, 'Florine Balistreri PhD', '1', 1, '2018-07-02 19:06:21', '2018-07-02 19:06:21', 'section', 'medical tools'),
+(31, 'Shayna Bartell', '1', 0, '2018-07-02 19:06:21', '2018-07-02 19:06:21', 'section', 'Surgery'),
+(32, 'Mr. Josh Metz', '4', 1, '2018-07-02 19:06:21', '2018-07-02 19:06:21', 'lecture', 'Surgery'),
+(33, 'Tristian Kuhlman DVM', '1', 1, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'dentist'),
+(34, 'Aisha Beier Sr.', '3', 0, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'section', 'Surgery'),
+(35, 'Prof. Owen Leffler IV', '1', 0, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'pharmacy'),
+(36, 'Madeline Barton', '1', 1, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'section', 'medical tools'),
+(37, 'Mrs. Alexandra Thiel IV', '4', 1, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'dentist'),
+(38, 'Eldon Streich', '3', 0, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'Surgery'),
+(39, 'Mrs. Vincenza Beier', '2', 1, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'section', 'Surgery'),
+(40, 'Creola Flatley', '3', 1, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'section', 'medical tools'),
+(41, 'Rosario Dietrich III', '5', 0, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'pharmacy'),
+(42, 'Frieda Upton IV', '4', 0, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'dentist'),
+(43, 'Benjamin Oberbrunner', '5', 0, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'dentist'),
+(44, 'Dr. Krystel Hermiston MD', '1', 0, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'section', 'pharmacy'),
+(45, 'Johnnie Stanton DDS', '1', 1, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'Surgery'),
+(46, 'Mr. Keanu Zboncak', '5', 0, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'pharmacy'),
+(47, 'Shanel Berge', '3', 1, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'section', 'Surgery'),
+(48, 'Abigail Satterfield', '5', 0, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'lecture', 'dentist'),
+(49, 'Miss Oceane Green MD', '1', 1, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'section', 'pharmacy'),
+(50, 'Lorenz Romaguera II', '2', 1, '2018-07-02 19:06:22', '2018-07-02 19:06:22', 'section', 'dentist'),
+(51, 'Justice Ratke Sr.', '3', 0, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'section', 'medical tools'),
+(52, 'Lucile Sipes', '4', 0, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'lecture', 'Surgery'),
+(53, 'Clay Kreiger DDS', '1', 0, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'lecture', 'medical tools'),
+(54, 'Amie Wolff MD', '1', 1, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'section', 'pharmacy'),
+(55, 'Judah Hermiston', '5', 1, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'lecture', 'Surgery'),
+(56, 'Waldo McCullough PhD', '4', 0, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'lecture', 'pharmacy'),
+(57, 'Tara Schuppe Sr.', '3', 0, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'lecture', 'pharmacy'),
+(58, 'Anita McGlynn', '3', 1, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'lecture', 'pharmacy'),
+(59, 'Andreanne Lesch', '2', 1, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'section', 'pharmacy'),
+(60, 'Benjamin Bruen', '4', 1, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'section', 'pharmacy'),
+(61, 'Eldred Cummerata PhD', '5', 1, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'lecture', 'dentist'),
+(62, 'Araceli Kertzmann I', '2', 0, '2018-07-02 19:06:23', '2018-07-02 19:06:23', 'lecture', 'pharmacy');
 
 -- --------------------------------------------------------
 
@@ -397,7 +434,7 @@ CREATE TABLE `subjects` (
 INSERT INTO `subjects` (`id`, `subjectName`, `duration`, `totalMark`, `groupNumber`, `created_at`, `updated_at`) VALUES
 (1, 'dentist', '2', '120', '3', '2018-05-22 07:38:10', '2018-05-22 07:38:10'),
 (2, 'pharmacy', '2', '200', '3', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
-(3, 'Surgery', '2', '100', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
+(3, 'medical tools', '2', '100', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (4, 'pharmacy', '2', '80', '5', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (5, 'Surgery', '3', '80', '5', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (6, 'dentist', '1', '200', '2', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
@@ -406,13 +443,13 @@ INSERT INTO `subjects` (`id`, `subjectName`, `duration`, `totalMark`, `groupNumb
 (9, 'pharmacy', '2', '200', '6', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (10, 'medical tools', '1', '120', '1', '2018-05-22 07:38:11', '2018-05-22 07:38:11'),
 (11, 'pharmacy', '2', '120', '5', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
-(12, 'dentist', '3', '80', '6', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
+(12, 'medical tools', '3', '80', '6', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
 (13, 'Surgery', '2', '200', '1', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
 (14, 'dentist', '4', '100', '3', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
 (15, 'dentist', '3', '80', '6', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
 (16, 'Surgery', '1', '200', '2', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
 (17, 'Surgery', '4', '80', '4', '2018-06-18 14:28:31', '2018-06-18 14:28:31'),
-(18, 'dentist', '4', '120', '5', '2018-06-18 14:28:32', '2018-06-18 14:28:32'),
+(18, 'medical tools', '4', '120', '5', '2018-06-18 14:28:32', '2018-06-18 14:28:32'),
 (19, 'dentist', '2', '200', '6', '2018-06-18 14:28:32', '2018-06-18 14:28:32'),
 (20, 'Surgery', '2', '100', '1', '2018-06-18 14:28:32', '2018-06-18 14:28:32');
 
@@ -585,7 +622,7 @@ ALTER TABLE `runing_activities`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `set_questions_by_admins`
 --
@@ -595,7 +632,7 @@ ALTER TABLE `set_questions_by_admins`
 -- AUTO_INCREMENT for table `stduents_in_locations`
 --
 ALTER TABLE `stduents_in_locations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `student_models`
 --
