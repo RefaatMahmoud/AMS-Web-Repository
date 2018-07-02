@@ -213,7 +213,7 @@ export class UpdateActivityComponent implements OnInit {
       this.activityservice.updateActivity(data, +this.id).subscribe(
         res => {
           console.log(res);
-          this.router.navigate(["../"] , {relativeTo : this.route});
+          this.router.navigate(["activities" , this.updateActivityForm.get('groupNumber').value]);
         },
         err => {
           console.log(err);

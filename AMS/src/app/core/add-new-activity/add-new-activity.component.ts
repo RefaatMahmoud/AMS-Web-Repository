@@ -183,7 +183,7 @@ export class AddNewActivityComponent implements OnInit, AfterViewInit {
       this.activityservice.addActivity(data).subscribe(
         res => {
           console.log(res);
-          this.router.navigate(["../" ,{relativeTo : this.route}]);
+          this.router.navigate(["activities" , this.addNewActivityForm.get('groupNumber').value ]);
         },
         err => {
           console.log(err);
