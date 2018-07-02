@@ -24,4 +24,12 @@ class groupNumberController extends Controller
             "data" => $data
         ],200);
     }
+    //Count Data for every level
+    public function countForLevel(Request $request , $id){
+        $data = DB::table("student_models")->where("level", "=", $request->id)->get();
+        //response
+        return response([
+            "data" => $data
+        ],200);
+    }
 }

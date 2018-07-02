@@ -37,3 +37,4 @@ Route::get('/subjects/groupNumber/{id}','groupNumberController@FetchSubjects');
 Route::get('/schedules/groupNumber/{id}','groupNumberController@FetchSchedule');
 Route::get('students_in_Location/groupNumber/{id}' ,'students_in_same_locations_and_online@index' );
 Route::apiresource('/runningActivity' , 'RuningActivityController');
+Route::get('students/level/{id}' , 'groupNumberController@countForLevel');
