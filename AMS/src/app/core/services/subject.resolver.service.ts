@@ -13,7 +13,12 @@ export class SubjectResolver implements Resolve<SubjectModel>{
 
     resolve(activatedRoute : ActivatedRouteSnapshot, routerState : RouterStateSnapshot)
      : Observable<SubjectModel> | Promise<SubjectModel> | SubjectModel{
-        return this.subjectService.getSubject(+activatedRoute.params['id']);
+        
+        return this.subjectService.getSubject(+activatedRoute.params['id']).toPromise().then(
+            data => data
+        ).catch(
+            err => err
+        )
     }
 
 
