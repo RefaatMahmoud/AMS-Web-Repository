@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2018 at 05:40 PM
+-- Generation Time: Jul 05, 2018 at 07:58 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -265,14 +265,24 @@ CREATE TABLE `schedules` (
 --
 
 INSERT INTO `schedules` (`id`, `day`, `subjectName`, `instructorName`, `totalMark`, `Location`, `startTime`, `endTime`, `type`, `groupNumber`, `created_at`, `updated_at`) VALUES
-(29, 'Thursday', 'Surgery', 'Tavares Kovacek', '200', 'Hall 5', '10:30', '12:00', 'lecture', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(30, 'Wednesday', 'medical tools', 'Christelle Emard', '120', 'Hall 3', '08:00', '12:00', 'section', '3', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(32, 'Thursday', 'pharmacy', 'Bud Daniel', '100', 'Hall 1', '12:00', '02:00', 'section', '3', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(33, 'Saturday', 'medical tools', 'Ms. Marilie Walker', '100', 'Hall 1', '09:00', '12:00', 'section', '2', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(34, 'Monday', 'medical tools', 'Destiny Hintz', '100', 'Hall 4', '08:00', '10:00', 'lecture', '5', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(35, 'Thursday', 'dentist', 'Prof. Reagan Quigley II', '120', 'Hall 4', '09:00', '12:00', 'section', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(36, 'Tuesday', 'pharmacy', 'Nora Hills', '100', 'Hall 1', '08:00', '10:00', 'section', '2', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
-(37, 'Saturday', 'Surgery', 'Jordan Runolfsdottir', '200', 'Hall 1', '08:00', '09:00', 'section', '4', '2018-07-01 14:44:44', '2018-07-01 14:44:44');
+(29, 'Sunday', 'Surgery', 'Tavares Kovacek', '200', 'Hall 5', '08:00', '09:00', 'lecture', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(30, 'Sunday', 'medical tools', 'Christelle Emard', '120', 'Hall 3', '10:00', '12:00', 'section', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(32, 'Monday', 'pharmacy', 'Bud Daniel', '100', 'Hall 1', '08:00', '09:00', 'section', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(33, 'Monday', 'medical tools', 'Ms. Marilie Walker', '120', 'Hall 1', '10:00', '12:00', 'section', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(34, 'Monday', 'medical tools', 'Destiny Hintz', '120', 'Hall 4', '01:00', '03:00', 'lecture', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(35, 'Tuesday', 'generation', 'Prof. Reagan Quigley II', '80', 'Hall 4', '08:00', '09:00', 'section', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(36, 'Tuesday', 'pharmacy', 'Nora Hills', '100', 'Hall 1', '10:00', '12:00', 'section', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(37, 'Wednesday', 'Surgery', 'Jordan Runolfsdottir', '200', 'Hall 1', '08:00', '12:00', 'section', '1', '2018-07-01 14:44:44', '2018-07-01 14:44:44'),
+(38, 'Thursday', 'dentist', 'Tierra Bartoletti Sr.', '200', 'Hall 4', '08:00', '09:00', 'lecture', '1', '2018-07-06 00:47:49', '2018-07-06 00:47:49'),
+(39, 'Thursday', 'medical tools', 'Layne Frami', '120', 'Hall 4', '10:00', '12:00', 'lecture', '1', '2018-07-06 00:47:49', '2018-07-06 00:47:49'),
+(40, 'Sunday', 'Anatomy', 'Rosina Doyle', '200', 'Hall 2', '08:00', '09:00', 'lecture', '2', '2018-07-06 00:47:49', '2018-07-06 00:47:49'),
+(41, 'Sunday', 'dentist 2', 'Corbin Mitchell', '200', 'Hall 4', '10:00', '12:00', 'section', '2', '2018-07-06 00:47:50', '2018-07-06 00:47:50'),
+(42, 'Monday', 'Anatomy', 'Dr. Peyton Crooks DDS', '200', 'Hall 4', '08:00', '09:00', 'lecture', '2', '2018-07-06 00:47:50', '2018-07-06 00:47:50'),
+(43, 'Monday', 'Humanity', 'Joshuah Graham', '100', 'Hall 2', '10:00', '12:00', 'section', '2', '2018-07-06 00:47:50', '2018-07-06 00:47:50'),
+(44, 'Tuesday', 'dentist 2', 'Marion Kub', '200', 'Hall 4', '08:00', '10:00', 'section', '2', '2018-07-06 00:47:50', '2018-07-06 00:47:50'),
+(45, 'Wednesday', 'stomach', 'Miss Albertha Bergnaum III', '200', 'Hall 3', '09:00', '12:00', 'lecture', '2', '2018-07-06 00:47:50', '2018-07-06 00:47:50'),
+(46, 'Wednesday', 'Humanity', 'Dr. Viviane Thiel Jr.', '100', 'Hall 1', '01:00', '02:04', 'section', '2', '2018-07-06 00:47:50', '2018-07-06 00:47:50'),
+(47, 'Thursday', 'Anatomy', 'Samanta Boyle', '200', 'Hall 5', '08:00', '12:00', 'lecture', '2', '2018-07-06 00:47:50', '2018-07-06 00:47:50');
 
 -- --------------------------------------------------------
 
@@ -1124,7 +1134,7 @@ ALTER TABLE `runing_activities`
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `set_questions_by_admins`
 --

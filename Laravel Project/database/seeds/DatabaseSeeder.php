@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\questionsByStudents::class,5)->create();
         factory(\App\stduents_in_locations::class,10)->create();
         factory(App\subject::class,10)->create();
+         factory(\App\StudentModel::class,500)->create();
         factory(App\activityType::class,10)->create();
         factory(App\role::class,3)->create();
         factory(App\schedule::class,10)->create();
@@ -21,6 +22,5 @@ class DatabaseSeeder extends Seeder
         factory(App\RuningActivity::class,5)->create();
         factory(\App\stduents_in_locations::class,37)->create();
         */
-        factory(\App\StudentModel::class,500)->create();
     }
 }

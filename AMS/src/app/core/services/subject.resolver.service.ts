@@ -8,11 +8,11 @@ import { NewSubject } from './newSubject.service';
 
 @Injectable()
 export class SubjectResolver implements Resolve<SubjectModel>{
-   
-    constructor(private subjectService : NewSubject) {}
 
-    resolve(activatedRoute : ActivatedRouteSnapshot, routerState : RouterStateSnapshot)
-     : Observable<SubjectModel> | Promise<SubjectModel> | SubjectModel{
+    constructor(private subjectService: NewSubject) { }
+
+    resolve(activatedRoute: ActivatedRouteSnapshot, routerState: RouterStateSnapshot)
+        : Observable<SubjectModel> | Promise<SubjectModel> | SubjectModel {
         return this.subjectService.getSubject(+activatedRoute.params['id']);
     }
 
