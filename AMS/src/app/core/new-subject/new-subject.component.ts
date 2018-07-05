@@ -41,7 +41,7 @@ export class NewSubjectComponent implements OnInit {
     this.newSubject.newSubject(data).subscribe(
       data => {
         console.log(data);
-        this.router.navigate(["/subject-table/",this.groupNumber]);
+        this.router.navigate(["../"], {relativeTo:this.activatedRoute});
       }
     )
     

@@ -8,6 +8,7 @@ import { ActivityTypePageModel } from "../models/activity-type-page.model";
 import { PageModel } from "../models/page";
 import { StudentModel } from "../models/student.model";
 import { AdminModel } from "../models/admin.model";
+import { RoleModel } from "../models/role.model";
 
 
 @Injectable()
@@ -34,8 +35,12 @@ export class TestService {
         let url = `${environment.apiPath}instructors`; 
         return this.http.get<PageModel<InstructorModel>>(url) ; 
     }
-    getStudentCount() { 
-        let url = `${environment.apiPath}students`; 
+    getStudentCount(id : number) { 
+        let url = `${environment.apiPath}students/level/${id}`; 
         return this.http.get<PageModel<StudentModel>>(url) ; 
+    }
+    getRoles() { 
+        let url = `${environment.apiPath}membersRole`; 
+        return this.http.get<PageModel<RoleModel>>(url) ; 
     }
 }

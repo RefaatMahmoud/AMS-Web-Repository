@@ -1,8 +1,7 @@
 
 <div class="col-md-6 col-lg-4 col-sm-8 mx-auto mt-5">
 
-        <form class="member-form"
-        id="memberForm"
+        <form class=""
         [formGroup]="addMemberForm"
         (ngSubmit)="onSubmit()">
       <div class="form-group ">
@@ -38,9 +37,7 @@
         <span 
               *ngIf="!addMemberForm.get('email').valid && addMemberForm.get('email').touched; else correctEmail"
               class="help-block" >Enter a valid Email!</span>
-              <ng-template #correctEmail>
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </ng-template>
+             
         
       </div>
       
@@ -64,12 +61,12 @@
 
       <select class="form-control"
               formControlName="role">
-              <option disabled="disabled">ROLE</option>
-              <option>ADMIN</option>
-              <option>USER</option>
+             
+                <option selected disabled [ngValue] = "null"> select a Role</option>
+                <option *ngFor="let role of roles" [ngValue]="role?.title">{{role.title}}</option>
       </select>
      <br>
-      <button type="submit" class="btn btn-success " >Add Member</button>
+      <button type="submit" class="btn btn-green btn-block " >Add Member</button>
       <span 
               *ngIf="!addMemberForm.valid && addMemberForm.touched"
               class="help-block" >Fill out all the form correctly!</span>

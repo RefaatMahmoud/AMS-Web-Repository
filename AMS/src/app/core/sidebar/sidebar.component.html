@@ -53,9 +53,9 @@
               
                </div>
             </div>
-                  <a href="#" class=" pl-4 list-group-item list-group-item-action">
-                      <i class="fa fa-whatsapp pr-3"></i> Chating
-                      <span class="badge d-inline-block mt-1 float-right badge-pill">10</span>
+                  <a [routerLink]="['locations']" class=" pl-4 list-group-item list-group-item-action">
+                      <i class="fa fa-map-marker pr-3"></i> Locations
+                      <!-- <span class="badge d-inline-block mt-1 float-right badge-pill">10</span> -->
                   </a>
 
                   <a href="#monitoring"  data-toggle ="collapse" class=" pl-4 list-group-item list-group-item-action ">
@@ -66,22 +66,22 @@
                   </a>  
                   <div class="collapse" id="monitoring">
                     <div class="list-group">
-                     <a [routerLink]="['/subject-table/1']" class="list-group-item list-group-item-action">
+                     <a [routerLink]="['/year/1/subjects']" class="list-group-item list-group-item-action">
                          First year
                      </a>
-                     <a [routerLink]="['/subject-table/2']" class="list-group-item list-group-item-action">
+                     <a [routerLink]="['/year/2/subjects']" class="list-group-item list-group-item-action">
                          Second year
                      </a>
-                     <a [routerLink]="['/subject-table/3']" class="list-group-item list-group-item-action">
+                     <a [routerLink]="['/year/3/subjects']" class="list-group-item list-group-item-action">
                          Third year
                      </a>
-                     <a [routerLink]="['/subject-table/4']" class="list-group-item list-group-item-action">
+                     <a [routerLink]="['/year/4/subjects']" class="list-group-item list-group-item-action">
                          Fourth year
                      </a>
-                     <a [routerLink]="['/subject-table/5']" class="list-group-item list-group-item-action">
+                     <a [routerLink]="['/year/5/subjects']" class="list-group-item list-group-item-action">
                          Fifth year
                      </a>
-                     <a [routerLink]="['/subject-table/6']" class="list-group-item list-group-item-action">
+                     <a [routerLink]="['/year/6/subjects']" class="list-group-item list-group-item-action">
                          Sixth year
                      </a>
                     </div>

@@ -15,7 +15,9 @@ import { NewSubject } from '../services/newSubject.service';
 })
 export class FilterationComponent implements OnInit  , AfterViewInit{
 
-  @ViewChild('canvas') canvas : ElementRef; 
+  @ViewChild('canvas1') canvas1 : ElementRef; 
+  @ViewChild('canvas2') canvas2 : ElementRef; 
+
   chart: Chart;
   filterForm: FormGroup;
   studentInLocation: StudentsInLocationModel[];
@@ -70,8 +72,10 @@ export class FilterationComponent implements OnInit  , AfterViewInit{
 
  }
   onSubmit() {
-    var absent: number = 0;
-    var present: number = 0;
+    var absentLecture: number = 0;
+    var presentLecture: number = 0;
+    var presentSection: number = 0;
+    var absentSection: number = 0;
     var from = new Date(Date.parse(this.filterForm.get('fromdate').value));
     var to = new Date(Date.parse(this.filterForm.get('todate').value));
     
@@ -83,20 +87,26 @@ export class FilterationComponent implements OnInit  , AfterViewInit{
       created.getTime() <= to.getTime()) {
       console.log(student.id);
 
-      if (student.status === "0") {
-        absent++;
+      if(student.activityType === "lecture" && student.status === "0"){
+        absentLecture++;
+      } else if (student.activityType === "lecture" && student.status === "1"){
+        presentLecture++;
+      } else if (student.activityType === "section" && student.status === "0"){
+        absentSection++;
+      } else if (student.activityType === "section" && student.status === "1"){
+        presentSection++;
       }
-      else if (student.status === "1") {
-        present++;
-      } else {
-        console.log("Error happens in Logic");
-      }
+
+
+    
 
     }
 
   }
-  console.log(this.canvas) ;
-  let ctx = this.canvas.nativeElement.getContext("2d");
+  console.log(this.canvas1) ;
+  console.log(this.canvas2) ;
+
+  let ctx = this.canvas1.nativeElement.getContext("2d");
   this.chart = new Chart(ctx,
     {
       type: 'pie',
@@ -110,7 +120,7 @@ export class FilterationComponent implements OnInit  , AfterViewInit{
           // backgroundColor: 'rgb(255, 99, 132)',
           backgroundColor: ['green','red'],
           borderColor: 'rgb(255, 99, 132)',
-          data: [present , absent ],
+          data: [presentLecture , absentLecture ],
         // },
         // {
         //   label: "My First dataset",
@@ -126,8 +136,50 @@ export class FilterationComponent implements OnInit  , AfterViewInit{
       options: {}
     }
   )
-  console.log(present + " is Present");
-  console.log(absent + " is Absent");
+
+
+  let ctx2 = this.canvas2.nativeElement.getContext("2d");
+
+
+
+  this.chart = new Chart(ctx2,
+    {
+      type: 'pie',
+
+      // The data for our dataset
+      data: {
+        labels: ["present", "absence"],
+        datasets: [{
+          label: "My First dataset",
+          fill: false,
+          // backgroundColor: 'rgb(255, 99, 132)',
+          backgroundColor: ['green','red'],
+          borderColor: 'rgb(255, 99, 132)',
+          data: [presentSection , absentSection ],
+        // },
+        // {
+        //   label: "My First dataset",
+        //   fill: false,
+        //   // backgroundColor: 'rgb(255, 99, 132)',
+        //   borderColor: 'rgb(255, 99, 002)',
+        //   data: [absent],
+        }
+        ]
+      },
+
+      // Configuration options go here
+      options: {}
+    }
+  )
+
+  
+
+
+  console.log(presentLecture + " are  Present in Lectures");
+  console.log(absentLecture + " are Absent in Lectures");
+  console.log(presentSection + " are Present in Sections");
+  console.log(absentSection + " are Absent in Section");
+
 
   }
 
@@ -144,7 +196,7 @@ export class FilterationComponent implements OnInit  , AfterViewInit{
   //   return arr;
   // }
 
-
+  
 
 
 }
