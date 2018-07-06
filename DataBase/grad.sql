@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2018 at 08:12 PM
+-- Generation Time: Jul 06, 2018 at 02:04 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -205,8 +205,11 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `accessNumber`, `title`, `created_at`, `updated_at`) VALUES
 (1, '0', 'admin', '2018-05-22 07:38:12', '2018-05-22 07:38:12'),
-(2, '1', 'instructor', '2018-05-22 07:38:12', '2018-05-22 07:38:12'),
-(3, '2', 'student', '2018-05-22 07:38:12', '2018-05-22 07:38:12');
+(2, '1', 'first_stage', '2018-05-22 07:38:12', '2018-05-22 07:38:12'),
+(3, '2', 'second_stage', '2018-05-22 07:38:12', '2018-05-22 07:38:12'),
+(4, '3', 'third_stage', '2018-07-06 18:55:01', '2018-07-06 18:55:01'),
+(5, '4', 'student', '2018-07-06 18:55:21', '2018-07-06 18:55:21'),
+(6, '5', 'instructor', '2018-07-06 18:55:29', '2018-07-06 18:55:29');
 
 -- --------------------------------------------------------
 
@@ -1124,7 +1127,7 @@ ALTER TABLE `questions_by_students`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `runing_activities`
 --
@@ -1149,7 +1152,7 @@ ALTER TABLE `stduents_in_locations`
 -- AUTO_INCREMENT for table `student_models`
 --
 ALTER TABLE `student_models`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=513;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=512;
 --
 -- AUTO_INCREMENT for table `subjects`
 --
