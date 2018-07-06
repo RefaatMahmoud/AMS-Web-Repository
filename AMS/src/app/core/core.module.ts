@@ -34,6 +34,7 @@ import {LocationService} from "./services/location.service"
 import { LocationResolverService } from "./services/location-resolver.service";
 import { FilterationComponent } from './filteration/filteration.component';
 import { StudentsInLocationService } from "./services/student_in_location.service";
+import { AbsenceReportComponent } from './absence-report/absence-report.component';
 
 
 
@@ -58,6 +59,7 @@ import { StudentsInLocationService } from "./services/student_in_location.servic
         AddNewLocationComponent,
         UpdateLocationComponent,
         FilterationComponent,
+        AbsenceReportComponent,
     ],
     imports: [
         AppRoutingModule,
