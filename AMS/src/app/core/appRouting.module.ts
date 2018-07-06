@@ -18,6 +18,7 @@ import { UpdateLocationComponent } from "./update-location/update-location.compo
 import { AddNewLocationComponent } from "./add-new-location/add-new-location.component";
 import { LocationResolverService } from "./services/location-resolver.service";
 import { FilterationComponent } from "./filteration/filteration.component";
+import { AbsenceReportComponent } from "./absence-report/absence-report.component";
 
 const ROUTES: Routes = [
     { path: "login", component: LoginComponent },
@@ -28,7 +29,8 @@ const ROUTES: Routes = [
             { path: "year/:groupNumber/subjects/new", component: NewSubjectComponent },
             { path: "new-admin", component: AddNewMemberComponent },    
             { path: "new-subject", component: NewSubjectComponent },
-            { path: "filter/:id", component: FilterationComponent },
+            { path: "year/:groupNumber/subjects/:id/monitor", component: FilterationComponent },
+            { path: "year/:groupNumber/subjects/:id/monitor/report", component: AbsenceReportComponent },
             { path: "activities/new", component: AddNewActivityComponent },
             { path: "activities/:id", component: ActivityViewComponent },
             { path: "activities/:id/edit", component: UpdateActivityComponent, resolve: { activity: ActivityResolverService } },
