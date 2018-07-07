@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UIService } from '../services/ui.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
-  constructor(public uiService : UIService , private router :Router ) { }
+  constructor(public uiService : UIService ,private route : ActivatedRoute ,private router :Router ) { }
 
   ngOnInit() {
   }
@@ -22,7 +21,8 @@ export class SidebarComponent implements OnInit {
     }
   }
 
-  navigateTo(addr){
-    this.router.navigate([addr]) ; 
+  navigateTo(){
+    // this.router.navigate([addr]) ; 
+    console.log(this.router.url) ; 
   }
 }

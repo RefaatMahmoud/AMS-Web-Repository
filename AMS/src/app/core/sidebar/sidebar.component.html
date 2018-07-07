@@ -13,7 +13,7 @@
           <p class="text-muted pl-4 py-1">Menu</p>
 
           <div class="list-group ">
-              <a [routerLink]="['']" class=" pl-4 list-group-item list-group-item-action active">
+              <a [routerLink]="['/dashboard']" class=" pl-4 list-group-item list-group-item-action">
                   <i class="fa fa-fort-awesome pr-3"></i> Dashboard
                   <span class="badge d-inline-block mt-1 float-right badge-pill">10</span>
               </a>
@@ -21,9 +21,9 @@
                   <i class="fa fa-user-plus pr-3"></i>Add New Memeber
 
               </a>
-              <a href="#" class=" pl-4 list-group-item  list-group-item-action">
+              <!-- <a href="#" class=" pl-4 list-group-item  list-group-item-action">
                   <i class="fa fa-group pr-3"></i> Memebers
-              </a>
+              </a> -->
               <a  href="#schedule"  data-toggle ="collapse"class=" pl-4 list-group-item list-group-item-action">
                 <i class="fa fa-calendar pr-3"></i> Schedule
                 <span class="d-inline-block mt-1 float-right ">
@@ -53,7 +53,7 @@
               
                </div>
             </div>
-                  <a [routerLink]="['locations']" class=" pl-4 list-group-item list-group-item-action">
+                  <a [routerLink]="['/locations']" class=" pl-4 list-group-item list-group-item-action">
                       <i class="fa fa-map-marker pr-3"></i> Locations
                       <!-- <span class="badge d-inline-block mt-1 float-right badge-pill">10</span> -->
                   </a>

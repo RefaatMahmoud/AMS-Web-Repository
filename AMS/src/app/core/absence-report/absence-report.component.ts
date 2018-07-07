@@ -12,6 +12,7 @@ import { StudentsInLocationModel } from '../models/student_in_location.model';
 })
 export class AbsenceReportComponent implements OnInit {
   students: StudentModel[] =[] ;
+  isloading : boolean = true ; 
   
   studentInLocation: StudentsInLocationModel[];
   groupNumber: string;
@@ -90,6 +91,7 @@ export class AbsenceReportComponent implements OnInit {
 
     this.studentsInLocationService.getStudentsInLocation().subscribe(
       (response) => {
+        this.isloading = false ;
         this.studentInLocation = response.data;
         
 

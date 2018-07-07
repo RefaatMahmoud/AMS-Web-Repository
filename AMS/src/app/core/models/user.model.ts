@@ -7,4 +7,5 @@ export class UserModel {
     role : string;
     updated_at : string ;
     username : string  ; 
+    data : string ;
 }

@@ -14,6 +14,7 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
   private arr : any [];
   private groupNumber: number;
   private subjects   : SubjectModel[];
+  isloading : boolean  = true ; 
 
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -25,6 +26,7 @@ export class SubjectTableComponent implements OnInit, AfterContentInit {
         this.groupNumber = +params['groupNumber'];
         this.subjectService.getSubjectsByGroupNumber(this.groupNumber).subscribe(
           (response) =>{
+            this.isloading = false ;
              this.subjects = response.data;
              console.log(response);
     

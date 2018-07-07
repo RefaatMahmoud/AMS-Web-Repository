@@ -23,8 +23,8 @@ import { AbsenceReportComponent } from "./absence-report/absence-report.componen
 const ROUTES: Routes = [
     { path: "login", component: LoginComponent },
     {
-        path: "", component: HomeComponent, children: [
-            { path: "", component: IndexComponent, },  
+        path: "", component: HomeComponent, canActivate : [AuthGuard], children: [
+            { path: "dashboard", component: IndexComponent, },  
             { path: "new-admin", component: AddNewMemberComponent },
             { path: "year/:groupNumber/subjects/new", component: NewSubjectComponent },
             { path: "new-admin", component: AddNewMemberComponent },    

@@ -1,4 +1,4 @@
-import {
+    import {
     Router,
     CanActivate,
     RouterStateSnapshot,
@@ -20,8 +20,11 @@ export class AuthGuard implements CanActivate , CanActivateChild{
             console.log(this.auth.currentUser);
             this.router.navigate(["login"]);  
             return false ; 
-             
+        }else if(this.auth.currentUser.role == "5"){
+            this.router.navigate(["login"]);  
+            return false ; 
         }   
+
         return true ; 
     } 
 } 

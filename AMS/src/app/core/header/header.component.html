@@ -28,7 +28,7 @@
           <li class="nav-item py-2 active dropdown">
               <a href="#"  class="nav-link">
                   <i class="fa fa-bell-o "></i>
-                  <span class="badge badge-danger px-1 float-right badge-pill">+9</span>
+                  <!-- <span class="badge badge-danger px-1 float-right badge-pill">+9</span> -->
                  
               </a>
               
@@ -39,9 +39,9 @@
               </a>
              
               <div class="dropdown-menu dropdown-menu-right">
-                <a href="" class="dropdown-item">Logout</a>
+                <a  (click) = "logout()" class="dropdown-item">Logout</a>
                 <div class="dropdown-divider"></div>
-                <a href="" class="dropdown-item">Home</a>
+                <a [routerLink]="['/dashboard']" class="dropdown-item">Home</a>
             </div>
           </li>
 
@@ -50,3 +50,13 @@
       
   </div>
 </nav>
+<!-- <nav class="">
+    <ul class="breadcrumb bg-dark">
+        <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">
+            Absence Table
+        </li>
+    </ul>
+</nav> -->

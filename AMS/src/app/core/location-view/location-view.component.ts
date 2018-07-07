@@ -10,11 +10,13 @@ import { LocationModel } from '../models/location.model';
 })
 export class LocationViewComponent implements OnInit {
   locations  : LocationModel[] ; 
+  isloading : boolean = true ; 
   constructor(private router : Router , private locationService : LocationService) { }
 
   ngOnInit() {
     this.locationService.getLocations().subscribe(
       res => { 
+        this.isloading = false ;
         this.locations = res.data ;  
         console.log(res) ;
 

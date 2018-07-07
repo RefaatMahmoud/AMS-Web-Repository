@@ -1,16 +1,6 @@
 
    
     <section id="new-member" class="bg-dark">
-      <nav class="">
-          <ul class="breadcrumb bg-dark">
-              <li class="breadcrumb-item">
-                  <a href="#">Dashboard</a>
-              </li>
-              <li class="breadcrumb-item active">
-                  Absence Table
-              </li>
-          </ul>
-      </nav>
       <div class="container-fluid">
           <div class="row mt-5">
               <!-- <div class="col"> -->
@@ -34,7 +24,11 @@
               <!-- </div> -->
               <!-- here add member form replacement -->
           </div>
-         
+          <div class="row text-center">
+            <div class="col-sm-8 mt-4 mx-auto">
+              <img *ngIf="isloading" class="mt-3 " src="../../../assets/images/ws.gif" alt="">
+            </div>
+          </div>
          
       </div>
 

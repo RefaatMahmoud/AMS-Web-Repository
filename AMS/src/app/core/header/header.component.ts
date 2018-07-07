@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UIService } from '../services/ui.service';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,7 @@ import { UIService } from '../services/ui.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private uiService : UIService) { }
+  constructor(private uiService : UIService ,private router :Router  , private authService  : AuthService) { }
 
   ngOnInit() {
   }
@@ -16,5 +18,9 @@ export class HeaderComponent implements OnInit {
     if(!this.uiService.getSidebarStatus()){
       this.uiService.sidebarStatus = true ; 
     }
+  }
+  logout() {
+    this.authService.logout() ; 
+    this.router.navigate(['/login']) ; 
   }
 }

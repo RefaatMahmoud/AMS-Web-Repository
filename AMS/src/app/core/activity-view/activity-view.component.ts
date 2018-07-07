@@ -10,7 +10,7 @@ import { ActivityModel } from '../models/activity.model';
 })
 export class ActivityViewComponent implements OnInit {
   id: number;
-
+  isloading : boolean = true ; 
   constructor(private router: Router,private route : ActivatedRoute ,  private activityService: ActivityService) { }
   activities : Array<ActivityModel> ; 
   
@@ -20,6 +20,7 @@ export class ActivityViewComponent implements OnInit {
       this.id = res['id'] ; 
       this.activityService.getLevelActivities(this.id).subscribe(
         res => {
+          this.isloading = false ;
           console.log(res.data);
           this.activities = res.data ;
         },
