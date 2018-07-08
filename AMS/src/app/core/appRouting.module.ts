@@ -39,6 +39,8 @@ const ROUTES: Routes = [
             { path: "locations", component: LocationViewComponent },
             { path: "locations/new", component: AddNewLocationComponent },
             { path: "locations/:id/edit", component: UpdateLocationComponent , resolve : {location : LocationResolverService} },
+            { path: "**", component: IndexComponent},
+
 
         ]
     },

@@ -48,9 +48,10 @@ export class AddNewMemberComponent implements OnInit {
     this.newAdmin.newMember(data).subscribe(
       data => {
         console.log(data);
+        this.router.navigate(["dashboard"]) ; 
       }
     )
-    this.router.navigate(["/"])
+    
   }
 
 }

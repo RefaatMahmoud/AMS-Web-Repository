@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UIService } from '../services/ui.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { UserModel } from '../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private uiService : UIService ,private router :Router  , private authService  : AuthService) { }
+  user : String =''; 
+  constructor(private uiService : UIService ,private router :Router  , private authService  : AuthService) { 
+   
+  }
 
   ngOnInit() {
+   this.user =  this.authService.currentUser.username ;
   }
   toggleSidebar(){
     if(!this.uiService.getSidebarStatus()){
